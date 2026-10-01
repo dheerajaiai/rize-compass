@@ -1,0 +1,105 @@
+{
+  "seed": 1337,
+  "nFounders": 9000,
+  "plantedFindings": [
+    {
+      "id": "looks_big_converts_badly",
+      "type": "city",
+      "key": "mumbai",
+      "description": "Mumbai has the largest incorporation volume of any city but a community-join rate far below the median — high volume does not mean high conversion.",
+      "expect": {
+        "metric": "community_join_rate",
+        "direction": "below_median",
+        "significant": true
+      }
+    },
+    {
+      "id": "underinvested_segment",
+      "type": "community",
+      "key": "xport_plus",
+      "description": "Xport+ is the smallest founder community by headcount but shows a disproportionately high program-application rate and admit/selection rate.",
+      "expect": {
+        "metric": "applied_rate",
+        "direction": "above_median",
+        "significant": true
+      }
+    },
+    {
+      "id": "signal_miscalibration",
+      "type": "signal",
+      "key": "genie_usage_vs_rsvp",
+      "description": "Rize Genie usage frequency predicts program application far better than event RSVP count, even though RSVP is the more commonly tracked engagement metric.",
+      "expect": {
+        "metric": "signal_lift",
+        "direction": "genie_greater_than_rsvp",
+        "significant": true
+      }
+    },
+    {
+      "id": "funnel_leak",
+      "type": "city",
+      "key": "chennai",
+      "description": "Chennai has a strong Active rate but a weak Active-to-Applied conversion — a visibility/targeting gap, not a demand gap.",
+      "expect": {
+        "metric": "applied_rate",
+        "direction": "below_median",
+        "significant": true
+      }
+    },
+    {
+      "id": "grp_insufficient_data",
+      "type": "program",
+      "key": "grp",
+      "description": "Global Readiness Program launched ~18 days ago. No founder selected into it has reached the 6-month outcome mark yet, so outcome rate must be reported as insufficient data, not a confident number.",
+      "expect": {
+        "metric": "outcome_rate",
+        "direction": "insufficient_data",
+        "significant": false
+      }
+    },
+    {
+      "id": "founder_buddy_insufficient_data",
+      "type": "program",
+      "key": "founder_buddy",
+      "description": "Founder-Buddy Program launched ~12 days ago. Same mechanism as GRP: outcome is not yet measurable.",
+      "expect": {
+        "metric": "outcome_rate",
+        "direction": "insufficient_data",
+        "significant": false
+      }
+    },
+    {
+      "id": "control_bengaluru",
+      "type": "city",
+      "key": "bengaluru",
+      "description": "Bengaluru: healthy, near-median rates at every funnel stage with a large sample. Should trigger no decision card.",
+      "expect": {
+        "metric": "any",
+        "direction": "no_card",
+        "significant": false
+      }
+    },
+    {
+      "id": "control_pune",
+      "type": "city",
+      "key": "pune",
+      "description": "Pune: healthy, near-median rates at every funnel stage with a large sample. Should trigger no decision card.",
+      "expect": {
+        "metric": "any",
+        "direction": "no_card",
+        "significant": false
+      }
+    },
+    {
+      "id": "control_ahmedabad",
+      "type": "city",
+      "key": "ahmedabad",
+      "description": "Ahmedabad: healthy, near-median rates at every funnel stage with a large sample. Should trigger no decision card.",
+      "expect": {
+        "metric": "any",
+        "direction": "no_card",
+        "significant": false
+      }
+    }
+  ]
+}

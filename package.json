@@ -1,0 +1,13 @@
+{
+  "name": "rize-compass",
+  "version": "1.0.0",
+  "description": "Statistically honest decision-support demo applied to Razorpay Rize's public founder lifecycle. Illustrative data only.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test server/*.test.js",
+    "generate": "node server/generate.js",
+    "build": "node server/generate.js && node server/decisions.js && node server/validate.js",
+    "serve": "node server/serve.js"
+  },
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,106 @@
+[
+  {
+    "key": "rize_for_yc",
+    "label": "Rize for YC",
+    "launchedDaysAgo": 650,
+    "applied": {
+      "n": 298
+    },
+    "selected": {
+      "rate": 0.18120805369127516,
+      "low": 0.14162180407108627,
+      "high": 0.22890866996539264,
+      "n": 54,
+      "successes": 54,
+      "insufficientData": false
+    },
+    "outcome": {
+      "rate": 0.6111111111111112,
+      "low": 0.4778829853820769,
+      "high": 0.7295806617088351,
+      "n": 54,
+      "successes": 33,
+      "insufficientData": false,
+      "selectedButUnmeasured": 0,
+      "tooNewToCall": false
+    }
+  },
+  {
+    "key": "buildathon_program",
+    "label": "Buildathon",
+    "launchedDaysAgo": 420,
+    "applied": {
+      "n": 226
+    },
+    "selected": {
+      "rate": 0.09734513274336283,
+      "low": 0.06516616161238674,
+      "high": 0.14298366073109486,
+      "n": 22,
+      "successes": 22,
+      "insufficientData": false
+    },
+    "outcome": {
+      "rate": 0.4090909090909091,
+      "low": 0.23255816196471868,
+      "high": 0.6126518152368488,
+      "n": 22,
+      "successes": 9,
+      "insufficientData": true,
+      "selectedButUnmeasured": 0,
+      "tooNewToCall": false
+    }
+  },
+  {
+    "key": "grp",
+    "label": "Global Readiness Program",
+    "launchedDaysAgo": 18,
+    "applied": {
+      "n": 81
+    },
+    "selected": {
+      "rate": 0.14814814814814814,
+      "low": 0.08682708209959752,
+      "high": 0.241331570612102,
+      "n": 12,
+      "successes": 12,
+      "insufficientData": false
+    },
+    "outcome": {
+      "rate": null,
+      "low": null,
+      "high": null,
+      "n": 0,
+      "successes": 0,
+      "insufficientData": true,
+      "selectedButUnmeasured": 12,
+      "tooNewToCall": true
+    }
+  },
+  {
+    "key": "founder_buddy",
+    "label": "Founder-Buddy Program",
+    "launchedDaysAgo": 12,
+    "applied": {
+      "n": 44
+    },
+    "selected": {
+      "rate": 0.22727272727272727,
+      "low": 0.12841947594917152,
+      "high": 0.3699235806463633,
+      "n": 10,
+      "successes": 10,
+      "insufficientData": false
+    },
+    "outcome": {
+      "rate": null,
+      "low": null,
+      "high": null,
+      "n": 0,
+      "successes": 0,
+      "insufficientData": true,
+      "selectedButUnmeasured": 10,
+      "tooNewToCall": true
+    }
+  }
+]

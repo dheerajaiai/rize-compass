@@ -1,0 +1,330 @@
+{
+  "cities": {
+    "metric": "community_join_rate",
+    "metricLabel": "Community-join rate (of incorporated founders)",
+    "raw": [
+      {
+        "rank": 1,
+        "key": "pune",
+        "label": "Pune",
+        "successes": 720,
+        "n": 956,
+        "rawRate": 0.7531380753138075,
+        "adjustedRate": 0.7519025910705359,
+        "low": 0.724828153442567,
+        "high": 0.7794217886204325,
+        "insufficientData": false
+      },
+      {
+        "rank": 2,
+        "key": "hyderabad",
+        "label": "Hyderabad",
+        "successes": 583,
+        "n": 794,
+        "rawRate": 0.7342569269521411,
+        "adjustedRate": 0.733028762519521,
+        "low": 0.7024572675561085,
+        "high": 0.7638007789358109,
+        "insufficientData": false
+      },
+      {
+        "rank": 3,
+        "key": "kochi",
+        "label": "Kochi",
+        "successes": 136,
+        "n": 189,
+        "rawRate": 0.7195767195767195,
+        "adjustedRate": 0.7154330697342908,
+        "low": 0.6516513672971589,
+        "high": 0.7787540056323946,
+        "insufficientData": false
+      },
+      {
+        "rank": 4,
+        "key": "bengaluru",
+        "label": "Bengaluru",
+        "successes": 1130,
+        "n": 1574,
+        "rawRate": 0.7179161372299873,
+        "adjustedRate": 0.7174049126258992,
+        "low": 0.6951746837973352,
+        "high": 0.7395965006996981,
+        "insufficientData": false
+      },
+      {
+        "rank": 5,
+        "key": "delhi_ncr",
+        "label": "Delhi NCR",
+        "successes": 879,
+        "n": 1226,
+        "rawRate": 0.7169657422512234,
+        "adjustedRate": 0.7163190715319471,
+        "low": 0.6911026026053928,
+        "high": 0.7414734796077889,
+        "insufficientData": false
+      },
+      {
+        "rank": 6,
+        "key": "jaipur",
+        "label": "Jaipur",
+        "successes": 187,
+        "n": 261,
+        "rawRate": 0.7164750957854407,
+        "adjustedRate": 0.7135531228820521,
+        "low": 0.6589630126775404,
+        "high": 0.7677073451402079,
+        "insufficientData": false
+      },
+      {
+        "rank": 7,
+        "key": "lucknow",
+        "label": "Lucknow",
+        "successes": 314,
+        "n": 445,
+        "rawRate": 0.7056179775280899,
+        "adjustedRate": 0.7041351430097794,
+        "low": 0.6616574392643398,
+        "high": 0.7460589077968747,
+        "insufficientData": false
+      },
+      {
+        "rank": 8,
+        "key": "ahmedabad",
+        "label": "Ahmedabad",
+        "successes": 491,
+        "n": 699,
+        "rawRate": 0.7024320457796852,
+        "adjustedRate": 0.7015287283280599,
+        "low": 0.667507686808348,
+        "high": 0.7351435746508848,
+        "insufficientData": false
+      },
+      {
+        "rank": 9,
+        "key": "chennai",
+        "label": "Chennai",
+        "successes": 573,
+        "n": 835,
+        "rawRate": 0.6862275449101797,
+        "adjustedRate": 0.6856784988004943,
+        "low": 0.6539616959555732,
+        "high": 0.7167877427252796,
+        "insufficientData": false
+      },
+      {
+        "rank": 10,
+        "key": "mumbai",
+        "label": "Mumbai",
+        "successes": 780,
+        "n": 2021,
+        "rawRate": 0.3859475507174666,
+        "adjustedRate": 0.3873316438271736,
+        "low": 0.3649587419486872,
+        "high": 0.4073691121695828,
+        "insufficientData": false
+      }
+    ],
+    "adjusted": [
+      {
+        "rank": 1,
+        "key": "pune",
+        "label": "Pune",
+        "successes": 720,
+        "n": 956,
+        "rawRate": 0.7531380753138075,
+        "adjustedRate": 0.7519025910705359,
+        "low": 0.724828153442567,
+        "high": 0.7794217886204325,
+        "insufficientData": false
+      },
+      {
+        "rank": 2,
+        "key": "hyderabad",
+        "label": "Hyderabad",
+        "successes": 583,
+        "n": 794,
+        "rawRate": 0.7342569269521411,
+        "adjustedRate": 0.733028762519521,
+        "low": 0.7024572675561085,
+        "high": 0.7638007789358109,
+        "insufficientData": false
+      },
+      {
+        "rank": 3,
+        "key": "bengaluru",
+        "label": "Bengaluru",
+        "successes": 1130,
+        "n": 1574,
+        "rawRate": 0.7179161372299873,
+        "adjustedRate": 0.7174049126258992,
+        "low": 0.6951746837973352,
+        "high": 0.7395965006996981,
+        "insufficientData": false
+      },
+      {
+        "rank": 4,
+        "key": "delhi_ncr",
+        "label": "Delhi NCR",
+        "successes": 879,
+        "n": 1226,
+        "rawRate": 0.7169657422512234,
+        "adjustedRate": 0.7163190715319471,
+        "low": 0.6911026026053928,
+        "high": 0.7414734796077889,
+        "insufficientData": false
+      },
+      {
+        "rank": 5,
+        "key": "kochi",
+        "label": "Kochi",
+        "successes": 136,
+        "n": 189,
+        "rawRate": 0.7195767195767195,
+        "adjustedRate": 0.7154330697342908,
+        "low": 0.6516513672971589,
+        "high": 0.7787540056323946,
+        "insufficientData": false
+      },
+      {
+        "rank": 6,
+        "key": "jaipur",
+        "label": "Jaipur",
+        "successes": 187,
+        "n": 261,
+        "rawRate": 0.7164750957854407,
+        "adjustedRate": 0.7135531228820521,
+        "low": 0.6589630126775404,
+        "high": 0.7677073451402079,
+        "insufficientData": false
+      },
+      {
+        "rank": 7,
+        "key": "lucknow",
+        "label": "Lucknow",
+        "successes": 314,
+        "n": 445,
+        "rawRate": 0.7056179775280899,
+        "adjustedRate": 0.7041351430097794,
+        "low": 0.6616574392643398,
+        "high": 0.7460589077968747,
+        "insufficientData": false
+      },
+      {
+        "rank": 8,
+        "key": "ahmedabad",
+        "label": "Ahmedabad",
+        "successes": 491,
+        "n": 699,
+        "rawRate": 0.7024320457796852,
+        "adjustedRate": 0.7015287283280599,
+        "low": 0.667507686808348,
+        "high": 0.7351435746508848,
+        "insufficientData": false
+      },
+      {
+        "rank": 9,
+        "key": "chennai",
+        "label": "Chennai",
+        "successes": 573,
+        "n": 835,
+        "rawRate": 0.6862275449101797,
+        "adjustedRate": 0.6856784988004943,
+        "low": 0.6539616959555732,
+        "high": 0.7167877427252796,
+        "insufficientData": false
+      },
+      {
+        "rank": 10,
+        "key": "mumbai",
+        "label": "Mumbai",
+        "successes": 780,
+        "n": 2021,
+        "rawRate": 0.3859475507174666,
+        "adjustedRate": 0.3873316438271736,
+        "low": 0.3649587419486872,
+        "high": 0.4073691121695828,
+        "insufficientData": false
+      }
+    ]
+  },
+  "communities": {
+    "metric": "applied_rate",
+    "metricLabel": "Program-application rate (of active founders)",
+    "raw": [
+      {
+        "rank": 1,
+        "key": "xport_plus",
+        "label": "Xport+",
+        "successes": 273,
+        "n": 703,
+        "rawRate": 0.3883357041251778,
+        "adjustedRate": 0.3843890403069541,
+        "low": 0.3530082590316919,
+        "high": 0.4248768691808759,
+        "insufficientData": false
+      },
+      {
+        "rank": 2,
+        "key": "d2c_plus",
+        "label": "D2C+",
+        "successes": 162,
+        "n": 1159,
+        "rawRate": 0.13977566867989646,
+        "adjustedRate": 0.1403780292978662,
+        "low": 0.1210000776899163,
+        "high": 0.16093126929970464,
+        "insufficientData": false
+      },
+      {
+        "rank": 3,
+        "key": "tech_plus",
+        "label": "Tech+",
+        "successes": 214,
+        "n": 1564,
+        "rawRate": 0.13682864450127877,
+        "adjustedRate": 0.1373030039344246,
+        "low": 0.1206840503960982,
+        "high": 0.15475289279171522,
+        "insufficientData": false
+      }
+    ],
+    "adjusted": [
+      {
+        "rank": 1,
+        "key": "xport_plus",
+        "label": "Xport+",
+        "successes": 273,
+        "n": 703,
+        "rawRate": 0.3883357041251778,
+        "adjustedRate": 0.3843890403069541,
+        "low": 0.3530082590316919,
+        "high": 0.4248768691808759,
+        "insufficientData": false
+      },
+      {
+        "rank": 2,
+        "key": "d2c_plus",
+        "label": "D2C+",
+        "successes": 162,
+        "n": 1159,
+        "rawRate": 0.13977566867989646,
+        "adjustedRate": 0.1403780292978662,
+        "low": 0.1210000776899163,
+        "high": 0.16093126929970464,
+        "insufficientData": false
+      },
+      {
+        "rank": 3,
+        "key": "tech_plus",
+        "label": "Tech+",
+        "successes": 214,
+        "n": 1564,
+        "rawRate": 0.13682864450127877,
+        "adjustedRate": 0.1373030039344246,
+        "low": 0.1206840503960982,
+        "high": 0.15475289279171522,
+        "insufficientData": false
+      }
+    ]
+  }
+}

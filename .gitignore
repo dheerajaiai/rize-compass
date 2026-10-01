@@ -1,0 +1,6 @@
+# Private handover notes — never publish.
+KT.md
+
+node_modules/
+dist/
+.DS_Store

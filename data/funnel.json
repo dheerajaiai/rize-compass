@@ -1,0 +1,977 @@
+{
+  "overall": {
+    "n": 9000,
+    "stages": {
+      "incorporated": {
+        "n": 9000,
+        "rate": 1,
+        "interval": null
+      },
+      "joinedCommunity": {
+        "rate": 0.6436666666666667,
+        "low": 0.6337129814593029,
+        "high": 0.6534977620691278,
+        "n": 5793,
+        "successes": 5793,
+        "insufficientData": false
+      },
+      "active": {
+        "rate": 0.5914034179181771,
+        "low": 0.5786882986628317,
+        "high": 0.6039973944897015,
+        "n": 3426,
+        "successes": 3426,
+        "insufficientData": false
+      },
+      "applied": {
+        "rate": 0.18943374197314652,
+        "low": 0.17666300290740816,
+        "high": 0.20290015604639236,
+        "n": 649,
+        "successes": 649,
+        "insufficientData": false
+      },
+      "selected": {
+        "rate": 0.1510015408320493,
+        "low": 0.125512902656026,
+        "high": 0.18059734221367296,
+        "n": 98,
+        "successes": 98,
+        "insufficientData": false
+      },
+      "outcome": {
+        "rate": 0.5526315789473685,
+        "low": 0.44100515064486484,
+        "high": 0.6591934193482787,
+        "n": 76,
+        "successes": 42,
+        "insufficientData": false,
+        "note": "22 selected founder(s) have not yet reached the 180-day outcome mark."
+      }
+    }
+  },
+  "byCity": {
+    "mumbai": {
+      "n": 2021,
+      "stages": {
+        "incorporated": {
+          "n": 2021,
+          "rate": 1,
+          "interval": null
+        },
+        "joinedCommunity": {
+          "rate": 0.3859475507174666,
+          "low": 0.3649587419486872,
+          "high": 0.4073691121695828,
+          "n": 780,
+          "successes": 780,
+          "insufficientData": false
+        },
+        "active": {
+          "rate": 0.5871794871794872,
+          "low": 0.5522828616978995,
+          "high": 0.6212216122866927,
+          "n": 458,
+          "successes": 458,
+          "insufficientData": false
+        },
+        "applied": {
+          "rate": 0.2205240174672489,
+          "low": 0.18496511375113703,
+          "high": 0.2607321160867981,
+          "n": 101,
+          "successes": 101,
+          "insufficientData": false
+        },
+        "selected": {
+          "rate": 0.15841584158415842,
+          "low": 0.09992756899137685,
+          "high": 0.2419358429055546,
+          "n": 16,
+          "successes": 16,
+          "insufficientData": false
+        },
+        "outcome": {
+          "rate": 0.6,
+          "low": 0.3126737697336583,
+          "high": 0.8318196702937638,
+          "n": 10,
+          "successes": 6,
+          "insufficientData": true,
+          "note": "6 selected founder(s) have not yet reached the 180-day outcome mark."
+        }
+      }
+    },
+    "bengaluru": {
+      "n": 1574,
+      "stages": {
+        "incorporated": {
+          "n": 1574,
+          "rate": 1,
+          "interval": null
+        },
+        "joinedCommunity": {
+          "rate": 0.7179161372299873,
+          "low": 0.6951746837973352,
+          "high": 0.7395965006996981,
+          "n": 1130,
+          "successes": 1130,
+          "insufficientData": false
+        },
+        "active": {
+          "rate": 0.5796460176991151,
+          "low": 0.5506432352181365,
+          "high": 0.6081091182080802,
+          "n": 655,
+          "successes": 655,
+          "insufficientData": false
+        },
+        "applied": {
+          "rate": 0.1969465648854962,
+          "low": 0.16829503973934382,
+          "high": 0.22913207313449124,
+          "n": 129,
+          "successes": 129,
+          "insufficientData": false
+        },
+        "selected": {
+          "rate": 0.10852713178294573,
+          "low": 0.06575597387235887,
+          "high": 0.1739392169465923,
+          "n": 14,
+          "successes": 14,
+          "insufficientData": false
+        },
+        "outcome": {
+          "rate": 0.5,
+          "low": 0.236593090512564,
+          "high": 0.763406909487436,
+          "n": 10,
+          "successes": 5,
+          "insufficientData": true,
+          "note": "4 selected founder(s) have not yet reached the 180-day outcome mark."
+        }
+      }
+    },
+    "delhi_ncr": {
+      "n": 1226,
+      "stages": {
+        "incorporated": {
+          "n": 1226,
+          "rate": 1,
+          "interval": null
+        },
+        "joinedCommunity": {
+          "rate": 0.7169657422512234,
+          "low": 0.6911026026053928,
+          "high": 0.7414734796077889,
+          "n": 879,
+          "successes": 879,
+          "insufficientData": false
+        },
+        "active": {
+          "rate": 0.5608646188850968,
+          "low": 0.527862005586647,
+          "high": 0.5933375585377333,
+          "n": 493,
+          "successes": 493,
+          "insufficientData": false
+        },
+        "applied": {
+          "rate": 0.2332657200811359,
+          "low": 0.19808425053329345,
+          "high": 0.27257184039708426,
+          "n": 115,
+          "successes": 115,
+          "insufficientData": false
+        },
+        "selected": {
+          "rate": 0.1565217391304348,
+          "low": 0.10136128969864946,
+          "high": 0.23388753016653083,
+          "n": 18,
+          "successes": 18,
+          "insufficientData": false
+        },
+        "outcome": {
+          "rate": 0.6,
+          "low": 0.35746830120624606,
+          "high": 0.8017550385865843,
+          "n": 15,
+          "successes": 9,
+          "insufficientData": true,
+          "note": "3 selected founder(s) have not yet reached the 180-day outcome mark."
+        }
+      }
+    },
+    "pune": {
+      "n": 956,
+      "stages": {
+        "incorporated": {
+          "n": 956,
+          "rate": 1,
+          "interval": null
+        },
+        "joinedCommunity": {
+          "rate": 0.7531380753138075,
+          "low": 0.724828153442567,
+          "high": 0.7794217886204325,
+          "n": 720,
+          "successes": 720,
+          "insufficientData": false
+        },
+        "active": {
+          "rate": 0.5486111111111112,
+          "low": 0.5121000345197663,
+          "high": 0.5846062250443741,
+          "n": 395,
+          "successes": 395,
+          "insufficientData": false
+        },
+        "applied": {
+          "rate": 0.18227848101265823,
+          "low": 0.14732579890592615,
+          "high": 0.22335146031841824,
+          "n": 72,
+          "successes": 72,
+          "insufficientData": false
+        },
+        "selected": {
+          "rate": 0.1527777777777778,
+          "low": 0.08750708729475694,
+          "high": 0.2532228936750055,
+          "n": 11,
+          "successes": 11,
+          "insufficientData": false
+        },
+        "outcome": {
+          "rate": 0.6666666666666666,
+          "low": 0.35420213558039626,
+          "high": 0.8794161816130891,
+          "n": 9,
+          "successes": 6,
+          "insufficientData": true,
+          "note": "2 selected founder(s) have not yet reached the 180-day outcome mark."
+        }
+      }
+    },
+    "hyderabad": {
+      "n": 794,
+      "stages": {
+        "incorporated": {
+          "n": 794,
+          "rate": 1,
+          "interval": null
+        },
+        "joinedCommunity": {
+          "rate": 0.7342569269521411,
+          "low": 0.7024572675561085,
+          "high": 0.7638007789358109,
+          "n": 583,
+          "successes": 583,
+          "insufficientData": false
+        },
+        "active": {
+          "rate": 0.5763293310463122,
+          "low": 0.5358470671017482,
+          "high": 0.6158122927854227,
+          "n": 336,
+          "successes": 336,
+          "insufficientData": false
+        },
+        "applied": {
+          "rate": 0.21428571428571427,
+          "low": 0.17377061224756585,
+          "high": 0.26126006156641884,
+          "n": 72,
+          "successes": 72,
+          "insufficientData": false
+        },
+        "selected": {
+          "rate": 0.18055555555555555,
+          "low": 0.10866816510019896,
+          "high": 0.2848034173919824,
+          "n": 13,
+          "successes": 13,
+          "insufficientData": false
+        },
+        "outcome": {
+          "rate": 0.5,
+          "low": 0.236593090512564,
+          "high": 0.763406909487436,
+          "n": 10,
+          "successes": 5,
+          "insufficientData": true,
+          "note": "3 selected founder(s) have not yet reached the 180-day outcome mark."
+        }
+      }
+    },
+    "chennai": {
+      "n": 835,
+      "stages": {
+        "incorporated": {
+          "n": 835,
+          "rate": 1,
+          "interval": null
+        },
+        "joinedCommunity": {
+          "rate": 0.6862275449101797,
+          "low": 0.6539616959555732,
+          "high": 0.7167877427252796,
+          "n": 573,
+          "successes": 573,
+          "insufficientData": false
+        },
+        "active": {
+          "rate": 0.7713787085514834,
+          "low": 0.7352540148216912,
+          "high": 0.8038889251393415,
+          "n": 442,
+          "successes": 442,
+          "insufficientData": false
+        },
+        "applied": {
+          "rate": 0.04751131221719457,
+          "low": 0.0312825143205055,
+          "high": 0.07153757545299932,
+          "n": 21,
+          "successes": 21,
+          "insufficientData": false
+        },
+        "selected": {
+          "rate": 0.14285714285714285,
+          "low": 0.0498101249972527,
+          "high": 0.34636060280620945,
+          "n": 3,
+          "successes": 3,
+          "insufficientData": true
+        },
+        "outcome": {
+          "rate": 0,
+          "low": 0,
+          "high": 0.7934506856227626,
+          "n": 1,
+          "successes": 0,
+          "insufficientData": true,
+          "note": "2 selected founder(s) have not yet reached the 180-day outcome mark."
+        }
+      }
+    },
+    "ahmedabad": {
+      "n": 699,
+      "stages": {
+        "incorporated": {
+          "n": 699,
+          "rate": 1,
+          "interval": null
+        },
+        "joinedCommunity": {
+          "rate": 0.7024320457796852,
+          "low": 0.667507686808348,
+          "high": 0.7351435746508848,
+          "n": 491,
+          "successes": 491,
+          "insufficientData": false
+        },
+        "active": {
+          "rate": 0.6069246435845214,
+          "low": 0.5630517270421025,
+          "high": 0.6491374461331523,
+          "n": 298,
+          "successes": 298,
+          "insufficientData": false
+        },
+        "applied": {
+          "rate": 0.2214765100671141,
+          "low": 0.1780428145291786,
+          "high": 0.27199959962900827,
+          "n": 66,
+          "successes": 66,
+          "insufficientData": false
+        },
+        "selected": {
+          "rate": 0.22727272727272727,
+          "low": 0.14285229563373036,
+          "high": 0.34169455364638307,
+          "n": 15,
+          "successes": 15,
+          "insufficientData": false
+        },
+        "outcome": {
+          "rate": 0.5384615384615384,
+          "low": 0.29143795714506004,
+          "high": 0.7679393219046168,
+          "n": 13,
+          "successes": 7,
+          "insufficientData": true,
+          "note": "2 selected founder(s) have not yet reached the 180-day outcome mark."
+        }
+      }
+    },
+    "lucknow": {
+      "n": 445,
+      "stages": {
+        "incorporated": {
+          "n": 445,
+          "rate": 1,
+          "interval": null
+        },
+        "joinedCommunity": {
+          "rate": 0.7056179775280899,
+          "low": 0.6616574392643398,
+          "high": 0.7460589077968747,
+          "n": 314,
+          "successes": 314,
+          "insufficientData": false
+        },
+        "active": {
+          "rate": 0.5605095541401274,
+          "low": 0.505208972101639,
+          "high": 0.614347488974879,
+          "n": 176,
+          "successes": 176,
+          "insufficientData": false
+        },
+        "applied": {
+          "rate": 0.16477272727272727,
+          "low": 0.1172438860090986,
+          "high": 0.22662264635901025,
+          "n": 29,
+          "successes": 29,
+          "insufficientData": false
+        },
+        "selected": {
+          "rate": 0.034482758620689655,
+          "low": 0.006113214292762649,
+          "high": 0.17175521879320288,
+          "n": 1,
+          "successes": 1,
+          "insufficientData": true
+        },
+        "outcome": {
+          "rate": 0,
+          "low": 0,
+          "high": 0.7934506856227626,
+          "n": 1,
+          "successes": 0,
+          "insufficientData": true,
+          "note": null
+        }
+      }
+    },
+    "jaipur": {
+      "n": 261,
+      "stages": {
+        "incorporated": {
+          "n": 261,
+          "rate": 1,
+          "interval": null
+        },
+        "joinedCommunity": {
+          "rate": 0.7164750957854407,
+          "low": 0.6589630126775404,
+          "high": 0.7677073451402079,
+          "n": 187,
+          "successes": 187,
+          "insufficientData": false
+        },
+        "active": {
+          "rate": 0.5508021390374331,
+          "low": 0.4792007893589769,
+          "high": 0.6203582902949442,
+          "n": 103,
+          "successes": 103,
+          "insufficientData": false
+        },
+        "applied": {
+          "rate": 0.2815533980582524,
+          "low": 0.20376498790299366,
+          "high": 0.37505019773088183,
+          "n": 29,
+          "successes": 29,
+          "insufficientData": false
+        },
+        "selected": {
+          "rate": 0.10344827586206896,
+          "low": 0.03581489135067708,
+          "high": 0.26385081090773804,
+          "n": 3,
+          "successes": 3,
+          "insufficientData": true
+        },
+        "outcome": {
+          "rate": 0.3333333333333333,
+          "low": 0.061491944720396215,
+          "high": 0.7923403991979523,
+          "n": 3,
+          "successes": 1,
+          "insufficientData": true,
+          "note": null
+        }
+      }
+    },
+    "kochi": {
+      "n": 189,
+      "stages": {
+        "incorporated": {
+          "n": 189,
+          "rate": 1,
+          "interval": null
+        },
+        "joinedCommunity": {
+          "rate": 0.7195767195767195,
+          "low": 0.6516513672971589,
+          "high": 0.7787540056323946,
+          "n": 136,
+          "successes": 136,
+          "insufficientData": false
+        },
+        "active": {
+          "rate": 0.5147058823529411,
+          "low": 0.43146624550741874,
+          "high": 0.5971375750886522,
+          "n": 70,
+          "successes": 70,
+          "insufficientData": false
+        },
+        "applied": {
+          "rate": 0.21428571428571427,
+          "low": 0.13438703017107786,
+          "high": 0.32391186263478894,
+          "n": 15,
+          "successes": 15,
+          "insufficientData": false
+        },
+        "selected": {
+          "rate": 0.26666666666666666,
+          "low": 0.10897453325692374,
+          "high": 0.5195043405598057,
+          "n": 4,
+          "successes": 4,
+          "insufficientData": true
+        },
+        "outcome": {
+          "rate": 0.75,
+          "low": 0.3006418425824019,
+          "high": 0.9544127391902995,
+          "n": 4,
+          "successes": 3,
+          "insufficientData": true,
+          "note": null
+        }
+      }
+    }
+  },
+  "byCommunity": {
+    "tech_plus": {
+      "n": 4053,
+      "stages": {
+        "incorporated": {
+          "n": 4053,
+          "rate": 1,
+          "interval": null
+        },
+        "joinedCommunity": {
+          "rate": 0.6442141623488774,
+          "low": 0.629344909883124,
+          "high": 0.6588102994998484,
+          "n": 2611,
+          "successes": 2611,
+          "insufficientData": false
+        },
+        "active": {
+          "rate": 0.5990042129452318,
+          "low": 0.5800732438887223,
+          "high": 0.6176442881842049,
+          "n": 1564,
+          "successes": 1564,
+          "insufficientData": false
+        },
+        "applied": {
+          "rate": 0.13682864450127877,
+          "low": 0.1206840503960982,
+          "high": 0.15475289279171522,
+          "n": 214,
+          "successes": 214,
+          "insufficientData": false
+        },
+        "selected": {
+          "rate": 0.07476635514018691,
+          "low": 0.04654248016267497,
+          "high": 0.1179875363673526,
+          "n": 16,
+          "successes": 16,
+          "insufficientData": false
+        },
+        "outcome": {
+          "rate": 0.3333333333333333,
+          "low": 0.13812009109121315,
+          "high": 0.6093779111272004,
+          "n": 12,
+          "successes": 4,
+          "insufficientData": true,
+          "note": "4 selected founder(s) have not yet reached the 180-day outcome mark."
+        }
+      }
+    },
+    "d2c_plus": {
+      "n": 3155,
+      "stages": {
+        "incorporated": {
+          "n": 3155,
+          "rate": 1,
+          "interval": null
+        },
+        "joinedCommunity": {
+          "rate": 0.6383518225039619,
+          "low": 0.6214272294318235,
+          "high": 0.6549399169984761,
+          "n": 2014,
+          "successes": 2014,
+          "insufficientData": false
+        },
+        "active": {
+          "rate": 0.5754716981132075,
+          "low": 0.5537615266674986,
+          "high": 0.5968945115812494,
+          "n": 1159,
+          "successes": 1159,
+          "insufficientData": false
+        },
+        "applied": {
+          "rate": 0.13977566867989646,
+          "low": 0.1210000776899163,
+          "high": 0.16093126929970464,
+          "n": 162,
+          "successes": 162,
+          "insufficientData": false
+        },
+        "selected": {
+          "rate": 0.1111111111111111,
+          "low": 0.07144785748868557,
+          "high": 0.16879037427801788,
+          "n": 18,
+          "successes": 18,
+          "insufficientData": false
+        },
+        "outcome": {
+          "rate": 0.5625,
+          "low": 0.331785563988119,
+          "high": 0.7690134759450764,
+          "n": 16,
+          "successes": 9,
+          "insufficientData": true,
+          "note": "2 selected founder(s) have not yet reached the 180-day outcome mark."
+        }
+      }
+    },
+    "xport_plus": {
+      "n": 1792,
+      "stages": {
+        "incorporated": {
+          "n": 1792,
+          "rate": 1,
+          "interval": null
+        },
+        "joinedCommunity": {
+          "rate": 0.6517857142857143,
+          "low": 0.6294248191536796,
+          "high": 0.6734972441097656,
+          "n": 1168,
+          "successes": 1168,
+          "insufficientData": false
+        },
+        "active": {
+          "rate": 0.6018835616438356,
+          "low": 0.5735206901029432,
+          "high": 0.6295784562948263,
+          "n": 703,
+          "successes": 703,
+          "insufficientData": false
+        },
+        "applied": {
+          "rate": 0.3883357041251778,
+          "low": 0.3530082590316919,
+          "high": 0.4248768691808759,
+          "n": 273,
+          "successes": 273,
+          "insufficientData": false
+        },
+        "selected": {
+          "rate": 0.23443223443223443,
+          "low": 0.1880776579348596,
+          "high": 0.288156860487057,
+          "n": 64,
+          "successes": 64,
+          "insufficientData": false
+        },
+        "outcome": {
+          "rate": 0.6041666666666666,
+          "low": 0.4631040849254725,
+          "high": 0.7297917213940863,
+          "n": 48,
+          "successes": 29,
+          "insufficientData": false,
+          "note": "16 selected founder(s) have not yet reached the 180-day outcome mark."
+        }
+      }
+    }
+  },
+  "byChannel": {
+    "organic_incorporation": {
+      "n": 3665,
+      "stages": {
+        "incorporated": {
+          "n": 3665,
+          "rate": 1,
+          "interval": null
+        },
+        "joinedCommunity": {
+          "rate": 0.6412005457025921,
+          "low": 0.6255314711836314,
+          "high": 0.6565739322841676,
+          "n": 2350,
+          "successes": 2350,
+          "insufficientData": false
+        },
+        "active": {
+          "rate": 0.588936170212766,
+          "low": 0.5689136160680197,
+          "high": 0.6086684374868632,
+          "n": 1384,
+          "successes": 1384,
+          "insufficientData": false
+        },
+        "applied": {
+          "rate": 0.19291907514450868,
+          "low": 0.17299180898443844,
+          "high": 0.214546303097701,
+          "n": 267,
+          "successes": 267,
+          "insufficientData": false
+        },
+        "selected": {
+          "rate": 0.15355805243445692,
+          "low": 0.11525515247333144,
+          "high": 0.20168841737180057,
+          "n": 41,
+          "successes": 41,
+          "insufficientData": false
+        },
+        "outcome": {
+          "rate": 0.5,
+          "low": 0.3363088286932748,
+          "high": 0.6636911713067252,
+          "n": 32,
+          "successes": 16,
+          "insufficientData": false,
+          "note": "9 selected founder(s) have not yet reached the 180-day outcome mark."
+        }
+      }
+    },
+    "referral": {
+      "n": 1751,
+      "stages": {
+        "incorporated": {
+          "n": 1751,
+          "rate": 1,
+          "interval": null
+        },
+        "joinedCommunity": {
+          "rate": 0.6419189034837236,
+          "low": 0.6191744995539363,
+          "high": 0.6640419685217605,
+          "n": 1124,
+          "successes": 1124,
+          "insufficientData": false
+        },
+        "active": {
+          "rate": 0.597864768683274,
+          "low": 0.568913320779284,
+          "high": 0.6261495564357802,
+          "n": 672,
+          "successes": 672,
+          "insufficientData": false
+        },
+        "applied": {
+          "rate": 0.18898809523809523,
+          "low": 0.16118705197944855,
+          "high": 0.2203246997124544,
+          "n": 127,
+          "successes": 127,
+          "insufficientData": false
+        },
+        "selected": {
+          "rate": 0.14173228346456693,
+          "low": 0.09157080873697535,
+          "high": 0.2129309843475323,
+          "n": 18,
+          "successes": 18,
+          "insufficientData": false
+        },
+        "outcome": {
+          "rate": 0.6,
+          "low": 0.35746830120624606,
+          "high": 0.8017550385865843,
+          "n": 15,
+          "successes": 9,
+          "insufficientData": true,
+          "note": "3 selected founder(s) have not yet reached the 180-day outcome mark."
+        }
+      }
+    },
+    "buildathon": {
+      "n": 1080,
+      "stages": {
+        "incorporated": {
+          "n": 1080,
+          "rate": 1,
+          "interval": null
+        },
+        "joinedCommunity": {
+          "rate": 0.6509259259259259,
+          "low": 0.6220074347382859,
+          "high": 0.6787745637236607,
+          "n": 703,
+          "successes": 703,
+          "insufficientData": false
+        },
+        "active": {
+          "rate": 0.5917496443812233,
+          "low": 0.555013325463021,
+          "high": 0.6274887029483087,
+          "n": 416,
+          "successes": 416,
+          "insufficientData": false
+        },
+        "applied": {
+          "rate": 0.19951923076923078,
+          "low": 0.16394255735440727,
+          "high": 0.2405945726797898,
+          "n": 83,
+          "successes": 83,
+          "insufficientData": false
+        },
+        "selected": {
+          "rate": 0.18072289156626506,
+          "low": 0.11269365829519953,
+          "high": 0.2769987683436512,
+          "n": 15,
+          "successes": 15,
+          "insufficientData": false
+        },
+        "outcome": {
+          "rate": 0.6363636363636364,
+          "low": 0.35380117450784887,
+          "high": 0.8483352890463243,
+          "n": 11,
+          "successes": 7,
+          "insufficientData": true,
+          "note": "4 selected founder(s) have not yet reached the 180-day outcome mark."
+        }
+      }
+    },
+    "linkedin_content": {
+      "n": 1619,
+      "stages": {
+        "incorporated": {
+          "n": 1619,
+          "rate": 1,
+          "interval": null
+        },
+        "joinedCommunity": {
+          "rate": 0.650401482396541,
+          "low": 0.6268428602729726,
+          "high": 0.6732480681125388,
+          "n": 1053,
+          "successes": 1053,
+          "insufficientData": false
+        },
+        "active": {
+          "rate": 0.5821462488129154,
+          "low": 0.5521109255566105,
+          "high": 0.6115843936950082,
+          "n": 613,
+          "successes": 613,
+          "insufficientData": false
+        },
+        "applied": {
+          "rate": 0.17944535073409462,
+          "low": 0.15109415091132586,
+          "high": 0.21178914044305966,
+          "n": 110,
+          "successes": 110,
+          "insufficientData": false
+        },
+        "selected": {
+          "rate": 0.15454545454545454,
+          "low": 0.09878652361939873,
+          "high": 0.2336183771320601,
+          "n": 17,
+          "successes": 17,
+          "insufficientData": false
+        },
+        "outcome": {
+          "rate": 0.42857142857142855,
+          "low": 0.2138079890447412,
+          "high": 0.6740935542034925,
+          "n": 14,
+          "successes": 6,
+          "insufficientData": true,
+          "note": "3 selected founder(s) have not yet reached the 180-day outcome mark."
+        }
+      }
+    },
+    "genie_reengagement": {
+      "n": 885,
+      "stages": {
+        "incorporated": {
+          "n": 885,
+          "rate": 1,
+          "interval": null
+        },
+        "joinedCommunity": {
+          "rate": 0.6361581920903955,
+          "low": 0.6039360363390924,
+          "high": 0.6672034313447804,
+          "n": 563,
+          "successes": 563,
+          "insufficientData": false
+        },
+        "active": {
+          "rate": 0.605683836589698,
+          "low": 0.5647300859986027,
+          "high": 0.6452051580598996,
+          "n": 341,
+          "successes": 341,
+          "insufficientData": false
+        },
+        "applied": {
+          "rate": 0.18181818181818182,
+          "low": 0.14450043799668238,
+          "high": 0.226224878088839,
+          "n": 62,
+          "successes": 62,
+          "insufficientData": false
+        },
+        "selected": {
+          "rate": 0.11290322580645161,
+          "low": 0.05577863529399968,
+          "high": 0.21519742052641772,
+          "n": 7,
+          "successes": 7,
+          "insufficientData": false
+        },
+        "outcome": {
+          "rate": 1,
+          "low": 0.5101091635454027,
+          "high": 1,
+          "n": 4,
+          "successes": 4,
+          "insufficientData": true,
+          "note": "3 selected founder(s) have not yet reached the 180-day outcome mark."
+        }
+      }
+    }
+  }
+}

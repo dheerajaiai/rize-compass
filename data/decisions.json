@@ -1,0 +1,74 @@
+[
+  {
+    "id": "city_join_mumbai",
+    "title": "Mumbai: high volume, weak community activation",
+    "recommendation": "Do not scale Mumbai acquisition spend on volume alone — fix the incorporation-to-community handoff first, or the extra volume will keep arriving unconverted.",
+    "impactRange": {
+      "label": "Community-join rate",
+      "low": "36.5%",
+      "high": "40.7%",
+      "vsPool": "71.8% in every other city combined"
+    },
+    "evidence": [
+      "Mumbai: 780 of 2,021 incorporated founders joined a community (38.6%).",
+      "Every other city combined: 71.8% join rate.",
+      "Two-proportion test, Holm-corrected across 10 cities: p < 1e-15 (adjusted α = 0.0050)."
+    ],
+    "confidence": "high",
+    "counterEvidence": "This city may have a newer incorporation cohort that simply hasn't had time to onboard into a community yet — re-check this finding after excluding founders incorporated in the last 30 days before reallocating budget."
+  },
+  {
+    "id": "city_applied_chennai",
+    "title": "Chennai: strong engagement, weak program conversion — a visibility gap",
+    "recommendation": "Chennai founders are as active as anywhere else but aren't applying to flagship programs — this reads as a targeting/visibility gap, not weak demand. Push direct program outreach to this city's active cohort before cutting its content budget.",
+    "impactRange": {
+      "label": "Program-application rate (of active founders)",
+      "low": "3.1%",
+      "high": "7.2%",
+      "vsPool": "21.0% in every other city combined"
+    },
+    "evidence": [
+      "Chennai: Active rate 77.1% vs. 57.2% pool — at or above the rest of the cohort.",
+      "Chennai: 4.8% of active founders applied to a flagship program, vs. 21.0% pool.",
+      "Two-proportion test, Holm-corrected across 10 cities: p < 1e-15 (adjusted α = 0.0050)."
+    ],
+    "confidence": "high",
+    "counterEvidence": "A strong Active rate with weak Applied conversion could also mean this city's active founders are genuinely earlier-stage and not yet program-ready — check founder tenure before assuming it's purely a visibility problem."
+  },
+  {
+    "id": "community_underinvested_xport_plus",
+    "title": "Xport+: small base, disproportionately high application and admit rate",
+    "recommendation": "Xport+ is only 21% of the active founder base but applies to flagship programs at roughly 2.8x the rate of the rest of the cohort, with a higher admit rate too. This segment reads as underinvested relative to its output — increase content and program-outreach spend aimed at it next quarter.",
+    "impactRange": {
+      "label": "Program-application rate (of active founders)",
+      "low": "35.3%",
+      "high": "42.5%",
+      "vsPool": "13.8% in every other community combined"
+    },
+    "evidence": [
+      "Xport+: 38.8% application rate vs. 13.8% pool, on n = 703 active founders.",
+      "Xport+ admit/selection rate: 23.4% vs. 9.0% in the rest of the cohort.",
+      "Two-proportion test, Holm-corrected across 3 communities: p < 1e-15 (adjusted α = 0.0167)."
+    ],
+    "confidence": "high",
+    "counterEvidence": "A smaller community can swing further on the same underlying noise — the interval above is wider than the larger communities' for exactly that reason. Treat this as a strong lead for next quarter's content plan, not a guaranteed repeat performance."
+  },
+  {
+    "id": "signal_miscalibration",
+    "title": "Event RSVPs are the wrong engagement signal — Rize Genie usage predicts applications far better",
+    "recommendation": "Re-weight the engagement score away from event RSVP count and toward Rize Genie usage frequency. Genie-active founders apply to flagship programs at 2.3x the rate of low-usage founders; high-RSVP founders apply at only 0.9x the rate of low-RSVP founders.",
+    "impactRange": {
+      "label": "Lift on program-application rate",
+      "low": "Genie usage: 2.28x",
+      "high": "RSVP count: 0.93x",
+      "vsPool": "both measured against the same active-founder cohort"
+    },
+    "evidence": [
+      "High Genie usage (≥10 sessions/month): 26.9% applied, vs. 11.8% for low usage (p < 1e-15).",
+      "High RSVP count (≥5 events): 18.3% applied, vs. 19.6% for low RSVP (p = 3.33e-1).",
+      "Genie usage lift (2.28x) exceeds RSVP lift (0.93x) on the same cohort, same outcome definition."
+    ],
+    "confidence": "high",
+    "counterEvidence": "RSVP count may still matter for a different outcome (e.g. community retention rather than program application) — this finding is scoped specifically to predicting flagship-program applications, not engagement in general."
+  }
+]
