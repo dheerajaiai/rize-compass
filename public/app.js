@@ -424,10 +424,13 @@ function navigate() {
   app.appendChild(config.render());
 }
 
-window.addEventListener('hashchange', navigate);
-
+// Listen for navigation only once data is loaded, so a click during loading
+// can't render a screen against empty state.
 loadData()
-  .then(navigate)
+  .then(() => {
+    window.addEventListener('hashchange', navigate);
+    navigate();
+  })
   .catch((err) => {
     document.getElementById('app').textContent = 'Failed to load data: ' + err.message;
     console.error(err);
