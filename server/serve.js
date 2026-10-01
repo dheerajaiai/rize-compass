@@ -25,6 +25,9 @@ const server = http.createServer((req, res) => {
   let filePath;
   if (urlPath.startsWith('/data/')) {
     filePath = path.join(ROOT, urlPath);
+  } else if (urlPath === '/lib/stats.js') {
+    // The browser runs the same unit-tested stats engine as the build.
+    filePath = path.join(ROOT, 'server', 'stats.js');
   } else {
     filePath = path.join(ROOT, 'public', urlPath);
   }

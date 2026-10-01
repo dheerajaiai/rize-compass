@@ -1,18 +1,33 @@
 # Rize Compass
 
-A statistically honest decision-support demo, built independently after the Razorpay
-Rize x Replit Buildathon (Sept 19, 2026). **Not a Razorpay product. No real Rize data.** See `PRD.md` for the full spec.
+**Live: https://dheerajaiai.github.io/rize-compass/**
 
-## What's real vs. synthetic
+A statistically careful decision-support tool for the question a startup programme's marketing
+team keeps facing: *where should we look for our next founders?* Built independently after the
+Razorpay Rize x Replit Buildathon (Sept 19, 2026). **Not a Razorpay product. Contains no Rize data.**
 
-Real, public: Razorpay Rize's program names and structure (Rize for YC, Global Readiness
-Program, Founder-Buddy Program, buildathons), the three founder communities (Tech+, D2C+,
-Xport+), and the fact that GRP and Founder-Buddy genuinely just launched.
+## Two halves
 
-Synthetic: every founder, every city-level and program-level number. Generated with a fixed
-seed (1337) so the whole pipeline is reproducible, with six ground-truth effects deliberately
-planted (see `PRD.md` → "Planted findings") so the statistics engine has something real to find
-and the Validation screen has something real to check.
+**Real public data** (Brief, Founder Map, YC Pipeline, Decisions, Data Integrity). All sources are free:
+
+| Snapshot (`sources/`) | Source |
+|---|---|
+| DPIIT-recognised startups by state, 2019–2023 | [PIB 2002100](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2002100), Lok Sabha reply, Feb 2024 |
+| Cumulative recognitions by state (Jun 2024) | [PIB 2037579](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2037579) |
+| Closed (struck-off) recognised startups by state (Nov 2025) | [PIB 2197662](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2197662) |
+| Startups with a woman director/partner, by state × year | [PIB 2241313](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2241313) |
+| Y Combinator companies with an Indian region | [yc-oss public API](https://yc-oss.github.io/api/companies/all.json) |
+
+`npm run fetch` re-downloads and re-parses them from the government's HTML tables. The build itself
+never touches the network. Every parsed table must add up exactly to the total the government
+printed, or the build fails (`data/real_checks.json`).
+
+**Method check** (synthetic: Funnel, Programs, Shrinkage Lab, Decisions, Validation). Real data has
+no answer key, so a generated founder funnel with six planted findings proves that the engine
+recovers what was planted and finds nothing in shuffled labels (`data/validation_result.json`).
+
+**Try it on your data** runs the same `server/stats.js` in the browser on counts by state that you
+paste, and shows where you over- or under-index against the national startup base. Nothing is uploaded.
 
 ## Architecture
 
@@ -32,14 +47,18 @@ server/
                     and a shuffled-label negative control finds nothing.
                     Writes data/validation_result.json.
   serve.js          Tiny static file server (no Express needed for 6 JSON files).
+  real/fetch.js     Snapshots the public sources into sources/ (manual: npm run fetch).
+  real/analyze.js   Runs stats.js over sources/ -> data/real.json, data/real_checks.json.
+  real/states.js    State/UT names and YC location codes.
 public/
-  index.html, app.js, styles.css    Static SPA, hash-routed, reads /data/*.json.
+  index.html, app.js, ui.js, real.js, yours.js, styles.css
+                    Static SPA, hash-routed, reads /data/*.json; yours.js imports
+                    /lib/stats.js (the same file as server/stats.js).
 ```
 
-Why no LLM: this build ships with zero runtime LLM calls. Every number and every sentence on
-every screen comes from plain, unit-tested code. If an LLM were added in a future version, the
-discipline would stay the same as the earlier GTM Compass build: it would only ever extract or
-phrase (quoting evidence spans verbatim, writing recommendation copy) — never compute a number.
+Why no LLM: this build ships with zero runtime LLM calls. Every number and every decision card
+comes from plain, unit-tested code. The 90-day plan on the Brief is hand-written and labelled as
+a proposal. If an LLM is ever added, it may only extract or phrase text, never compute a number.
 
 ## Running it
 

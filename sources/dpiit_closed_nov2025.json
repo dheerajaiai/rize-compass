@@ -1,0 +1,214 @@
+{
+  "id": "dpiit_closed_nov2025",
+  "title": "State/UT-wise DPIIT-recognised startups categorised as closed (dissolved/struck-off) per MCA",
+  "release": "PIB, Ministry of Commerce & Industry, written reply in Lok Sabha, Dec 2025",
+  "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2197662",
+  "asOf": "2025-11-11",
+  "fetchedAt": "2026-10-01T19:11:30.925Z",
+  "columns": [
+    "closed"
+  ],
+  "publishedTotal": {
+    "closed": 6385
+  },
+  "rows": [
+    {
+      "key": "AN",
+      "name": "Andaman and Nicobar Islands",
+      "closed": 3,
+      "nilCells": 0
+    },
+    {
+      "key": "AP",
+      "name": "Andhra Pradesh",
+      "closed": 121,
+      "nilCells": 0
+    },
+    {
+      "key": "AR",
+      "name": "Arunachal Pradesh",
+      "closed": 1,
+      "nilCells": 0
+    },
+    {
+      "key": "AS",
+      "name": "Assam",
+      "closed": 59,
+      "nilCells": 0
+    },
+    {
+      "key": "BR",
+      "name": "Bihar",
+      "closed": 96,
+      "nilCells": 0
+    },
+    {
+      "key": "CH",
+      "name": "Chandigarh",
+      "closed": 27,
+      "nilCells": 0
+    },
+    {
+      "key": "CT",
+      "name": "Chhattisgarh",
+      "closed": 64,
+      "nilCells": 0
+    },
+    {
+      "key": "DL",
+      "name": "Delhi",
+      "closed": 737,
+      "nilCells": 0
+    },
+    {
+      "key": "GA",
+      "name": "Goa",
+      "closed": 29,
+      "nilCells": 0
+    },
+    {
+      "key": "GJ",
+      "name": "Gujarat",
+      "closed": 348,
+      "nilCells": 0
+    },
+    {
+      "key": "HR",
+      "name": "Haryana",
+      "closed": 306,
+      "nilCells": 0
+    },
+    {
+      "key": "HP",
+      "name": "Himachal Pradesh",
+      "closed": 14,
+      "nilCells": 0
+    },
+    {
+      "key": "JK",
+      "name": "Jammu and Kashmir",
+      "closed": 41,
+      "nilCells": 0
+    },
+    {
+      "key": "JH",
+      "name": "Jharkhand",
+      "closed": 64,
+      "nilCells": 0
+    },
+    {
+      "key": "KA",
+      "name": "Karnataka",
+      "closed": 845,
+      "nilCells": 0
+    },
+    {
+      "key": "KL",
+      "name": "Kerala",
+      "closed": 241,
+      "nilCells": 0
+    },
+    {
+      "key": "MP",
+      "name": "Madhya Pradesh",
+      "closed": 180,
+      "nilCells": 0
+    },
+    {
+      "key": "MH",
+      "name": "Maharashtra",
+      "closed": 1200,
+      "nilCells": 0
+    },
+    {
+      "key": "MN",
+      "name": "Manipur",
+      "closed": 10,
+      "nilCells": 0
+    },
+    {
+      "key": "ML",
+      "name": "Meghalaya",
+      "closed": 4,
+      "nilCells": 0
+    },
+    {
+      "key": "MZ",
+      "name": "Mizoram",
+      "closed": 3,
+      "nilCells": 0
+    },
+    {
+      "key": "NL",
+      "name": "Nagaland",
+      "closed": 4,
+      "nilCells": 0
+    },
+    {
+      "key": "OR",
+      "name": "Odisha",
+      "closed": 117,
+      "nilCells": 0
+    },
+    {
+      "key": "PY",
+      "name": "Puducherry",
+      "closed": 7,
+      "nilCells": 0
+    },
+    {
+      "key": "PB",
+      "name": "Punjab",
+      "closed": 50,
+      "nilCells": 0
+    },
+    {
+      "key": "RJ",
+      "name": "Rajasthan",
+      "closed": 211,
+      "nilCells": 0
+    },
+    {
+      "key": "SK",
+      "name": "Sikkim",
+      "closed": 1,
+      "nilCells": 0
+    },
+    {
+      "key": "TN",
+      "name": "Tamil Nadu",
+      "closed": 338,
+      "nilCells": 0
+    },
+    {
+      "key": "TG",
+      "name": "Telangana",
+      "closed": 368,
+      "nilCells": 0
+    },
+    {
+      "key": "TR",
+      "name": "Tripura",
+      "closed": 9,
+      "nilCells": 0
+    },
+    {
+      "key": "UP",
+      "name": "Uttar Pradesh",
+      "closed": 598,
+      "nilCells": 0
+    },
+    {
+      "key": "UK",
+      "name": "Uttarakhand",
+      "closed": 58,
+      "nilCells": 0
+    },
+    {
+      "key": "WB",
+      "name": "West Bengal",
+      "closed": 231,
+      "nilCells": 0
+    }
+  ]
+}

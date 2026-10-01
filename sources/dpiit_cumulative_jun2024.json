@@ -1,0 +1,232 @@
+{
+  "id": "dpiit_cumulative_jun2024",
+  "title": "State/UT-wise cumulative number of DPIIT-recognised startups",
+  "release": "PIB, Ministry of Commerce & Industry, written reply in Lok Sabha, Jul 2024",
+  "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2037579",
+  "asOf": "2024-06-30",
+  "fetchedAt": "2026-10-01T19:11:30.843Z",
+  "columns": [
+    "total"
+  ],
+  "publishedTotal": {
+    "total": 140803
+  },
+  "rows": [
+    {
+      "key": "AN",
+      "name": "Andaman and Nicobar Islands",
+      "total": 59,
+      "nilCells": 0
+    },
+    {
+      "key": "AP",
+      "name": "Andhra Pradesh",
+      "total": 2252,
+      "nilCells": 0
+    },
+    {
+      "key": "AR",
+      "name": "Arunachal Pradesh",
+      "total": 38,
+      "nilCells": 0
+    },
+    {
+      "key": "AS",
+      "name": "Assam",
+      "total": 1318,
+      "nilCells": 0
+    },
+    {
+      "key": "BR",
+      "name": "Bihar",
+      "total": 2786,
+      "nilCells": 0
+    },
+    {
+      "key": "CH",
+      "name": "Chandigarh",
+      "total": 489,
+      "nilCells": 0
+    },
+    {
+      "key": "CT",
+      "name": "Chhattisgarh",
+      "total": 1517,
+      "nilCells": 0
+    },
+    {
+      "key": "DN",
+      "name": "Dadra and Nagar Haveli and Daman and Diu",
+      "total": 53,
+      "nilCells": 0
+    },
+    {
+      "key": "DL",
+      "name": "Delhi",
+      "total": 14734,
+      "nilCells": 0
+    },
+    {
+      "key": "GA",
+      "name": "Goa",
+      "total": 520,
+      "nilCells": 0
+    },
+    {
+      "key": "GJ",
+      "name": "Gujarat",
+      "total": 11436,
+      "nilCells": 0
+    },
+    {
+      "key": "HR",
+      "name": "Haryana",
+      "total": 7385,
+      "nilCells": 0
+    },
+    {
+      "key": "HP",
+      "name": "Himachal Pradesh",
+      "total": 484,
+      "nilCells": 0
+    },
+    {
+      "key": "JK",
+      "name": "Jammu and Kashmir",
+      "total": 855,
+      "nilCells": 0
+    },
+    {
+      "key": "JH",
+      "name": "Jharkhand",
+      "total": 1305,
+      "nilCells": 0
+    },
+    {
+      "key": "KA",
+      "name": "Karnataka",
+      "total": 15019,
+      "nilCells": 0
+    },
+    {
+      "key": "KL",
+      "name": "Kerala",
+      "total": 5782,
+      "nilCells": 0
+    },
+    {
+      "key": "LA",
+      "name": "Ladakh",
+      "total": 16,
+      "nilCells": 0
+    },
+    {
+      "key": "LD",
+      "name": "Lakshadweep",
+      "total": 3,
+      "nilCells": 0
+    },
+    {
+      "key": "MP",
+      "name": "Madhya Pradesh",
+      "total": 4500,
+      "nilCells": 0
+    },
+    {
+      "key": "MH",
+      "name": "Maharashtra",
+      "total": 25044,
+      "nilCells": 0
+    },
+    {
+      "key": "MN",
+      "name": "Manipur",
+      "total": 151,
+      "nilCells": 0
+    },
+    {
+      "key": "ML",
+      "name": "Meghalaya",
+      "total": 52,
+      "nilCells": 0
+    },
+    {
+      "key": "MZ",
+      "name": "Mizoram",
+      "total": 32,
+      "nilCells": 0
+    },
+    {
+      "key": "NL",
+      "name": "Nagaland",
+      "total": 66,
+      "nilCells": 0
+    },
+    {
+      "key": "OR",
+      "name": "Odisha",
+      "total": 2484,
+      "nilCells": 0
+    },
+    {
+      "key": "PY",
+      "name": "Puducherry",
+      "total": 152,
+      "nilCells": 0
+    },
+    {
+      "key": "PB",
+      "name": "Punjab",
+      "total": 1539,
+      "nilCells": 0
+    },
+    {
+      "key": "RJ",
+      "name": "Rajasthan",
+      "total": 4960,
+      "nilCells": 0
+    },
+    {
+      "key": "SK",
+      "name": "Sikkim",
+      "total": 11,
+      "nilCells": 0
+    },
+    {
+      "key": "TN",
+      "name": "Tamil Nadu",
+      "total": 9238,
+      "nilCells": 0
+    },
+    {
+      "key": "TG",
+      "name": "Telangana",
+      "total": 7336,
+      "nilCells": 0
+    },
+    {
+      "key": "TR",
+      "name": "Tripura",
+      "total": 123,
+      "nilCells": 0
+    },
+    {
+      "key": "UP",
+      "name": "Uttar Pradesh",
+      "total": 13299,
+      "nilCells": 0
+    },
+    {
+      "key": "UK",
+      "name": "Uttarakhand",
+      "total": 1138,
+      "nilCells": 0
+    },
+    {
+      "key": "WB",
+      "name": "West Bengal",
+      "total": 4627,
+      "nilCells": 0
+    }
+  ]
+}

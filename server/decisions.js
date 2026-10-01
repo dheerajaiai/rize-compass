@@ -13,6 +13,7 @@ import {
   twoProportionTest,
   holmCorrection,
   signalLift,
+  testEntitiesVsRest,
   MIN_N,
 } from './stats.js';
 import { CITIES, COMMUNITIES, CHANNELS, PROGRAMS, OUTCOME_MATURITY_DAYS } from './dimensions.js';
@@ -153,41 +154,6 @@ function buildCommunityLab(founders) {
 // multiple-comparison correction across the whole family of entities tested
 // on the same metric.
 // ---------------------------------------------------------------------------
-function testEntitiesVsRest(entities, getSuccessesAndN) {
-  const withTotals = entities.map((e) => {
-    const { successes, n } = getSuccessesAndN(e);
-    return { key: e.key, label: e.label, successes, n };
-  });
-  const grandSuccesses = withTotals.reduce((a, e) => a + e.successes, 0);
-  const grandN = withTotals.reduce((a, e) => a + e.n, 0);
-
-  const tests = withTotals.map((e) => {
-    const poolSuccesses = grandSuccesses - e.successes;
-    const poolN = grandN - e.n;
-    const { z, p } = twoProportionTest(e.successes, e.n, poolSuccesses, poolN);
-    const rate = e.n > 0 ? e.successes / e.n : null;
-    const poolRate = poolN > 0 ? poolSuccesses / poolN : null;
-    return {
-      key: e.key,
-      label: e.label,
-      n: e.n,
-      successes: e.successes,
-      rate,
-      poolRate,
-      effectSize: rate !== null && poolRate !== null ? rate - poolRate : null,
-      z,
-      p: p === null ? 1 : p,
-    };
-  });
-
-  const corrected = holmCorrection(
-    tests.map((t) => ({ key: t.key, p: t.p })),
-    0.05
-  );
-  const byKey = new Map(corrected.map((c) => [c.key, c]));
-  return tests.map((t) => ({ ...t, ...byKey.get(t.key) }));
-}
-
 function confidenceLabel(p, adjustedAlpha) {
   if (p >= adjustedAlpha) return 'not significant';
   if (p < adjustedAlpha / 10) return 'high';

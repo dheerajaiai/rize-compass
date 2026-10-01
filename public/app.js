@@ -2,60 +2,30 @@
 // files in /data, produced by server/generate.js -> server/decisions.js ->
 // server/validate.js. Nothing here computes a statistic; it only renders one.
 
+import { pct, num, intervalText, confidenceClass, el } from './ui.js';
+import { renderBrief, renderMarket, renderYc, renderRealDecisions, renderIntegrity } from './real.js';
+import { renderYours } from './yours.js';
+
 const state = {};
 
 async function loadData() {
-  const [dimensions, funnel, programs, lab, decisions, validation] = await Promise.all([
+  const [dimensions, funnel, programs, lab, decisions, validation, real, realChecks] = await Promise.all([
     fetchJSON('data/dimensions.json'),
     fetchJSON('data/funnel.json'),
     fetchJSON('data/programs.json'),
     fetchJSON('data/city_community_lab.json'),
     fetchJSON('data/decisions.json'),
     fetchJSON('data/validation_result.json'),
+    fetchJSON('data/real.json'),
+    fetchJSON('data/real_checks.json'),
   ]);
-  Object.assign(state, { dimensions, funnel, programs, lab, decisions, validation });
+  Object.assign(state, { dimensions, funnel, programs, lab, decisions, validation, real, realChecks });
 }
 
 async function fetchJSON(url) {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`Failed to load ${url}`);
   return res.json();
-}
-
-// ---------------------------------------------------------------------------
-// Formatting helpers
-// ---------------------------------------------------------------------------
-function pct(x, digits = 1) {
-  if (x === null || x === undefined || Number.isNaN(x)) return '—';
-  return (x * 100).toFixed(digits) + '%';
-}
-function num(x) {
-  if (x === null || x === undefined) return '—';
-  return x.toLocaleString('en-IN');
-}
-function intervalText(stage) {
-  if (!stage || stage.insufficientData) return null;
-  if (stage.low === null || stage.high === null) return null;
-  return `95% CI: ${pct(stage.low)} – ${pct(stage.high)}`;
-}
-function confidenceClass(label) {
-  if (!label) return 'confidence-low';
-  if (label === 'high') return 'confidence-high';
-  if (label === 'medium') return 'confidence-medium';
-  return 'confidence-low';
-}
-function el(tag, attrs = {}, children = []) {
-  const node = document.createElement(tag);
-  for (const [k, v] of Object.entries(attrs)) {
-    if (k === 'class') node.className = v;
-    else if (k === 'html') node.innerHTML = v;
-    else node.setAttribute(k, v);
-  }
-  for (const c of [].concat(children)) {
-    if (c === null || c === undefined) continue;
-    node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
-  }
-  return node;
 }
 
 // ---------------------------------------------------------------------------
@@ -368,36 +338,45 @@ function renderAbout() {
   container.innerHTML = `
     <div class="card">
       <h2>What this is</h2>
-      <p>Rize Compass is a statistically honest decision-support demo, built independently
-      after the Razorpay Rize x Replit Buildathon. It is <strong>not a Razorpay product</strong> and contains
-      <strong>no real Rize data</strong> — every founder, city-level rate, and program number
-      in this build is synthetic and generated to illustrate the method.</p>
-      <p>What's real: the program names and structure (Rize for YC, Global Readiness Program,
-      Founder-Buddy Program, buildathons), the three founder communities (Tech+, D2C+, Xport+),
-      and the fact that GRP and Founder-Buddy genuinely just launched — which is exactly why
-      this tool refuses to give them a confident outcome verdict.</p>
+      <p>Rize Compass is an independent, statistically careful decision-support tool, built after
+      the Razorpay Rize x Replit Buildathon for the people who decide where Rize spends its
+      founder-acquisition effort. It is <strong>not a Razorpay product</strong> and contains
+      <strong>no Rize data</strong>.</p>
+      <p>It has two halves:</p>
+      <ul>
+        <li><strong>Real public data</strong> (Brief, Founder Map, YC Pipeline, Decisions): the
+        government's state-wise startup tables, published as written replies in Parliament (PIB),
+        and Y Combinator's public company directory. Every source is linked and snapshotted in the
+        repository, and the parsed tables are checked against the totals the government printed.</li>
+        <li><strong>Method check</strong> (synthetic): a generated founder funnel with
+        six findings planted in it. Real data has no answer key, so this is where the engine
+        proves it recovers what was planted and finds nothing in shuffled noise.</li>
+      </ul>
     </div>
     <div class="card">
-      <h2>The method, not the domain</h2>
-      <p>The statistics layer is domain-agnostic: Wilson confidence intervals on every rate,
-      empirical-Bayes shrinkage so small samples can't fake their way to the top of a ranking,
-      a hard minimum-sample rule that forces "insufficient data" instead of a guess,
-      Holm-corrected significance testing across every comparison family, and a signal-lift
-      analysis to catch when the wrong engagement metric is being over-weighted. None of it
-      is specific to startup programs — the same code would work pointed at a sales pipeline,
-      a support queue, or a hiring funnel.</p>
-      <p>An LLM, if one were wired in, would only ever extract or phrase — quoting evidence
-      spans and writing recommendation text. It would never compute a number. This build ships
-      without a live LLM call at all: every number and every sentence on these screens comes
-      from plain, unit-tested code.</p>
+      <h2>How it decides</h2>
+      <p>Every rate has a Wilson 95% interval. Fewer than 30 observations means "insufficient data",
+      not a guess. Rankings use empirical-Bayes shrinkage, so a small state can't top a table on
+      one lucky result. Every "each state vs the rest of India" family is Holm-corrected. A decision
+      card only appears when a result is both significant and large enough to matter, and each card
+      says what could make it wrong.</p>
+      <p>When a pattern is significant but can't be separated from a confounder, the engine withholds
+      the call and says why. Closure rates by state are one example: they look different, but the
+      differences track how young each state's startups are.</p>
+      <p>No LLM computes or writes anything here. Numbers and decision-card text come from plain,
+      unit-tested code. The 90-day plan on the Brief is my own proposal, and it's labelled as one.</p>
     </div>
     <div class="card">
-      <h2>Why this exists</h2>
-      <p>Built as a conversation piece, not a pitch. The honest framing matters more than the
-      polish: this is what a statistically disciplined read of Rize's own funnel could look like,
-      and the Validation screen shows its receipts rather than asking you to take its word for it.</p>
+      <h2>Limits worth knowing</h2>
+      <ul>
+        <li>The state "funnel" joins two different populations (DPIIT-recognised startups and YC
+        companies). It is an index of YC pull, not a tracked conversion.</li>
+        <li>YC's location field is self-reported and reflects where companies are now. Founders
+        who moved to Bengaluru or the US are counted there.</li>
+        <li>DPIIT recognition is opt-in, and state policies affect how many founders register.</li>
+      </ul>
     </div>
-    <footer class="disclaimer">Buildathon-adjacent independent project. Illustrative data only. No affiliation with or endorsement by Razorpay implied.</footer>
+    <footer class="disclaimer">Independent project. Public data plus clearly labelled synthetic data. No affiliation with or endorsement by Razorpay implied.</footer>
   `;
   return container;
 }
@@ -405,19 +384,38 @@ function renderAbout() {
 // ---------------------------------------------------------------------------
 // Router
 // ---------------------------------------------------------------------------
+// data: which kind of numbers the screen shows; drives the pill in the top bar.
 const ROUTES = {
-  funnel: { title: 'Funnel', render: renderFunnel },
-  programs: { title: 'Program Performance', render: renderPrograms },
-  lab: { title: 'City & Community Lab', render: renderLab },
-  decisions: { title: 'Decisions', render: renderDecisions },
-  validation: { title: 'Validation', render: renderValidation },
-  about: { title: 'About', render: renderAbout },
+  brief: { title: 'Brief', data: 'real', render: () => renderBrief(state) },
+  market: { title: 'Founder Map', data: 'real', render: () => renderMarket(state) },
+  yc: { title: 'YC Pipeline', data: 'real', render: () => renderYc(state) },
+  'real-decisions': { title: 'Decisions', data: 'real', render: () => renderRealDecisions(state) },
+  yours: { title: 'Try It on Your Data', data: 'yours', render: () => renderYours(state) },
+  integrity: { title: 'Data Integrity', data: 'real', render: () => renderIntegrity(state) },
+  funnel: { title: 'Method Check · Funnel', data: 'synthetic', render: renderFunnel },
+  programs: { title: 'Method Check · Programs', data: 'synthetic', render: renderPrograms },
+  lab: { title: 'Method Check · Shrinkage Lab', data: 'synthetic', render: renderLab },
+  decisions: { title: 'Method Check · Decisions', data: 'synthetic', render: renderDecisions },
+  validation: { title: 'Method Check · Validation', data: 'synthetic', render: renderValidation },
+  about: { title: 'About', data: 'none', render: renderAbout },
+};
+
+const PILLS = {
+  real: ['pill pill-green', 'Real public data · DPIIT/PIB + YC directory'],
+  synthetic: ['pill pill-amber', 'Synthetic data · planted answers, for testing the method'],
+  yours: ['pill pill-blue', 'Your data · stays in your browser'],
+  none: null,
 };
 
 function navigate() {
-  const route = (location.hash || '#funnel').slice(1);
-  const config = ROUTES[route] || ROUTES.funnel;
+  const route = (location.hash || '#brief').slice(1);
+  const config = ROUTES[route] || ROUTES.brief;
   document.getElementById('screen-title').textContent = config.title;
+  const pill = document.getElementById('data-pill');
+  const p = PILLS[config.data];
+  pill.hidden = !p;
+  if (p) [pill.className, pill.textContent] = p;
+  window.scrollTo(0, 0);
   document.querySelectorAll('.sidebar nav a').forEach((a) => {
     a.classList.toggle('active', a.dataset.route === route);
   });

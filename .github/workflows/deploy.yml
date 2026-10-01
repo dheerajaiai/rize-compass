@@ -31,6 +31,7 @@ jobs:
           mkdir -p dist
           cp -r public/. dist/
           cp -r data dist/data
+          mkdir -p dist/lib && cp server/stats.js dist/lib/stats.js
           touch dist/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:

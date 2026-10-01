@@ -1,0 +1,2602 @@
+{
+  "id": "yc_india",
+  "title": "Y Combinator companies with an Indian region",
+  "release": "yc-oss public mirror of the YC company directory",
+  "url": "https://yc-oss.github.io/api/companies/all.json",
+  "fetchedAt": "2026-10-01T19:11:32.884Z",
+  "totalCompanies": 6268,
+  "batchTotals": {
+    "Winter 2012": 66,
+    "Unspecified": 1,
+    "Summer 2011": 60,
+    "Winter 2011": 45,
+    "Summer 2010": 36,
+    "Winter 2010": 27,
+    "Summer 2009": 26,
+    "Winter 2009": 16,
+    "Summer 2008": 22,
+    "Winter 2008": 21,
+    "Summer 2007": 19,
+    "Winter 2007": 13,
+    "Summer 2006": 10,
+    "Winter 2006": 7,
+    "Summer 2005": 9,
+    "Summer 2012": 83,
+    "Winter 2013": 46,
+    "Summer 2013": 52,
+    "Winter 2014": 74,
+    "Summer 2014": 78,
+    "Winter 2015": 110,
+    "Summer 2015": 104,
+    "Winter 2016": 122,
+    "Summer 2017": 125,
+    "Summer 2016": 102,
+    "Winter 2017": 116,
+    "Winter 2018": 146,
+    "Summer 2018": 131,
+    "Summer 2019": 174,
+    "Winter 2019": 194,
+    "Winter 2020": 229,
+    "Summer 2020": 209,
+    "Winter 2021": 335,
+    "Summer 2021": 391,
+    "Winter 2022": 398,
+    "Summer 2022": 233,
+    "Fall 2025": 146,
+    "Winter 2023": 274,
+    "Summer 2023": 220,
+    "Summer 2026": 231,
+    "Winter 2026": 198,
+    "Winter 2024": 248,
+    "Winter 2025": 165,
+    "Spring 2026": 194,
+    "Summer 2024": 248,
+    "Fall 2024": 94,
+    "Spring 2025": 144,
+    "Summer 2025": 166,
+    "Fall 2026": 108,
+    "Winter 2027": 1,
+    "Summer 2027": 1
+  },
+  "companies": [
+    {
+      "name": "Markupwand",
+      "slug": "markupwand",
+      "batch": "Summer 2012",
+      "status": "Inactive",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Clear",
+      "slug": "cleartax",
+      "batch": "Summer 2014",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Razorpay",
+      "slug": "razorpay",
+      "batch": "Winter 2015",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Drip Capital",
+      "slug": "drip-capital",
+      "batch": "Summer 2015",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "MH, India"
+      ],
+      "state": "MH"
+    },
+    {
+      "name": "RedCarpetUp",
+      "slug": "redcarpetup",
+      "batch": "Summer 2015",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Gurugram, HR, India",
+        "Remote"
+      ],
+      "state": "HR"
+    },
+    {
+      "name": "GoLorry",
+      "slug": "golorry",
+      "batch": "Winter 2016",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Hyderabad, Telangana, India"
+      ],
+      "state": "TG"
+    },
+    {
+      "name": "Kisan Network",
+      "slug": "kisan-network",
+      "batch": "Winter 2016",
+      "status": "Inactive",
+      "industry": "Industrials",
+      "locations": [
+        "Gurugram, HR, India",
+        "HR, India"
+      ],
+      "state": "HR"
+    },
+    {
+      "name": "Sanitation and Health Rights in India (SHRI)",
+      "slug": "sanitation-and-health-rights-in-india-shri",
+      "batch": "Winter 2016",
+      "status": "Active",
+      "industry": "Unspecified",
+      "locations": [
+        "Boston, MA, USA",
+        "BR, India"
+      ],
+      "state": "BR"
+    },
+    {
+      "name": "Meesho",
+      "slug": "meesho",
+      "batch": "Summer 2016",
+      "status": "Public",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Drivezy",
+      "slug": "drivezy",
+      "batch": "Summer 2016",
+      "status": "Inactive",
+      "industry": "Consumer",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Innov8",
+      "slug": "innov8",
+      "batch": "Summer 2016",
+      "status": "Acquired",
+      "industry": "Real Estate and Construction",
+      "locations": [
+        "New Delhi, DL, India"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "Scribe",
+      "slug": "scribe",
+      "batch": "Winter 2017",
+      "status": "Acquired",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Pulse",
+      "slug": "pulse",
+      "batch": "Winter 2017",
+      "status": "Inactive",
+      "industry": "Healthcare",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Supr Daily",
+      "slug": "supr-daily",
+      "batch": "Winter 2017",
+      "status": "Acquired",
+      "industry": "Consumer",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Bulk MRO Industrial Supply",
+      "slug": "bulk-mro-industrial-supply",
+      "batch": "Winter 2017",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Mumbai, MH, India",
+        "New York, NY, USA"
+      ],
+      "state": "MH"
+    },
+    {
+      "name": "Bicycle AI",
+      "slug": "bicycle-ai",
+      "batch": "Winter 2017",
+      "status": "Inactive",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Wifi Dabba, Inc.",
+      "slug": "wifi-dabba-inc",
+      "batch": "Winter 2017",
+      "status": "Active",
+      "industry": "Consumer",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Playment",
+      "slug": "playment",
+      "batch": "Winter 2017",
+      "status": "Acquired",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "OneFin",
+      "slug": "onefin",
+      "batch": "Winter 2017",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Dost Education",
+      "slug": "dost-education",
+      "batch": "Winter 2017",
+      "status": "Active",
+      "industry": "Education",
+      "locations": [
+        "Delhi, DL, India",
+        "Remote"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "Piggy",
+      "slug": "piggy",
+      "batch": "Summer 2017",
+      "status": "Inactive",
+      "industry": "Fintech",
+      "locations": [
+        "MH, India"
+      ],
+      "state": "MH"
+    },
+    {
+      "name": "LotusPay",
+      "slug": "lotuspay",
+      "batch": "Summer 2017",
+      "status": "Acquired",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Fastpad",
+      "slug": "fastpad",
+      "batch": "Summer 2017",
+      "status": "Inactive",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "NextDrop",
+      "slug": "nextdrop",
+      "batch": "Summer 2017",
+      "status": "Inactive",
+      "industry": "Industrials",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "WheelStreet",
+      "slug": "wheelstreet",
+      "batch": "Summer 2017",
+      "status": "Inactive",
+      "industry": "Consumer",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Cashfree Payments",
+      "slug": "cashfree-payments",
+      "batch": "Summer 2017",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Orangewood Labs",
+      "slug": "orangewood-labs",
+      "batch": "Winter 2018",
+      "status": "Active",
+      "industry": "Industrials",
+      "locations": [
+        "San Francisco, CA, USA",
+        "Noida, UP, India"
+      ],
+      "state": "UP"
+    },
+    {
+      "name": "Groww",
+      "slug": "groww",
+      "batch": "Winter 2018",
+      "status": "Public",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "AlgoSurg Inc",
+      "slug": "algosurg-inc",
+      "batch": "Winter 2018",
+      "status": "Active",
+      "industry": "Healthcare",
+      "locations": [
+        "MH, India",
+        "Remote"
+      ],
+      "state": "MH"
+    },
+    {
+      "name": "Helloverify",
+      "slug": "helloverify",
+      "batch": "Winter 2018",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Noida, UP, India"
+      ],
+      "state": "UP"
+    },
+    {
+      "name": "ZiffyHomes",
+      "slug": "ziffyhomes",
+      "batch": "Summer 2018",
+      "status": "Active",
+      "industry": "Real Estate and Construction",
+      "locations": [
+        "Gurugram, HR, India"
+      ],
+      "state": "HR"
+    },
+    {
+      "name": "Khatabook",
+      "slug": "khatabook",
+      "batch": "Summer 2018",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Leena AI",
+      "slug": "leena-ai",
+      "batch": "Summer 2018",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "New York City, NY, USA",
+        "New Delhi, DL, India"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "OkCredit",
+      "slug": "okcredit",
+      "batch": "Summer 2018",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Swadesh",
+      "slug": "swadesh",
+      "batch": "Summer 2019",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "New York City, NY, USA",
+        "New Delhi, DL, India"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "Skill-lync",
+      "slug": "skill-lync",
+      "batch": "Winter 2019",
+      "status": "Active",
+      "industry": "Education",
+      "locations": [
+        "Chennai, TN, India"
+      ],
+      "state": "TN"
+    },
+    {
+      "name": "Mudrex",
+      "slug": "mudrex",
+      "batch": "Winter 2019",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India",
+        "Remote"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Seawise Capital",
+      "slug": "seawise-capital",
+      "batch": "Winter 2019",
+      "status": "Acquired",
+      "industry": "Fintech",
+      "locations": [
+        "New Delhi, DL, India"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "AccioJob",
+      "slug": "acciojob",
+      "batch": "Winter 2019",
+      "status": "Active",
+      "industry": "Education",
+      "locations": [
+        "Gurugram, HR, India"
+      ],
+      "state": "HR"
+    },
+    {
+      "name": "Edyst",
+      "slug": "edyst",
+      "batch": "Winter 2019",
+      "status": "Active",
+      "industry": "Education",
+      "locations": [
+        "Hyderabad, Telangana, India"
+      ],
+      "state": "TG"
+    },
+    {
+      "name": "Exly",
+      "slug": "exly",
+      "batch": "Winter 2019",
+      "status": "Active",
+      "industry": "Consumer",
+      "locations": [
+        "New Delhi, DL, India"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "Cityfurnish",
+      "slug": "cityfurnish",
+      "batch": "Winter 2019",
+      "status": "Active",
+      "industry": "Consumer",
+      "locations": [
+        "New Delhi, DL, India"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "Pulse Active Stations Network",
+      "slug": "pulse-active-stations-network",
+      "batch": "Winter 2019",
+      "status": "Active",
+      "industry": "Healthcare",
+      "locations": [
+        "India"
+      ],
+      "state": null
+    },
+    {
+      "name": "Dockup",
+      "slug": "dockup",
+      "batch": "Winter 2019",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India",
+        "Mountain View, CA, USA"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Inito",
+      "slug": "inito",
+      "batch": "Winter 2019",
+      "status": "Active",
+      "industry": "Healthcare",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Taali Inc",
+      "slug": "taali-inc",
+      "batch": "Winter 2019",
+      "status": "Active",
+      "industry": "Consumer",
+      "locations": [
+        "Mumbai, MH, India",
+        "New York, NY, USA"
+      ],
+      "state": "MH"
+    },
+    {
+      "name": "Nonu",
+      "slug": "nonu",
+      "batch": "Summer 2019",
+      "status": "Inactive",
+      "industry": "Healthcare",
+      "locations": [
+        "Hyderabad, Telangana, India"
+      ],
+      "state": "TG"
+    },
+    {
+      "name": "Wingman",
+      "slug": "wingman",
+      "batch": "Summer 2019",
+      "status": "Acquired",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Binks",
+      "slug": "binks",
+      "batch": "Summer 2019",
+      "status": "Active",
+      "industry": "Consumer",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Lokal",
+      "slug": "lokal",
+      "batch": "Summer 2019",
+      "status": "Active",
+      "industry": "Consumer",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Chaos Genius",
+      "slug": "chaos-genius",
+      "batch": "Winter 2020",
+      "status": "Acquired",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India",
+        "San Francisco, CA, USA",
+        "Remote"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "DocVita",
+      "slug": "docvita",
+      "batch": "Winter 2020",
+      "status": "Active",
+      "industry": "Healthcare",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "HelpNow",
+      "slug": "helpnow",
+      "batch": "Winter 2020",
+      "status": "Inactive",
+      "industry": "Healthcare",
+      "locations": [
+        "MH, India"
+      ],
+      "state": "MH"
+    },
+    {
+      "name": "MyPetrolPump",
+      "slug": "mypetrolpump",
+      "batch": "Summer 2019",
+      "status": "Acquired",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Vahan",
+      "slug": "vahan",
+      "batch": "Summer 2019",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Digi-Prex",
+      "slug": "digi-prex",
+      "batch": "Summer 2019",
+      "status": "Active",
+      "industry": "Healthcare",
+      "locations": [
+        "Hyderabad, Telangana, India"
+      ],
+      "state": "TG"
+    },
+    {
+      "name": "Khabri",
+      "slug": "khabri",
+      "batch": "Summer 2019",
+      "status": "Inactive",
+      "industry": "Consumer",
+      "locations": [
+        "New Delhi, DL, India"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "Namaste Business",
+      "slug": "namaste-business",
+      "batch": "Summer 2019",
+      "status": "Inactive",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Loop Health",
+      "slug": "loop-health",
+      "batch": "Winter 2020",
+      "status": "Active",
+      "industry": "Healthcare",
+      "locations": [
+        "MH, India"
+      ],
+      "state": "MH"
+    },
+    {
+      "name": "FamPay",
+      "slug": "fampay",
+      "batch": "Summer 2019",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Kosh",
+      "slug": "kosh",
+      "batch": "Winter 2020",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Gurugram, HR, India",
+        "HR, India"
+      ],
+      "state": "HR"
+    },
+    {
+      "name": "goDutch",
+      "slug": "godutch",
+      "batch": "Winter 2020",
+      "status": "Inactive",
+      "industry": "Fintech",
+      "locations": [
+        "MH, India"
+      ],
+      "state": "MH"
+    },
+    {
+      "name": "Able",
+      "slug": "able",
+      "batch": "Winter 2020",
+      "status": "Acquired",
+      "industry": "Consumer",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Pay Swifter",
+      "slug": "pay-swifter",
+      "batch": "Winter 2020",
+      "status": "Acquired",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "StayQrious",
+      "slug": "stayqrious",
+      "batch": "Winter 2020",
+      "status": "Active",
+      "industry": "Education",
+      "locations": [
+        "Bengaluru, KA, India",
+        "Remote"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Chutney Inc",
+      "slug": "chutney-inc",
+      "batch": "Winter 2020",
+      "status": "Inactive",
+      "industry": "Consumer",
+      "locations": [
+        "Bengaluru, KA, India",
+        "Remote"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "UrbanKisaan",
+      "slug": "urbankisaan",
+      "batch": "Winter 2020",
+      "status": "Active",
+      "industry": "Industrials",
+      "locations": [
+        "Hyderabad, Telangana, India"
+      ],
+      "state": "TG"
+    },
+    {
+      "name": "farmtheory",
+      "slug": "farmtheory",
+      "batch": "Winter 2020",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "PillarPlus",
+      "slug": "pillarplus",
+      "batch": "Winter 2020",
+      "status": "Inactive",
+      "industry": "Real Estate and Construction",
+      "locations": [
+        "MH, India"
+      ],
+      "state": "MH"
+    },
+    {
+      "name": "SprintAI",
+      "slug": "sprintai",
+      "batch": "Winter 2020",
+      "status": "Inactive",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "TagMango",
+      "slug": "tagmango",
+      "batch": "Winter 2020",
+      "status": "Active",
+      "industry": "Consumer",
+      "locations": [
+        "Kolkata, WB, India"
+      ],
+      "state": "WB"
+    },
+    {
+      "name": "Morphle Labs",
+      "slug": "morphle-labs",
+      "batch": "Winter 2020",
+      "status": "Active",
+      "industry": "Healthcare",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Zeo Route Planner",
+      "slug": "zeo-route-planner",
+      "batch": "Winter 2020",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "San Francisco, CA, USA",
+        "MH, India"
+      ],
+      "state": "MH"
+    },
+    {
+      "name": "Hiration",
+      "slug": "hiration",
+      "batch": "Winter 2020",
+      "status": "Active",
+      "industry": "Consumer",
+      "locations": [
+        "New Delhi, DL, India"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "yBANQ",
+      "slug": "ybanq",
+      "batch": "Winter 2020",
+      "status": "Acquired",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Thunderpod",
+      "slug": "thunderpod",
+      "batch": "Winter 2020",
+      "status": "Inactive",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India",
+        "MH, India",
+        "Remote"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Bikry",
+      "slug": "bikry",
+      "batch": "Winter 2020",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Noida, UP, India"
+      ],
+      "state": "UP"
+    },
+    {
+      "name": "EduRev",
+      "slug": "edurev",
+      "batch": "Winter 2020",
+      "status": "Active",
+      "industry": "Education",
+      "locations": [
+        "Chandigarh, CH, India",
+        "CH, India"
+      ],
+      "state": "CH"
+    },
+    {
+      "name": "Spenny",
+      "slug": "spenny",
+      "batch": "Winter 2020",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Synapsica Healthcare",
+      "slug": "synapsica-healthcare",
+      "batch": "Winter 2020",
+      "status": "Inactive",
+      "industry": "Healthcare",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Easyplan",
+      "slug": "easyplan",
+      "batch": "Winter 2020",
+      "status": "Inactive",
+      "industry": "Fintech",
+      "locations": [
+        "MH, India"
+      ],
+      "state": "MH"
+    },
+    {
+      "name": "Breathe Well-being",
+      "slug": "breathe-well-being",
+      "batch": "Winter 2020",
+      "status": "Inactive",
+      "industry": "Healthcare",
+      "locations": [
+        "New Delhi, DL, India"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "Jeevam Health",
+      "slug": "jeevam-health",
+      "batch": "Summer 2020",
+      "status": "Inactive",
+      "industry": "Healthcare",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Volopay",
+      "slug": "volopay",
+      "batch": "Summer 2020",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India",
+        "Singapore, Singapore",
+        "Remote"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Explorex",
+      "slug": "explorex",
+      "batch": "Summer 2020",
+      "status": "Active",
+      "industry": "Consumer",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Farmako Healthcare",
+      "slug": "farmako-healthcare",
+      "batch": "Summer 2020",
+      "status": "Active",
+      "industry": "Healthcare",
+      "locations": [
+        "Gurugram, HR, India"
+      ],
+      "state": "HR"
+    },
+    {
+      "name": "Cradle",
+      "slug": "cradle",
+      "batch": "Summer 2020",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Statiq.",
+      "slug": "statiq",
+      "batch": "Summer 2020",
+      "status": "Active",
+      "industry": "Industrials",
+      "locations": [
+        "Gurugram, HR, India",
+        "Bengaluru, KA, India"
+      ],
+      "state": "HR"
+    },
+    {
+      "name": "WareIQ",
+      "slug": "wareiq",
+      "batch": "Summer 2020",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Decentro",
+      "slug": "decentro",
+      "batch": "Summer 2020",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India",
+        "Delhi, DL, India",
+        "Singapore, Singapore"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Orange Health Labs",
+      "slug": "orange-health-labs",
+      "batch": "Summer 2020",
+      "status": "Active",
+      "industry": "Healthcare",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "MedPiper Technologies, Inc",
+      "slug": "medpiper-technologies-inc",
+      "batch": "Summer 2020",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India",
+        "Remote"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Zuddl",
+      "slug": "zuddl",
+      "batch": "Summer 2020",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "San Francisco, CA, USA",
+        "TS, India",
+        "Remote"
+      ],
+      "state": "TG"
+    },
+    {
+      "name": "RocketSDR",
+      "slug": "rocketsdr",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Pensil",
+      "slug": "pensil",
+      "batch": "Winter 2021",
+      "status": "Inactive",
+      "industry": "B2B",
+      "locations": [
+        "Gurugram, HR, India",
+        "HR, India"
+      ],
+      "state": "HR"
+    },
+    {
+      "name": "GroMo",
+      "slug": "gromo",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Gurugram, HR, India"
+      ],
+      "state": "HR"
+    },
+    {
+      "name": "JoinSub",
+      "slug": "joinsub",
+      "batch": "Winter 2021",
+      "status": "Inactive",
+      "industry": "Fintech",
+      "locations": [
+        "Delhi, DL, India",
+        "Palo Alto, CA, USA",
+        "Remote"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "Flux Auto",
+      "slug": "flux-auto",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "Industrials",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Krab",
+      "slug": "krab",
+      "batch": "Winter 2021",
+      "status": "Inactive",
+      "industry": "Fintech",
+      "locations": [
+        "Hyderabad, Telangana, India"
+      ],
+      "state": "TG"
+    },
+    {
+      "name": "BeWell Digital",
+      "slug": "bewell-digital",
+      "batch": "Winter 2021",
+      "status": "Inactive",
+      "industry": "Healthcare",
+      "locations": [
+        "Coimbatore, TN, India",
+        "Remote"
+      ],
+      "state": "TN"
+    },
+    {
+      "name": "Weekday",
+      "slug": "weekday",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India",
+        "Remote"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Zepto",
+      "slug": "zepto",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "Consumer",
+      "locations": [
+        "MH, India"
+      ],
+      "state": "MH"
+    },
+    {
+      "name": "Pragmatic Leaders (Ankai Inc)",
+      "slug": "pragmatic-leaders-ankai-inc",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Gurugram, HR, India",
+        "Remote"
+      ],
+      "state": "HR"
+    },
+    {
+      "name": "CashBook",
+      "slug": "cashbook",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "YourQuote",
+      "slug": "yourquote",
+      "batch": "Winter 2021",
+      "status": "Inactive",
+      "industry": "Consumer",
+      "locations": [
+        "Bengaluru, KA, India",
+        "Remote"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "FunctionUp (FanPlay)",
+      "slug": "functionup-fanplay",
+      "batch": "Winter 2021",
+      "status": "Acquired",
+      "industry": "Education",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Bueno Finance",
+      "slug": "bueno-finance",
+      "batch": "Winter 2021",
+      "status": "Acquired",
+      "industry": "Fintech",
+      "locations": [
+        "Gurugram, HR, India"
+      ],
+      "state": "HR"
+    },
+    {
+      "name": "Bimaplan",
+      "slug": "bimaplan",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India",
+        "MH, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "FifthTry",
+      "slug": "fifthtry",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Kodo",
+      "slug": "kodo",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "MH, India"
+      ],
+      "state": "MH"
+    },
+    {
+      "name": "GimBooks",
+      "slug": "gimbooks",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Raipur, CT, India"
+      ],
+      "state": "CT"
+    },
+    {
+      "name": "zingbus",
+      "slug": "zingbus",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "Consumer",
+      "locations": [
+        "Gurugram, HR, India"
+      ],
+      "state": "HR"
+    },
+    {
+      "name": "Verak",
+      "slug": "verak",
+      "batch": "Winter 2021",
+      "status": "Acquired",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Invoid",
+      "slug": "invoid",
+      "batch": "Winter 2021",
+      "status": "Inactive",
+      "industry": "B2B",
+      "locations": [
+        "Gurugram, HR, India"
+      ],
+      "state": "HR"
+    },
+    {
+      "name": "Veera Health",
+      "slug": "veera-health",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "Healthcare",
+      "locations": [
+        "MH, India"
+      ],
+      "state": "MH"
+    },
+    {
+      "name": "Codingal",
+      "slug": "codingal",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "Education",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "TechBiz",
+      "slug": "techbiz",
+      "batch": "Winter 2021",
+      "status": "Acquired",
+      "industry": "B2B",
+      "locations": [
+        "New Delhi, DL, India",
+        "MH, India",
+        "Remote"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "Dyte",
+      "slug": "dyte",
+      "batch": "Winter 2021",
+      "status": "Acquired",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India",
+        "Remote"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Tilt",
+      "slug": "tilt-2",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "Consumer",
+      "locations": [
+        "Bengaluru, KA, India",
+        "Remote"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Unschool",
+      "slug": "unschool",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "Education",
+      "locations": [
+        "Hyderabad, Telangana, India"
+      ],
+      "state": "TG"
+    },
+    {
+      "name": "ZOKO",
+      "slug": "zoko",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Aerotime",
+      "slug": "aerotime",
+      "batch": "Winter 2021",
+      "status": "Inactive",
+      "industry": "B2B",
+      "locations": [
+        "San Francisco, CA, USA",
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Reclaim Protocol",
+      "slug": "reclaim-protocol",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Hyderabad, Telangana, India",
+        "Remote"
+      ],
+      "state": "TG"
+    },
+    {
+      "name": "Redcliffe Lifetech",
+      "slug": "redcliffe-lifetech",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "Healthcare",
+      "locations": [
+        "Delhi, DL, India",
+        "Gurugram, HR, India",
+        "Noida, UP, India"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "Betterhalf",
+      "slug": "betterhalf",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "Consumer",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Zealth",
+      "slug": "zealth",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "Healthcare",
+      "locations": [
+        "Bengaluru, KA, India",
+        "Remote"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Swadesi Way",
+      "slug": "swadesi-way",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "Consumer",
+      "locations": [
+        "Delhi, DL, India",
+        "Remote"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "BusinessOnBot",
+      "slug": "businessonbot",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Voosh",
+      "slug": "voosh",
+      "batch": "Winter 2021",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "marketfeed",
+      "slug": "marketfeed",
+      "batch": "Summer 2021",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Gobillion",
+      "slug": "gobillion",
+      "batch": "Summer 2021",
+      "status": "Inactive",
+      "industry": "Consumer",
+      "locations": [
+        "New Delhi, DL, India"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "Karbon Card",
+      "slug": "karbon-card",
+      "batch": "Summer 2021",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "FrontPage",
+      "slug": "frontpage",
+      "batch": "Summer 2021",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Kalam Labs",
+      "slug": "kalam-labs",
+      "batch": "Summer 2021",
+      "status": "Active",
+      "industry": "Industrials",
+      "locations": [
+        "India"
+      ],
+      "state": null
+    },
+    {
+      "name": "Koshex",
+      "slug": "koshex",
+      "batch": "Summer 2021",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Akudo",
+      "slug": "akudo",
+      "batch": "Summer 2021",
+      "status": "Inactive",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Coulomb AI",
+      "slug": "coulomb-ai",
+      "batch": "Summer 2021",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "PropReturns",
+      "slug": "propreturns",
+      "batch": "Summer 2021",
+      "status": "Inactive",
+      "industry": "Real Estate and Construction",
+      "locations": [
+        "MH, India"
+      ],
+      "state": "MH"
+    },
+    {
+      "name": "ODWEN",
+      "slug": "odwen",
+      "batch": "Summer 2021",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Delhi, DL, India"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "SalaryBook",
+      "slug": "salarybook",
+      "batch": "Summer 2021",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Rivia.AI",
+      "slug": "rivia-ai",
+      "batch": "Summer 2021",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Nino Foods",
+      "slug": "nino-foods",
+      "batch": "Summer 2021",
+      "status": "Inactive",
+      "industry": "Consumer",
+      "locations": [
+        "MH, India"
+      ],
+      "state": "MH"
+    },
+    {
+      "name": "Advantage Club",
+      "slug": "advantage-club",
+      "batch": "Summer 2021",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Gurugram, HR, India",
+        "San Francisco, CA, USA",
+        "Bengaluru, KA, India",
+        "Chicago, IL, USA",
+        "Mumbai, MH, India",
+        "Manila, NCR, Philippines",
+        "Dubai, Dubai, United Arab Emirates",
+        "Singapore, Singapore"
+      ],
+      "state": "HR"
+    },
+    {
+      "name": "Swipe",
+      "slug": "swipe-2",
+      "batch": "Summer 2021",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Hyderabad, Telangana, India"
+      ],
+      "state": "TG"
+    },
+    {
+      "name": "AlgoUniversity",
+      "slug": "algouniversity",
+      "batch": "Summer 2021",
+      "status": "Active",
+      "industry": "Education",
+      "locations": [
+        "Hyderabad, Telangana, India"
+      ],
+      "state": "TG"
+    },
+    {
+      "name": "Neodocs",
+      "slug": "neodocs",
+      "batch": "Summer 2021",
+      "status": "Active",
+      "industry": "Healthcare",
+      "locations": [
+        "MH, India"
+      ],
+      "state": "MH"
+    },
+    {
+      "name": "AppX",
+      "slug": "appx",
+      "batch": "Summer 2021",
+      "status": "Active",
+      "industry": "Education",
+      "locations": [
+        "New Delhi, DL, India"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "Ivy Homes",
+      "slug": "ivy-homes",
+      "batch": "Summer 2021",
+      "status": "Active",
+      "industry": "Real Estate and Construction",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "SalaryBox",
+      "slug": "salarybox",
+      "batch": "Summer 2021",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Gurugram, HR, India"
+      ],
+      "state": "HR"
+    },
+    {
+      "name": "Enerjazz",
+      "slug": "enerjazz",
+      "batch": "Summer 2021",
+      "status": "Active",
+      "industry": "Industrials",
+      "locations": [
+        "Delhi, DL, India"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "Spark Studio",
+      "slug": "spark-studio",
+      "batch": "Summer 2021",
+      "status": "Active",
+      "industry": "Education",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Writesonic",
+      "slug": "writesonic",
+      "batch": "Summer 2021",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "New Delhi, DL, India",
+        "Remote"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "Infer",
+      "slug": "infer",
+      "batch": "Summer 2021",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Stownest",
+      "slug": "stownest",
+      "batch": "Summer 2021",
+      "status": "Active",
+      "industry": "Consumer",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Novatr",
+      "slug": "novatr",
+      "batch": "Summer 2021",
+      "status": "Active",
+      "industry": "Education",
+      "locations": [
+        "Gurugram, HR, India",
+        "Delhi, DL, India"
+      ],
+      "state": "HR"
+    },
+    {
+      "name": "Apollo",
+      "slug": "apollo-3",
+      "batch": "Winter 2022",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "InferEdge",
+      "slug": "inferedge",
+      "batch": "Winter 2022",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "MH, India"
+      ],
+      "state": "MH"
+    },
+    {
+      "name": "MySivi",
+      "slug": "mysivi",
+      "batch": "Winter 2022",
+      "status": "Active",
+      "industry": "Education",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Fieldproxy",
+      "slug": "fieldproxy",
+      "batch": "Winter 2022",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Chennai, TN, India"
+      ],
+      "state": "TN"
+    },
+    {
+      "name": "Rehook.ai",
+      "slug": "rehook-ai",
+      "batch": "Winter 2022",
+      "status": "Inactive",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "RDash",
+      "slug": "rdash",
+      "batch": "Winter 2022",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Gurugram, HR, India"
+      ],
+      "state": "HR"
+    },
+    {
+      "name": "Castled.io",
+      "slug": "castled-io",
+      "batch": "Winter 2022",
+      "status": "Inactive",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "National Finance Olympiad",
+      "slug": "national-finance-olympiad",
+      "batch": "Winter 2022",
+      "status": "Active",
+      "industry": "Education",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "RedBrick AI",
+      "slug": "redbrick-ai",
+      "batch": "Winter 2022",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Claymont, DE, USA",
+        "MH, India"
+      ],
+      "state": "MH"
+    },
+    {
+      "name": "BharatX",
+      "slug": "bharatx",
+      "batch": "Winter 2022",
+      "status": "Acquired",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "RecordBook",
+      "slug": "recordbook",
+      "batch": "Winter 2022",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India",
+        "Remote"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "SALT",
+      "slug": "salt",
+      "batch": "Winter 2022",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "IMT Care",
+      "slug": "imt-care",
+      "batch": "Winter 2022",
+      "status": "Active",
+      "industry": "Healthcare",
+      "locations": [
+        "MH, India"
+      ],
+      "state": "MH"
+    },
+    {
+      "name": "SpadeWorks",
+      "slug": "spadeworks",
+      "batch": "Winter 2022",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Hyderabad, Telangana, India"
+      ],
+      "state": "TG"
+    },
+    {
+      "name": "Kaagaz",
+      "slug": "kaagaz",
+      "batch": "Winter 2022",
+      "status": "Active",
+      "industry": "Consumer",
+      "locations": [
+        "Gurugram, HR, India",
+        "New Delhi, DL, India"
+      ],
+      "state": "HR"
+    },
+    {
+      "name": "PayCrunch",
+      "slug": "paycrunch",
+      "batch": "Winter 2022",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Blitzllama",
+      "slug": "blitzllama",
+      "batch": "Winter 2022",
+      "status": "Acquired",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India",
+        "Remote"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "AntWalk",
+      "slug": "antwalk",
+      "batch": "Winter 2022",
+      "status": "Inactive",
+      "industry": "Education",
+      "locations": [
+        "Bengaluru, KA, India",
+        "Remote"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "SaveIN",
+      "slug": "savein",
+      "batch": "Winter 2022",
+      "status": "Active",
+      "industry": "Healthcare",
+      "locations": [
+        "Delhi, DL, India"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "Material Depot",
+      "slug": "material-depot",
+      "batch": "Winter 2022",
+      "status": "Active",
+      "industry": "Real Estate and Construction",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Fello",
+      "slug": "fello",
+      "batch": "Winter 2022",
+      "status": "Inactive",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "AvairSense",
+      "slug": "avairsense",
+      "batch": "Winter 2022",
+      "status": "Inactive",
+      "industry": "Consumer",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Better Opinions",
+      "slug": "better-opinions",
+      "batch": "Winter 2022",
+      "status": "Active",
+      "industry": "Consumer",
+      "locations": [
+        "Bengaluru, KA, India",
+        "Gurugram, HR, India",
+        "Remote"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "GoSats",
+      "slug": "gosats",
+      "batch": "Winter 2022",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Dubai, Dubai, United Arab Emirates",
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Clinikally",
+      "slug": "clinikally",
+      "batch": "Summer 2022",
+      "status": "Active",
+      "industry": "Healthcare",
+      "locations": [
+        "Gurugram, HR, India"
+      ],
+      "state": "HR"
+    },
+    {
+      "name": "Coupl",
+      "slug": "coupl",
+      "batch": "Summer 2022",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Integration Labs",
+      "slug": "integration-labs",
+      "batch": "Summer 2022",
+      "status": "Inactive",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Craze",
+      "slug": "craze",
+      "batch": "Summer 2022",
+      "status": "Active",
+      "industry": "Consumer",
+      "locations": [
+        "Mumbai, MH, India"
+      ],
+      "state": "MH"
+    },
+    {
+      "name": "EthosX",
+      "slug": "ethosx",
+      "batch": "Summer 2022",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Claymont, DE, USA",
+        "Bengaluru, KA, India",
+        "Mumbai, MH, India",
+        "Remote"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Raven",
+      "slug": "raven",
+      "batch": "Summer 2022",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Gullak Money",
+      "slug": "gullak-money",
+      "batch": "Summer 2022",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Slidely AI",
+      "slug": "slidely-ai",
+      "batch": "Summer 2022",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "100x",
+      "slug": "100x",
+      "batch": "Summer 2022",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Peoplebox.ai",
+      "slug": "peoplebox",
+      "batch": "Summer 2022",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Maya Labs",
+      "slug": "maya-labs",
+      "batch": "Summer 2022",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Payfura",
+      "slug": "payfura",
+      "batch": "Summer 2022",
+      "status": "Inactive",
+      "industry": "Fintech",
+      "locations": [
+        "Delaware City, DE, USA",
+        "Delhi, DL, India",
+        "Remote"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "CompUp",
+      "slug": "compup",
+      "batch": "Summer 2022",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "PrimeVault",
+      "slug": "primevault",
+      "batch": "Summer 2022",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India",
+        "Remote"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Sculpt",
+      "slug": "sculpt",
+      "batch": "Summer 2022",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Pune, MH, India",
+        "MH, India"
+      ],
+      "state": "MH"
+    },
+    {
+      "name": "AlgoTest",
+      "slug": "algotest",
+      "batch": "Summer 2022",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Delhi, DL, India"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "FlatX",
+      "slug": "flatx",
+      "batch": "Summer 2022",
+      "status": "Active",
+      "industry": "Real Estate and Construction",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Landeed",
+      "slug": "landeed",
+      "batch": "Summer 2022",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Hyderabad, Telangana, India"
+      ],
+      "state": "TG"
+    },
+    {
+      "name": "Cone",
+      "slug": "cone",
+      "batch": "Summer 2022",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Hyderabad, Telangana, India",
+        "Remote"
+      ],
+      "state": "TG"
+    },
+    {
+      "name": "DrDroid",
+      "slug": "drdroid",
+      "batch": "Winter 2023",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Floworks",
+      "slug": "floworks",
+      "batch": "Winter 2023",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "ClickPe",
+      "slug": "clickpe",
+      "batch": "Winter 2023",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Surat, GJ, India"
+      ],
+      "state": "GJ"
+    },
+    {
+      "name": "SuperKalam",
+      "slug": "superkalam",
+      "batch": "Winter 2023",
+      "status": "Active",
+      "industry": "Education",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Clueso",
+      "slug": "clueso",
+      "batch": "Winter 2023",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Retape",
+      "slug": "retape",
+      "batch": "Winter 2023",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India",
+        "Remote"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "SuperAPI",
+      "slug": "superapi",
+      "batch": "Winter 2023",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "CodeParrot AI",
+      "slug": "codeparrot-ai",
+      "batch": "Winter 2023",
+      "status": "Inactive",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "CORE",
+      "slug": "heysol",
+      "batch": "Summer 2023",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Yenmo",
+      "slug": "yenmo",
+      "batch": "Winter 2024",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "CheqUPI",
+      "slug": "chequpi",
+      "batch": "Summer 2023",
+      "status": "Acquired",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India",
+        "San Francisco, CA, USA"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Toolify",
+      "slug": "toolify",
+      "batch": "Winter 2024",
+      "status": "Inactive",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Infinity",
+      "slug": "infinity",
+      "batch": "Winter 2024",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "xPay",
+      "slug": "xpay",
+      "batch": "Winter 2024",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Paasa",
+      "slug": "paasa",
+      "batch": "Summer 2024",
+      "status": "Active",
+      "industry": "Fintech",
+      "locations": [
+        "Gurugram, HR, India"
+      ],
+      "state": "HR"
+    },
+    {
+      "name": "SureBright",
+      "slug": "surebright",
+      "batch": "Summer 2024",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "New Delhi, DL, India"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "Rowboat Labs",
+      "slug": "rowboat-labs",
+      "batch": "Summer 2024",
+      "status": "Active",
+      "industry": "Consumer",
+      "locations": [
+        "Bengaluru, KA, India",
+        "Remote"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Optifye.ai",
+      "slug": "optifye-ai",
+      "batch": "Winter 2025",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "New Delhi, DL, India"
+      ],
+      "state": "DL"
+    },
+    {
+      "name": "Bolna AI",
+      "slug": "bolna-ai",
+      "batch": "Fall 2025",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Perseus",
+      "slug": "perseus",
+      "batch": "Fall 2025",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Cardboard",
+      "slug": "cardboard",
+      "batch": "Winter 2026",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Ressl AI",
+      "slug": "ressl-ai",
+      "batch": "Winter 2026",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "BentoLabs AI",
+      "slug": "bentolabs-ai",
+      "batch": "Spring 2026",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Waybill",
+      "slug": "waybill",
+      "batch": "Summer 2026",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Gurugram, HR, India"
+      ],
+      "state": "HR"
+    },
+    {
+      "name": "Kailash Labs",
+      "slug": "kailash-labs",
+      "batch": "Fall 2026",
+      "status": "Active",
+      "industry": "B2B",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    },
+    {
+      "name": "Antropi Robotics",
+      "slug": "antropi-robotics",
+      "batch": "Fall 2026",
+      "status": "Active",
+      "industry": "Industrials",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "state": "KA"
+    }
+  ]
+}

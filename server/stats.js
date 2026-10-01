@@ -216,3 +216,43 @@ export function shuffleOutcomes(records, rng = Math.random) {
   }
   return records.map((r, i) => ({ ...r, outcome: outcomes[i] }));
 }
+
+/**
+ * Tests each entity (e.g. each state) against the pooled rest of the cohort with a
+ * two-proportion test, then Holm-corrects across the whole family.
+ */
+export function testEntitiesVsRest(entities, getSuccessesAndN) {
+  const withTotals = entities.map((e) => {
+    const { successes, n } = getSuccessesAndN(e);
+    return { key: e.key, label: e.label, successes, n };
+  });
+  const grandSuccesses = withTotals.reduce((a, e) => a + e.successes, 0);
+  const grandN = withTotals.reduce((a, e) => a + e.n, 0);
+
+  const tests = withTotals.map((e) => {
+    const poolSuccesses = grandSuccesses - e.successes;
+    const poolN = grandN - e.n;
+    const { z, p } = twoProportionTest(e.successes, e.n, poolSuccesses, poolN);
+    const rate = e.n > 0 ? e.successes / e.n : null;
+    const poolRate = poolN > 0 ? poolSuccesses / poolN : null;
+    return {
+      key: e.key,
+      label: e.label,
+      n: e.n,
+      successes: e.successes,
+      rate,
+      poolRate,
+      effectSize: rate !== null && poolRate !== null ? rate - poolRate : null,
+      rateRatio: rate !== null && poolRate ? rate / poolRate : null,
+      z,
+      p: p === null ? 1 : p,
+    };
+  });
+
+  const corrected = holmCorrection(
+    tests.map((t) => ({ key: t.key, p: t.p })),
+    0.05
+  );
+  const byKey = new Map(corrected.map((c) => [c.key, c]));
+  return tests.map((t) => ({ ...t, ...byKey.get(t.key) }));
+}
