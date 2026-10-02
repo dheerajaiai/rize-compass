@@ -2626,18 +2626,6 @@
         "status": "Active"
       },
       {
-        "name": "Giga ML",
-        "founder": "Varun Vummadi",
-        "ycName": "Giga",
-        "ycUrl": "https://www.ycombinator.com/companies/giga",
-        "batch": "Summer 2023",
-        "year": 2023,
-        "listedCountry": "USA",
-        "listedInIndia": false,
-        "state": null,
-        "status": "Active"
-      },
-      {
         "name": "Retape",
         "founder": "Shubham Rana",
         "ycName": "Retape",
@@ -2674,35 +2662,23 @@
         "status": "Active"
       },
       {
-        "name": "CodeAnt",
-        "founder": "Amartya Jha",
-        "ycName": "CodeAnt AI",
-        "ycUrl": "https://www.ycombinator.com/companies/codeant-ai",
-        "batch": "Winter 2024",
-        "year": 2024,
+        "name": "Giga ML",
+        "founder": "Varun Vummadi",
+        "ycName": "Giga",
+        "ycUrl": "https://www.ycombinator.com/companies/giga",
+        "batch": "Summer 2023",
+        "year": 2023,
         "listedCountry": "USA",
         "listedInIndia": false,
         "state": null,
         "status": "Active"
       },
       {
-        "name": "Crustdata",
-        "founder": "Abhilash Chowdhary",
-        "ycName": "Crustdata",
-        "ycUrl": "https://www.ycombinator.com/companies/crustdata",
-        "batch": "Fall 2024",
-        "year": 2024,
-        "listedCountry": null,
-        "listedInIndia": false,
-        "state": null,
-        "status": "Active"
-      },
-      {
-        "name": "Pipeshift",
-        "founder": "Arko C",
-        "ycName": "Pipeshift",
-        "ycUrl": "https://www.ycombinator.com/companies/pipeshift",
-        "batch": "Summer 2024",
+        "name": "CodeAnt",
+        "founder": "Amartya Jha",
+        "ycName": "CodeAnt AI",
+        "ycUrl": "https://www.ycombinator.com/companies/codeant-ai",
+        "batch": "Winter 2024",
         "year": 2024,
         "listedCountry": "USA",
         "listedInIndia": false,
@@ -2734,6 +2710,42 @@
         "status": "Active"
       },
       {
+        "name": "Pipeshift",
+        "founder": "Arko C",
+        "ycName": "Pipeshift",
+        "ycUrl": "https://www.ycombinator.com/companies/pipeshift",
+        "batch": "Summer 2024",
+        "year": 2024,
+        "listedCountry": "USA",
+        "listedInIndia": false,
+        "state": null,
+        "status": "Active"
+      },
+      {
+        "name": "Crustdata",
+        "founder": "Abhilash Chowdhary",
+        "ycName": "Crustdata",
+        "ycUrl": "https://www.ycombinator.com/companies/crustdata",
+        "batch": "Fall 2024",
+        "year": 2024,
+        "listedCountry": null,
+        "listedInIndia": false,
+        "state": null,
+        "status": "Active"
+      },
+      {
+        "name": "Truffle AI",
+        "founder": "Shaunak Srivastava",
+        "ycName": "Dexto",
+        "ycUrl": "https://www.ycombinator.com/companies/dexto",
+        "batch": "Winter 2025",
+        "year": 2025,
+        "listedCountry": "USA",
+        "listedInIndia": false,
+        "state": null,
+        "status": "Active"
+      },
+      {
         "name": "Bolna",
         "founder": "Prateek Sachan",
         "ycName": "Bolna AI",
@@ -2758,60 +2770,12 @@
         "status": "Active"
       },
       {
-        "name": "Truffle AI",
-        "founder": "Shaunak Srivastava",
-        "ycName": "Dexto",
-        "ycUrl": "https://www.ycombinator.com/companies/dexto",
-        "batch": "Winter 2025",
-        "year": 2025,
-        "listedCountry": "USA",
-        "listedInIndia": false,
-        "state": null,
-        "status": "Active"
-      },
-      {
         "name": "Unsiloed AI",
         "founder": "Aman Mishra",
         "ycName": "Unsiloed AI",
         "ycUrl": "https://www.ycombinator.com/companies/unsiloed-ai",
         "batch": "Fall 2025",
         "year": 2025,
-        "listedCountry": "USA",
-        "listedInIndia": false,
-        "state": null,
-        "status": "Active"
-      },
-      {
-        "name": "Aktoria Robotics",
-        "founder": "Shreenabh Agrawal",
-        "ycName": "Aktoria Robotics",
-        "ycUrl": "https://www.ycombinator.com/companies/aktoria-robotics",
-        "batch": "Summer 2026",
-        "year": 2026,
-        "listedCountry": "USA",
-        "listedInIndia": false,
-        "state": null,
-        "status": "Active"
-      },
-      {
-        "name": "Antropi Robotics",
-        "founder": "Naman Gupta",
-        "ycName": "Antropi Robotics",
-        "ycUrl": "https://www.ycombinator.com/companies/antropi-robotics",
-        "batch": "Fall 2026",
-        "year": 2026,
-        "listedCountry": "India",
-        "listedInIndia": true,
-        "state": "KA",
-        "status": "Active"
-      },
-      {
-        "name": "ProjectX",
-        "founder": "Rounak Adhikary",
-        "ycName": "ProjectX",
-        "ycUrl": "https://www.ycombinator.com/companies/projectx",
-        "batch": "Spring 2026",
-        "year": 2026,
         "listedCountry": "USA",
         "listedInIndia": false,
         "state": null,
@@ -2839,6 +2803,42 @@
         "listedCountry": "USA",
         "listedInIndia": false,
         "state": null,
+        "status": "Active"
+      },
+      {
+        "name": "ProjectX",
+        "founder": "Rounak Adhikary",
+        "ycName": "ProjectX",
+        "ycUrl": "https://www.ycombinator.com/companies/projectx",
+        "batch": "Spring 2026",
+        "year": 2026,
+        "listedCountry": "USA",
+        "listedInIndia": false,
+        "state": null,
+        "status": "Active"
+      },
+      {
+        "name": "Aktoria Robotics",
+        "founder": "Shreenabh Agrawal",
+        "ycName": "Aktoria Robotics",
+        "ycUrl": "https://www.ycombinator.com/companies/aktoria-robotics",
+        "batch": "Summer 2026",
+        "year": 2026,
+        "listedCountry": "USA",
+        "listedInIndia": false,
+        "state": null,
+        "status": "Active"
+      },
+      {
+        "name": "Antropi Robotics",
+        "founder": "Naman Gupta",
+        "ycName": "Antropi Robotics",
+        "ycUrl": "https://www.ycombinator.com/companies/antropi-robotics",
+        "batch": "Fall 2026",
+        "year": 2026,
+        "listedCountry": "India",
+        "listedInIndia": true,
+        "state": "KA",
         "status": "Active"
       }
     ]

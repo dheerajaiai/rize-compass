@@ -295,6 +295,12 @@ function buildClosure(cum, closed, market) {
 // ---------------------------------------------------------------------------
 // Rize for YC alumni: where does YC's directory list them?
 // ---------------------------------------------------------------------------
+// YC batches within a year run Winter, Spring, Summer, Fall.
+const SEASONS = ['Winter', 'Spring', 'Summer', 'Fall'];
+function seasonOrder(batch) {
+  return SEASONS.indexOf((batch || '').split(' ')[0]);
+}
+
 function buildRize(rize, yc) {
   const alumni = rize.alumni.filter((a) => a.matched).map((a) => ({ ...a, year: batchYear(a.batch), listedInIndia: a.listedCountry === 'India' }));
   const total = alumni.length;
@@ -326,7 +332,7 @@ function buildRize(rize, yc) {
     },
     alumni: alumni
       .map(({ name, founder, ycName, ycUrl, batch, year, listedCountry, listedInIndia, state, status }) => ({ name, founder, ycName, ycUrl, batch, year, listedCountry, listedInIndia, state, status }))
-      .sort((a, b) => a.year - b.year || a.name.localeCompare(b.name)),
+      .sort((a, b) => a.year - b.year || seasonOrder(a.batch) - seasonOrder(b.batch) || a.name.localeCompare(b.name)),
   };
 }
 

@@ -321,6 +321,10 @@ footer.disclaimer {
 .plan-step p { font-size: 13px; margin: 0; }
 
 [hidden] { display: none !important; }
+.post-draft { max-width: 620px; border-left: 4px solid var(--blue); }
+.post-draft p { font-size: 15px; line-height: 1.6; margin: 10px 0; color: var(--ink); }
+.chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12px; padding: 4px 9px; border-radius: 999px; background: var(--subtle); color: var(--text); }
 .programme-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 16px; }
 .programme { margin: 0; }
 .programme h3 { font-size: 16px; margin: 4px 0 8px; }

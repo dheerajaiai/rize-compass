@@ -225,6 +225,12 @@ export function renderBrief(state) {
   return c;
 }
 
+// "Winter 2024" -> "W24". Spring gets "Sp" so it can't be read as Summer.
+function shortBatch(batch) {
+  const [season, year] = batch.split(' ');
+  return `${season === 'Spring' ? 'Sp' : season[0]}${year.slice(2)}`;
+}
+
 function strengthClass(strength) {
   return strength === 'suggestive' ? 'confidence-medium' : 'confidence-high';
 }
@@ -369,6 +375,61 @@ export function renderRealDecisions(state) {
       c.appendChild(wc);
     }
   }
+  return c;
+}
+
+// ---------------------------------------------------------------------------
+// Screen: Draft post (the finding, turned into something Rize could publish)
+// ---------------------------------------------------------------------------
+export function renderPost(state) {
+  const { rize } = state.real;
+  const l = rize.late;
+  const inIndia = rize.alumni.filter((a) => a.listedInIndia);
+  const elsewhere = rize.alumni.filter((a) => !a.listedInIndia);
+  const firstBatch = rize.alumni[0].batch;
+  const lastBatch = rize.alumni[rize.alumni.length - 1].batch;
+  const c = el('div', { class: 'brief' });
+
+  c.appendChild(el('p', { class: 'lede' }, 'A finding is only useful to a marketing team if it turns into something they can publish. This is how I would turn this one into a post and a small recurring campaign. The draft is mine, written as a suggestion; Rize has not published or approved it, and Rize would replace my counts with its own.'));
+
+  const paras = [
+    `Count the Indian startups in Y Combinator's directory since ${l.from} and you get ${l.directoryIndiaListed}.`,
+    'That count is missing most of the founders we worked with.',
+    `Of the ${rize.total} YC companies on our alumni wall, ${rize.listedInUs} list a US address and ${rize.listedInIndia} list India. The directory records where a company is today. It doesn't record where its founders started.`,
+    'So from this batch on, we\'ll keep the count ourselves: how many founders who prepared with Rize for YC got in, and where they are building now.',
+    `The count so far: ${rize.total} companies, ${firstBatch} to ${lastBatch}.`,
+    'Applying to the next batch? Start with the application reviewer. Link in the comments.',
+  ];
+  c.appendChild(el('div', { class: 'card post-draft' }, [
+    el('div', { class: 'plan-when' }, 'Draft LinkedIn post, in Rize\'s voice'),
+    ...paras.map((p) => el('p', {}, p)),
+  ]));
+
+  const group = (title, list) => el('div', { class: 'card', style: 'margin:0' }, [
+    el('h3', {}, `${title} (${list.length})`),
+    el('div', { class: 'chip-row' }, list.map((a) => el('span', { class: 'chip' }, `${a.name} · ${shortBatch(a.batch)}`))),
+  ]);
+  c.appendChild(el('h2', {}, 'The image that goes with it'));
+  c.appendChild(el('p', { class: 'chart-note' }, 'Company names and batches, grouped by where YC\'s directory lists them. Twenty names is few enough to show every one.'));
+  c.appendChild(el('div', { class: 'plan-grid' }, [group('Listed in India', inIndia), group('Listed in the US or not stated', elsewhere)]));
+
+  c.appendChild(el('h2', {}, 'The campaign around it'));
+  const plan = el('div', { class: 'plan-grid' });
+  const step = (when, title, body) => plan.appendChild(el('div', { class: 'card plan-step' }, [el('div', { class: 'plan-when' }, when), el('div', { class: 'plan-title' }, title), el('p', {}, body)]));
+  step('Every batch', 'The Rize YC count', 'One post per YC batch with the updated count and the new names. A number that changes on a schedule gives people a reason to come back, and gives Rize a reason to post that isn\'t an announcement.');
+  step('Between batches', 'Where they are now', 'Short founder notes from alumni: what they changed in the application, what the interview asked, what they would do differently. Founders in San Francisco are the hardest for a Bengaluru applicant to reach, and Rize already knows them.');
+  step('Once', 'Give writers the right number', 'Anyone writing about Indian founders in YC has only the directory to count from. A short note with Rize\'s own count, and how it was counted, gives them a better number and makes Rize the source.');
+  c.appendChild(plan);
+
+  c.appendChild(el('h2', {}, 'How I would know if it worked'));
+  const ul = el('ul', { class: 'action-list' });
+  [
+    'Visits to the application reviewer from the post, tracked with a tagged link, against the same weeks before the previous batch deadline.',
+    'Completed reviews, not clicks. A founder who uploads an application is the outcome; a like is not.',
+    'Whether the count gets quoted outside Rize\'s own channels within one batch cycle.',
+  ].forEach((x) => ul.appendChild(el('li', {}, x)));
+  c.appendChild(ul);
+  c.appendChild(el('p', { class: 'source-note' }, ['The counts in the draft are read from the same data as the ', el('a', { href: '#yc' }, 'Rize for YC'), ' screen and update with it.']));
   return c;
 }
 

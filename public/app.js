@@ -3,7 +3,7 @@
 // server/validate.js. Nothing here computes a statistic; it only renders one.
 
 import { pct, num, intervalText, confidenceClass, el } from './ui.js';
-import { renderBrief, renderMarket, renderYc, renderRealDecisions, renderLandscape, renderIntegrity } from './real.js';
+import { renderBrief, renderMarket, renderYc, renderRealDecisions, renderPost, renderLandscape, renderIntegrity } from './real.js';
 import { renderYours } from './yours.js';
 
 const state = {};
@@ -393,6 +393,7 @@ function renderAbout() {
 const ROUTES = {
   brief: { title: 'Brief', data: 'real', render: () => renderBrief(state) },
   yc: { title: 'Rize for YC', data: 'real', render: () => renderYc(state) },
+  post: { title: 'Draft Post', data: 'none', render: () => renderPost(state) },
   market: { title: 'Founder Map', data: 'real', render: () => renderMarket(state) },
   'real-decisions': { title: 'Decisions', data: 'real', render: () => renderRealDecisions(state) },
   landscape: { title: 'Landscape', data: 'none', render: () => renderLandscape(state) },
