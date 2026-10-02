@@ -180,14 +180,19 @@ export function renderBrief(state) {
   hero(`${stats.companyRegistrations}`, 'company registrations on Rize\'s homepage', `Next to ${stats.communityFounders} founders in the community. Whether that gap is by design is the first thing I'd ask.`, '#brief-questions');
   c.appendChild(heroes);
 
-  c.appendChild(el('h2', {}, 'What I would bring to the conversation'));
+  // The Brief carries only the findings that stand on their own; the weaker
+  // leads live on the Other Findings screen.
+  c.appendChild(el('h2', {}, 'What it means'));
   const actions = el('ol', { class: 'action-list' });
-  for (const id of ['rize_alumni_listing', 'yc_concentration', 'yc_under_tapped', 'growth_shift']) {
-    const d = byId[id];
-    if (!d) continue;
-    actions.appendChild(el('li', {}, [el('strong', {}, d.title + '. '), d.recommendation, ' ', el('span', { class: `confidence-tag ${strengthClass(d.strength)}` }, d.strength), ' ', el('a', { href: '#real-decisions' }, 'Evidence →')]));
+  for (const d of real.decisions.filter((x) => x.strength !== 'suggestive')) {
+    actions.appendChild(el('li', {}, [el('strong', {}, d.title + '. '), d.recommendation, ' ', el('span', { class: `confidence-tag ${strengthClass(d.strength)}` }, d.strength)]));
   }
   c.appendChild(actions);
+  const weaker = real.decisions.filter((x) => x.strength === 'suggestive').length;
+  c.appendChild(el('p', {}, [
+    el('a', { href: '#post' }, 'How I would turn this into a post and a campaign →'),
+    weaker ? el('span', { class: 'source-note' }, [' · ', el('a', { href: '#real-decisions' }, `${weaker} weaker leads and the full evidence`)]) : null,
+  ]));
 
   c.appendChild(el('h2', { id: 'brief-questions' }, 'What I can\'t see from outside'));
   c.appendChild(el('p', {}, 'Public data stops at Rize\'s front door. These are the questions I would want to ask before recommending anything with money attached.'));
@@ -195,12 +200,12 @@ export function renderBrief(state) {
   [
     `Rize's homepage shows ${stats.companyRegistrations} company registrations and ${stats.communityFounders} founders in the community. Is the community meant to be selective, or are founders registering and not coming back?`,
     'When a founder Rize supported gets into YC and moves to San Francisco, how does Rize stay in touch with them? They are the people best placed to mentor the next batch of applicants.',
-    'Which states do Rize for YC applicants come from? The directory shows every India-listed alumnus in Bengaluru, but it can\'t show where they started.',
+    `Which states do Rize for YC applicants come from? The directory lists every India-based alumnus in ${rize.indiaStates.map((s) => s.label).join(', ')}, but it can't show where they started.`,
     'What will count as success for the Global Readiness Program and Founder-Buddy, and when is the first cohort old enough to judge?',
   ].forEach((q) => qs.appendChild(el('li', {}, q)));
   c.appendChild(qs);
 
-  c.appendChild(el('h2', {}, 'What the engine refused to call'));
+  c.appendChild(el('h2', {}, 'What I wouldn\'t call'));
   const refused = el('ul', { class: 'action-list' });
   for (const w of real.withheld) refused.appendChild(el('li', {}, [el('strong', {}, w.title + '. '), w.reason[0]]));
   c.appendChild(refused);
@@ -209,7 +214,7 @@ export function renderBrief(state) {
   c.appendChild(el('p', { class: 'chart-note' }, 'A proposal, not a finding.'));
   const plan = el('div', { class: 'plan-grid' });
   const step = (when, title, body) => plan.appendChild(el('div', { class: 'card plan-step' }, [el('div', { class: 'plan-when' }, when), el('div', { class: 'plan-title' }, title), el('p', {}, body)]));
-  step('Days 1–30', 'Own the number', 'Build the per-batch count of Rize-backed and Indian-founder YC companies from Rize\'s application records, and publish it. Nobody else can.');
+  step('Days 1–30', 'Own the number', 'Build the per-batch count of Rize-supported and Indian-founder YC companies from Rize\'s application records, and publish it. Nobody else can.');
   step('Days 31–60', 'Find where Rize under-reaches', 'Compare Rize registrations and community sign-ups by state with each state\'s startup base. The "Try it on your data" screen already does this in the browser.');
   step('Days 61–90', 'Make new programmes readable', 'Fix the success measure and the waiting period for the Global Readiness Program and Founder-Buddy before results arrive, so the first readout isn\'t chosen after the fact.');
   c.appendChild(plan);
@@ -275,7 +280,7 @@ export function renderMarket(state) {
 
   c.appendChild(el('div', { class: 'card' }, [
     el('h3', {}, 'Closed (dissolved/struck-off) recognised startups: descriptive only'),
-    el('p', { class: 'chart-note' }, `Not used for decisions. Fast-growing states have younger startups that have had less time to close, so a low closure rate there may only reflect age. See "Not called" on the Decisions screen. Closures are as of ${closure.numeratorAsOf}; recognitions are as of ${closure.denominatorAsOf}.`),
+    el('p', { class: 'chart-note' }, `Not used for decisions. Fast-growing states have younger startups that have had less time to close, so a low closure rate there may only reflect age. See "Not called" on the Other Findings screen. Closures are as of ${closure.numeratorAsOf}; recognitions are as of ${closure.denominatorAsOf}.`),
     table(['State', 'Closed', 'Recognised', 'Rate (95%)', 'Confounded by age?'], closure.states.map((s) => [
       s.label, num(s.closed), num(s.recognised), `${pct(s.rate)} (${pct(s.low)}–${pct(s.high)})`, s.confoundedByCohortAge ? 'yes' : '—',
     ])),

@@ -351,7 +351,8 @@ function renderAbout() {
       <ul>
         <li><strong>Rize's own public pages</strong>: the alumni named on the Rize for YC page and the
         figures on the Rize homepage.</li>
-        <li><strong>Y Combinator's public company directory</strong>, through the open yc-oss mirror.</li>
+        <li><strong>Y Combinator's public company directory</strong>, through the open yc-oss mirror, and
+        each company's own YC page to confirm the founder Rize names.</li>
         <li><strong>The government's state-wise startup tables</strong> (DPIIT), published as written
         replies in Parliament.</li>
       </ul>
@@ -395,7 +396,7 @@ const ROUTES = {
   yc: { title: 'Rize for YC', data: 'real', render: () => renderYc(state) },
   post: { title: 'Draft Post', data: 'none', render: () => renderPost(state) },
   market: { title: 'Founder Map', data: 'real', render: () => renderMarket(state) },
-  'real-decisions': { title: 'Decisions', data: 'real', render: () => renderRealDecisions(state) },
+  'real-decisions': { title: 'Other Findings', data: 'real', render: () => renderRealDecisions(state) },
   landscape: { title: 'Landscape', data: 'none', render: () => renderLandscape(state) },
   yours: { title: 'Try It on Your Data', data: 'yours', render: () => renderYours(state) },
   validation: { title: 'How It\'s Tested', data: 'synthetic', nav: 'validation', render: () => withTestTabs('validation', renderValidation) },

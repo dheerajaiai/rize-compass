@@ -392,7 +392,7 @@ function buildDecisions(market, yc, closure, rize) {
       keys: ycHigh.map((t) => t.key),
       strength: STRENGTH.clear,
       title: `${listLabels(ycHigh)} supplies most of India's listed YC companies`,
-      recommendation: `Report Rize for YC admits by the founder's home state, not the company's listed city. Admits from outside ${listLabels(ycHigh)} are the ones Rize can most credibly claim, and only Rize's application data can show them.`,
+      recommendation: `Report Rize for YC admits by the founder's home state, not the company's listed city. Only Rize's application data can show whether its reach goes beyond ${listLabels(ycHigh)}.`,
       metric: {
         label: `${c.label}'s share of India-listed YC admits, 2019–2023`,
         value: `${pct(c.shareOfAdmitsInterval.low, 0)} – ${pct(c.shareOfAdmitsInterval.high, 0)}`,

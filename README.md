@@ -15,9 +15,10 @@ now, and across all of YC the share listing San Francisco roughly doubled betwee
 | Screen | What it shows | Data |
 |---|---|---|
 | Brief | The finding, what I'd ask Rize, a 90-day plan | Rize public pages, YC directory |
-| Rize for YC | Each alumnus matched to the YC directory; India's listed share by year | Same |
+| Rize for YC | Each alumnus matched to the YC directory and confirmed by founder name; India's listed share by year | Same |
+| Draft Post | The finding as a post Rize could publish, and a small campaign around it | Same |
 | Founder Map | Startup recognitions by state, 2019–2023 | DPIIT tables (Parliament replies via PIB) |
-| Decisions | Findings labelled by strength of evidence, plus the calls the engine refused to make | All of the above |
+| Other Findings | Every finding labelled by strength of evidence, plus the calls the engine refused to make | All of the above |
 | Landscape | Programmes a founder would compare with Rize | Each programme's public pages |
 | Try It on Your Data | Paste counts by state; runs `stats.js` in the browser, nothing uploaded | Yours |
 | How It's Tested | A made-up funnel with planted answers the engine must recover | Synthetic |
