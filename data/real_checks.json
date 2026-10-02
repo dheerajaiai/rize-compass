@@ -1,5 +1,5 @@
 {
-  "runAt": "2026-10-01T19:19:25.236Z",
+  "runAt": "2026-10-02T08:22:46.001Z",
   "checks": [
     {
       "id": "dpiit_recognitions_by_year:2019",
@@ -44,82 +44,22 @@
       "detail": "parsed 6,385 vs published 6,385"
     },
     {
-      "id": "dpiit_women_by_year:2017",
-      "description": "State/UT-wise DPIIT-recognised startups with at least one woman director/partner, by year of recognition — 2017: sum of parsed state rows equals the published total",
-      "pass": true,
-      "detail": "parsed 1,945 vs published 1,945"
-    },
-    {
-      "id": "dpiit_women_by_year:2018",
-      "description": "State/UT-wise DPIIT-recognised startups with at least one woman director/partner, by year of recognition — 2018: sum of parsed state rows equals the published total",
-      "pass": true,
-      "detail": "parsed 4,165 vs published 4,165"
-    },
-    {
-      "id": "dpiit_women_by_year:2019",
-      "description": "State/UT-wise DPIIT-recognised startups with at least one woman director/partner, by year of recognition — 2019: sum of parsed state rows equals the published total",
-      "pass": true,
-      "detail": "parsed 5,680 vs published 5,680"
-    },
-    {
-      "id": "dpiit_women_by_year:2020",
-      "description": "State/UT-wise DPIIT-recognised startups with at least one woman director/partner, by year of recognition — 2020: sum of parsed state rows equals the published total",
-      "pass": true,
-      "detail": "parsed 6,670 vs published 6,670"
-    },
-    {
-      "id": "dpiit_women_by_year:2021",
-      "description": "State/UT-wise DPIIT-recognised startups with at least one woman director/partner, by year of recognition — 2021: sum of parsed state rows equals the published total",
-      "pass": true,
-      "detail": "parsed 10,199 vs published 10,199"
-    },
-    {
-      "id": "dpiit_women_by_year:2022",
-      "description": "State/UT-wise DPIIT-recognised startups with at least one woman director/partner, by year of recognition — 2022: sum of parsed state rows equals the published total",
-      "pass": true,
-      "detail": "parsed 12,868 vs published 12,868"
-    },
-    {
-      "id": "dpiit_women_by_year:2023",
-      "description": "State/UT-wise DPIIT-recognised startups with at least one woman director/partner, by year of recognition — 2023: sum of parsed state rows equals the published total",
-      "pass": true,
-      "detail": "parsed 17,032 vs published 17,032"
-    },
-    {
-      "id": "dpiit_women_by_year:2024",
-      "description": "State/UT-wise DPIIT-recognised startups with at least one woman director/partner, by year of recognition — 2024: sum of parsed state rows equals the published total",
-      "pass": true,
-      "detail": "parsed 17,414 vs published 17,414"
-    },
-    {
-      "id": "dpiit_women_by_year:2025",
-      "description": "State/UT-wise DPIIT-recognised startups with at least one woman director/partner, by year of recognition — 2025: sum of parsed state rows equals the published total",
-      "pass": true,
-      "detail": "parsed 23,718 vs published 23,718"
-    },
-    {
-      "id": "dpiit_women_by_year:2026",
-      "description": "State/UT-wise DPIIT-recognised startups with at least one woman director/partner, by year of recognition — 2026: sum of parsed state rows equals the published total",
-      "pass": true,
-      "detail": "parsed 2,363 vs published 2,363"
-    },
-    {
-      "id": "dpiit_women_closed:closed",
-      "description": "State/UT-wise closed (dissolved/struck-off) startups with at least one woman director/partner — closed: sum of parsed state rows equals the published total",
-      "pass": true,
-      "detail": "parsed 2,950 vs published 2,950"
-    },
-    {
-      "id": "women_le_total",
-      "description": "Startups with a woman director never exceed total recognitions for the same state and year",
-      "pass": true,
-      "detail": "checked 36 states × 5 years"
-    },
-    {
       "id": "yc_mapping",
       "description": "Indian YC companies in 2019–2023 mapped to a state",
       "pass": true,
       "detail": "172 of 174 mapped (2 unmapped; must be under 5%)"
+    },
+    {
+      "id": "preview_text_matches_data",
+      "description": "The link-preview text in index.html states the same alumni count as the data",
+      "pass": true,
+      "detail": "expects \"12 of the 20 YC companies\" in the description and og:description tags"
+    },
+    {
+      "id": "rize_alumni_matched",
+      "description": "Every company named on the Rize for YC page was found in the YC directory",
+      "pass": true,
+      "detail": "20 of 20 matched"
     }
   ],
   "overallPass": true

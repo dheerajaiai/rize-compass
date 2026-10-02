@@ -1,7 +1,7 @@
 // real.js — the screens built on real, free, public data (data/real.json and
 // data/real_checks.json, produced by server/real/analyze.js). Rendering only:
 // every number shown here was computed server-side by stats.js.
-import { pct, num, confidenceClass, el } from './ui.js';
+import { pct, num, el } from './ui.js';
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
 
@@ -162,71 +162,80 @@ function intervalColumnChart({ rows, format, tipOf }) {
 // ---------------------------------------------------------------------------
 export function renderBrief(state) {
   const real = state.real;
-  const c = el('div', { class: 'brief' });
+  const { rize, landscape } = real;
   const byId = Object.fromEntries(real.decisions.map((d) => [d.id, d]));
-  const conc = real.yc.concentration;
-  const era = real.yc.eraTest;
-  const under = byId.yc_under_tapped;
-  const underState = under && real.yc.states.find((s) => s.key === under.keys[0]);
-  const underGrowth = under && real.market.states.find((s) => s.key === under.keys[0]);
+  const stats = landscape.rizePublicStats;
+  const c = el('div', { class: 'brief' });
 
   c.appendChild(el('div', { class: 'brief-head' }, [
-    el('div', { class: 'brief-kicker' }, 'Brief · Razorpay Rize marketing'),
-    el('h1', {}, 'Where Rize should look for its next founders'),
-    el('p', { class: 'lede' }, `A data brief built only on free, public sources: the government's own state-wise startup tables (DPIIT, via written replies in Parliament) and Y Combinator's public company directory. Every number on this page comes with its uncertainty, and the engine says so when it can't make a call.`),
+    el('div', { class: 'brief-kicker' }, 'A brief for the Razorpay Rize team'),
+    el('h1', {}, 'Rize for YC is doing better than public data shows'),
+    el('p', { class: 'lede' }, `I matched every company on Rize's public alumni wall to Y Combinator's directory. Most of them are filed under San Francisco, not India, so the numbers people quote about "Indian startups in YC" leave out most of what Rize has helped build. This page uses only free public sources, and it says so when the data can't support a call.`),
   ]));
 
   const heroes = el('div', { class: 'hero-grid' });
-  const hero = (value, label, sub, href) => {
-    const h = el('a', { class: 'hero card', href }, [el('div', { class: 'hero-value' }, value), el('div', { class: 'hero-label' }, label), el('div', { class: 'hero-sub' }, sub)]);
-    heroes.appendChild(h);
-  };
-  hero(pct(conc.shareOfAdmits, 0), `of India's YC companies (2019–23) are in ${conc.label}`, `${conc.label} has only ${pct(conc.shareOfRecognitions, 0)} of India's recognised startups. 95% range ${pct(conc.shareOfAdmitsInterval.low, 0)}–${pct(conc.shareOfAdmitsInterval.high, 0)}.`, '#yc');
-  hero(pct(era.late.rate), `India's share of YC, ${era.late.from}–${era.late.to}`, `Down from ${pct(era.early.rate)} in ${era.early.from}–${era.early.to}. Getting Indian founders into YC is much harder than it was.`, '#yc');
-  if (underState && underGrowth) {
-    hero(`${underGrowth.growth.multiple.toFixed(1)}×`, `${underState.label}'s growth in recognised startups, 2019→2023`, `India grew ${real.market.nationalGrowth.toFixed(1)}×. Yet ${underState.label} produced ${underState.admits} YC admit${underState.admits === 1 ? '' : 's'} from ${num(underState.recognitions)} recognised startups.`, '#market');
-  }
+  const hero = (value, label, sub, href) => heroes.appendChild(el('a', { class: 'hero card', href }, [el('div', { class: 'hero-value' }, value), el('div', { class: 'hero-label' }, label), el('div', { class: 'hero-sub' }, sub)]));
+  hero(`${rize.listedInUs} of ${rize.total}`, 'Rize YC alumni are listed as US companies', `${rize.listedInIndia} are listed in India, all in ${rize.indiaStates.map((s) => s.label).join(', ')}. YC's directory records where a company is now, not where its founders started.`, '#yc');
+  hero(`${rize.late.rizeAlumniAmongIndiaListed} of ${rize.late.directoryIndiaListed}`, `India-listed YC companies since ${rize.late.from} are Rize alumni`, `Add the ${rize.late.rizeAlumniListedElsewhere} alumni filed elsewhere and at least ${rize.late.lowerBoundIndiaEcosystemCompanies} came through India, not ${rize.late.directoryIndiaListed}.`, '#yc');
+  hero(`${stats.companyRegistrations}`, 'company registrations on Rize\'s homepage', `Next to ${stats.communityFounders} founders in the community. Whether that gap is by design is the first thing I'd ask.`, '#brief-questions');
   c.appendChild(heroes);
 
-  c.appendChild(el('h2', {}, 'What I would do with this at Rize'));
+  c.appendChild(el('h2', {}, 'What I would bring to the conversation'));
   const actions = el('ol', { class: 'action-list' });
-  for (const id of ['yc_under_tapped', 'yc_concentration', 'growth_shift', 'yc_india_share', 'women_led_gap']) {
+  for (const id of ['rize_alumni_listing', 'yc_concentration', 'yc_under_tapped', 'growth_shift']) {
     const d = byId[id];
     if (!d) continue;
-    actions.appendChild(el('li', {}, [el('strong', {}, d.title + '. '), d.recommendation, ' ', el('a', { href: '#real-decisions' }, 'Evidence →')]));
+    actions.appendChild(el('li', {}, [el('strong', {}, d.title + '. '), d.recommendation, ' ', el('span', { class: `confidence-tag ${strengthClass(d.strength)}` }, d.strength), ' ', el('a', { href: '#real-decisions' }, 'Evidence →')]));
   }
   c.appendChild(actions);
+
+  c.appendChild(el('h2', { id: 'brief-questions' }, 'What I can\'t see from outside'));
+  c.appendChild(el('p', {}, 'Public data stops at Rize\'s front door. These are the questions I would want to ask before recommending anything with money attached.'));
+  const qs = el('ol', { class: 'action-list' });
+  [
+    `Rize's homepage shows ${stats.companyRegistrations} company registrations and ${stats.communityFounders} founders in the community. Is the community meant to be selective, or are founders registering and not coming back?`,
+    'When a Rize founder gets into YC and re-lists in San Francisco, do they stay a Razorpay customer? Stripe Atlas forms US companies for US$500, and that is where these founders end up.',
+    'Which states do Rize for YC applicants come from? The directory shows every India-listed alumnus in Bengaluru, but it can\'t show where they started.',
+    'What will count as success for the Global Readiness Program and Founder-Buddy, and when is the first cohort old enough to judge?',
+  ].forEach((q) => qs.appendChild(el('li', {}, q)));
+  c.appendChild(qs);
 
   c.appendChild(el('h2', {}, 'What the engine refused to call'));
   const refused = el('ul', { class: 'action-list' });
   for (const w of real.withheld) refused.appendChild(el('li', {}, [el('strong', {}, w.title + '. '), w.reason[0]]));
   c.appendChild(refused);
 
-  c.appendChild(el('h2', {}, 'What public data cannot see, and a 90-day plan for what Rize\'s own data would add'));
+  c.appendChild(el('h2', {}, 'If I had Rize\'s own data: a 90-day plan'));
+  c.appendChild(el('p', { class: 'chart-note' }, 'A proposal, not a finding.'));
   const plan = el('div', { class: 'plan-grid' });
   const step = (when, title, body) => plan.appendChild(el('div', { class: 'card plan-step' }, [el('div', { class: 'plan-when' }, when), el('div', { class: 'plan-title' }, title), el('p', {}, body)]));
-  step('Days 1–30', 'Rize coverage by state', 'Divide Rize incorporations and community sign-ups by each state\'s startup base to see where Rize over- or under-indexes. The "Try it on your data" screen already does this in the browser, and nothing leaves the page.');
-  step('Days 31–60', 'Rize for YC: credit the marginal admit', 'Join Rize for YC applications to YC outcomes by state, and report admits from outside Karnataka as the headline number, because those are the ones Rize can most credibly claim.');
-  step('Days 61–90', 'Make GRP and Founder-Buddy readable on a schedule', 'Fix the outcome definition and the window before results arrive, so the first readout is decided in advance and not chosen after the fact. Until then, report them as "too new to call".');
+  step('Days 1–30', 'Own the number', 'Build the per-batch count of Rize-backed and Indian-founder YC companies from Rize\'s application records, and publish it. Nobody else can.');
+  step('Days 31–60', 'Find where Rize under-reaches', 'Compare Rize registrations and community sign-ups by state with each state\'s startup base. The "Try it on your data" screen already does this in the browser.');
+  step('Days 61–90', 'Make new programmes readable', 'Fix the success measure and the waiting period for the Global Readiness Program and Founder-Buddy before results arrive, so the first readout isn\'t chosen after the fact.');
   c.appendChild(plan);
 
   c.appendChild(el('p', { class: 'source-note' }, [
-    'Not a Razorpay product, and contains no Rize data. Method check (synthetic data with planted answers): ',
-    el('a', { href: '#validation' }, 'Validation'),
-    '. Data checks on the public sources: ',
-    el('a', { href: '#integrity' }, 'Data integrity'),
-    '.',
+    'Independent project. Not a Razorpay product, and it contains no internal Rize data. ',
+    el('a', { href: '#about' }, 'Who built this and how'),
+    ' · ',
+    el('a', { href: '#integrity' }, 'Data checks'),
+    ' · ',
+    el('a', { href: '#validation' }, 'How the engine is tested'),
   ]));
   return c;
+}
+
+function strengthClass(strength) {
+  return strength === 'suggestive' ? 'confidence-medium' : 'confidence-high';
 }
 
 // ---------------------------------------------------------------------------
 // Screen: Founder map (where India's startups are, and where they're growing)
 // ---------------------------------------------------------------------------
 export function renderMarket(state) {
-  const { market, women, closure } = state.real;
+  const { market, closure } = state.real;
   const c = el('div');
-  c.appendChild(el('p', { class: 'lede' }, `New DPIIT-recognised startups by state. Growth is 2023 recognitions ÷ 2019 recognitions; the bar is the measured multiple and the whisker is its 95% range. Each state is tested against the rest of India, Holm-corrected across ${market.states.filter((s) => s.test).length} states. States with fewer than 30 recognitions in 2019 aren't tested.`));
+  c.appendChild(el('p', { class: 'lede' }, `New DPIIT-recognised startups by state. Growth is 2023 recognitions ÷ 2019 recognitions. These are complete government counts, not samples, so the question isn't whether a gap is real but what explains it: DPIIT recognition is opt-in, and some states push founders to register. The whisker shows how much the multiple would move from ordinary year-to-year noise. States with fewer than 30 recognitions in 2019 are left out.`));
 
   const tested = market.states.filter((s) => s.growth).sort((a, b) => b.growth.multiple - a.growth.multiple);
   const card = el('div', { class: 'card' }, [el('h3', {}, 'Growth in recognised startups, 2019 → 2023')]);
@@ -240,9 +249,9 @@ export function renderMarket(state) {
     referenceLabel: `India ${market.nationalGrowth.toFixed(1)}×`,
     format: (v) => `${v.toFixed(1)}×`,
     mutedOf: (s) => !s.test.significant,
-    tipOf: (s) => `<strong>${s.label}</strong><br>${num(s.byYear['2019'])} → ${num(s.byYear['2023'])} recognitions<br>${s.growth.multiple.toFixed(1)}× (95%: ${s.growth.low.toFixed(1)}–${s.growth.high.toFixed(1)}×)<br>${s.test.significant ? 'Differs from rest of India after Holm correction' : 'Not distinguishable from rest of India'}`,
+    tipOf: (s) => `<strong>${s.label}</strong><br>${num(s.byYear['2019'])} → ${num(s.byYear['2023'])} recognitions<br>${s.growth.multiple.toFixed(1)}× (95%: ${s.growth.low.toFixed(1)}–${s.growth.high.toFixed(1)}×)<br>${s.test.significant ? 'Clearly different from the rest of India' : 'Within noise of the rest of India'}`,
   }));
-  card.appendChild(el('p', { class: 'chart-note' }, 'Faded bars: not statistically different from the rest of India.'));
+  card.appendChild(el('p', { class: 'chart-note' }, 'Faded bars: within noise of the rest of India.'));
   c.appendChild(card);
 
   c.appendChild(el('div', { class: 'card' }, [
@@ -256,15 +265,6 @@ export function renderMarket(state) {
       sigTag(s.test),
     ])),
     sourceNote(state.real, ['dpiit_recognitions_by_year']),
-  ]));
-
-  c.appendChild(el('div', { class: 'card' }, [
-    el('h3', {}, 'Startups with at least one woman director or partner, 2019–2023'),
-    el('p', { class: 'chart-note' }, `About ${pct(women.national.rate, 0)} nationally. This counts companies with a woman director, which is not the same as woman-founded.`),
-    table(['State', 'With a woman director', 'Recognised', 'Share (95%)', 'vs rest'], women.states.map((s) => [
-      s.label, num(s.womenLed), num(s.recognised), `${pct(s.rate)} (${pct(s.low)}–${pct(s.high)})`, sigTag(s.test),
-    ])),
-    sourceNote(state.real, ['dpiit_women_by_year', 'dpiit_recognitions_by_year']),
   ]));
 
   c.appendChild(el('div', { class: 'card' }, [
@@ -284,7 +284,19 @@ export function renderMarket(state) {
 export function renderYc(state) {
   const { yc } = state.real;
   const c = el('div');
-  c.appendChild(el('p', { class: 'lede' }, `${yc.totalIndiaCompanies} YC companies list India as a region. These are matched to the government's startup counts by state. That gives an index of how strongly each state's founders reach YC, not a tracked conversion rate: the two lists are different populations, and founders often move to Bengaluru before they apply.`));
+  c.appendChild(el('p', { class: 'lede' }, `${yc.totalIndiaCompanies} YC companies list India as their location. That is not the same as Indian-founder companies, as Rize's own alumni show below.`));
+
+  const { rize } = state.real;
+  c.appendChild(el('div', { class: 'card' }, [
+    el('h3', {}, `Rize's YC alumni, and where YC's directory lists them`),
+    el('p', { class: 'chart-note' }, `${rize.listedInUs} listed in the USA, ${rize.listedInIndia} in India, ${rize.noLocation} with no location. ${rize.total} companies is below the minimum sample of 30, so counts are shown and no percentage is claimed. Names are from Rize's public page; several companies have renamed since.`),
+    table(['Named by Rize', 'In YC directory as', 'Batch', 'Listed in', 'Status'], rize.alumni.map((a) => [
+      a.name, a.ycName, a.batch,
+      a.listedInIndia ? el('span', { class: 'pill pill-green' }, 'India') : el('span', { class: 'pill pill-muted' }, a.listedCountry || 'not stated'),
+      a.status,
+    ])),
+    sourceNote(state.real, ['rize_yc_alumni', 'yc_india']),
+  ]));
 
   const share = el('div', { class: 'card' }, [el('h3', {}, 'India\'s share of each year\'s YC companies')]);
   share.appendChild(intervalColumnChart({
@@ -292,7 +304,7 @@ export function renderYc(state) {
     format: (v) => pct(v, 0),
     tipOf: (r) => `<strong>${r.year}</strong><br>${r.india} of ${num(r.total)} YC companies were Indian<br>${pct(r.rate)} (95%: ${pct(r.low)}–${pct(r.high)})`,
   }));
-  share.appendChild(el('p', { class: 'chart-note' }, `Whiskers show the 95% range. ${yc.eraTest.early.from}–${yc.eraTest.early.to}: ${pct(yc.eraTest.early.rate)}; ${yc.eraTest.late.from}–${yc.eraTest.late.to}: ${pct(yc.eraTest.late.rate)}. The split year was chosen after looking at the series, so the significance test is descriptive.`));
+  share.appendChild(el('p', { class: 'chart-note' }, `Whiskers show the 95% range. ${yc.eraTest.early.from}–${yc.eraTest.early.to}: ${pct(yc.eraTest.early.rate)}; ${yc.eraTest.late.from}–${yc.eraTest.late.to}: ${pct(yc.eraTest.late.rate)}. This counts companies that list India as their location. Most Rize alumni don't, so the real fall is smaller than this chart shows.`));
   share.appendChild(table(['Year', 'Indian', 'All YC', 'Share (95%)'], yc.shareByYear.map((r) => [String(r.year), String(r.india), num(r.total), r.insufficientData ? 'insufficient data' : `${pct(r.rate)} (${pct(r.low)}–${pct(r.high)})`])));
   c.appendChild(share);
 
@@ -324,16 +336,16 @@ export function renderYc(state) {
 export function renderRealDecisions(state) {
   const { decisions, withheld, thresholds } = state.real;
   const c = el('div');
-  c.appendChild(el('p', { class: 'lede' }, `Each card passed a Holm-corrected significance test across its whole comparison family and cleared a minimum size bar: ${thresholds.minShareGap * 100} percentage points for shares, or ${thresholds.minRateRatio}× for rare events. The calls the engine refused to make are listed below the cards, with the reason.`));
+  c.appendChild(el('p', { class: 'lede' }, `Each card is labelled by the kind of evidence behind it. "Direct observation" is a count anyone can check. "Clear pattern" is a large gap that survives the obvious objections. "Suggestive" means the gap is real but something else could explain it, and the card says what. A gap only counts if it is at least ${thresholds.minShareGap * 100} percentage points (for shares) or ${thresholds.minRateRatio}× (for rare events). The calls the engine refused to make follow the cards.`));
   for (const card of decisions) {
     const dc = el('div', { class: 'card decision-card' });
     dc.appendChild(el('div', { style: 'display:flex;justify-content:space-between;align-items:flex-start;gap:12px' }, [
       el('div', { class: 'dc-title' }, card.title),
-      el('span', { class: `confidence-tag ${confidenceClass(card.confidence)}` }, card.confidence),
+      el('span', { class: `confidence-tag ${strengthClass(card.strength)}`, style: 'white-space:nowrap' }, card.strength),
     ]));
     dc.appendChild(el('div', { class: 'dc-rec' }, card.recommendation));
-    dc.appendChild(el('div', { class: 'dc-section-label' }, 'Impact range (95%)'));
-    dc.appendChild(el('p', { style: 'margin:0;font-size:13px' }, `${card.impactRange.label}: ${card.impactRange.low} – ${card.impactRange.high} (vs. ${card.impactRange.vsPool})`));
+    dc.appendChild(el('div', { class: 'dc-section-label' }, card.metric.label));
+    dc.appendChild(el('p', { style: 'margin:0;font-size:13px' }, `${card.metric.value} (${card.metric.comparison})`));
     dc.appendChild(el('div', { class: 'dc-section-label' }, 'Evidence'));
     const ul = el('ul');
     for (const e of card.evidence) ul.appendChild(el('li', {}, e));
@@ -349,13 +361,43 @@ export function renderRealDecisions(state) {
       const wc = el('div', { class: 'card withheld-card' });
       wc.appendChild(el('div', { style: 'display:flex;justify-content:space-between;gap:12px' }, [el('div', { class: 'dc-title' }, w.title), el('span', { class: 'pill pill-muted' }, 'withheld')]));
       const ul = el('ul');
-      for (const r of w.reason) ul.appendChild(el('li', {}, r));
+      for (const reason of w.reason) ul.appendChild(el('li', {}, reason));
       wc.appendChild(ul);
       wc.appendChild(el('div', { class: 'dc-section-label' }, 'What would settle it'));
       wc.appendChild(el('p', { style: 'margin:0;font-size:13px' }, w.whatWouldSettleIt));
       c.appendChild(wc);
     }
   }
+  return c;
+}
+
+// ---------------------------------------------------------------------------
+// Screen: Landscape
+// ---------------------------------------------------------------------------
+export function renderLandscape(state) {
+  const { landscape } = state.real;
+  const c = el('div');
+  c.appendChild(el('p', { class: 'lede' }, `The programmes an early-stage Indian founder is likely to weigh against Rize, from each one's public pages (compiled ${landscape.compiledOn}). Credit amounts change often; each card says how it was checked.`));
+  const grid = el('div', { class: 'programme-grid' });
+  for (const p of landscape.programmes) {
+    grid.appendChild(el('div', { class: 'card programme' }, [
+      el('div', { class: 'plan-when' }, p.by),
+      el('h3', {}, el('a', { href: p.url, target: '_blank', rel: 'noopener' }, p.name)),
+      el('span', { class: p.kind === 'credits' ? 'pill pill-muted' : 'pill pill-blue' }, `Leads with: ${p.leadOffer}`),
+      el('p', {}, p.detail),
+      el('dl', {}, [
+        el('dt', {}, 'Who can get in'), el('dd', {}, p.entryBar),
+        el('dt', {}, 'Meets the founder'), el('dd', {}, p.meetsFounder),
+        el('dt', {}, 'Checked against'), el('dd', {}, p.verified),
+      ]),
+    ]));
+  }
+  c.appendChild(grid);
+  c.appendChild(el('div', { class: 'card' }, [
+    el('h3', {}, 'My read'),
+    el('p', { class: 'chart-note' }, 'Opinion, not data.'),
+    el('ul', { class: 'action-list' }, landscape.read.map((x) => el('li', {}, x))),
+  ]));
   return c;
 }
 
@@ -374,7 +416,7 @@ export function renderIntegrity(state) {
   c.appendChild(el('div', { class: 'card' }, [
     el('h3', {}, 'Sources (all free and public)'),
     table(['Dataset', 'Published by', 'Data as of', 'Snapshot taken'], real.sources.map((s) => [
-      el('a', { href: s.url, target: '_blank', rel: 'noopener' }, s.title), s.release, s.asOf || '—', s.fetchedAt.slice(0, 10),
+      s.url ? el('a', { href: s.url, target: '_blank', rel: 'noopener' }, s.title) : s.title, s.release, s.asOf || '—', s.fetchedAt.slice(0, 10),
     ])),
     el('p', { class: 'chart-note' }, 'Snapshots are committed to the repository (sources/), so anyone can rebuild these exact numbers. Run `npm run fetch` to refresh them.'),
   ]));

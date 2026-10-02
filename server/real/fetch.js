@@ -46,24 +46,6 @@ const PIB_TABLES = [
     asOf: '2025-11-11',
     columns: ['closed'],
   },
-  {
-    id: 'dpiit_women_by_year',
-    prid: '2241313',
-    annexure: 'I',
-    title: 'State/UT-wise DPIIT-recognised startups with at least one woman director/partner, by year of recognition',
-    release: 'PIB, Ministry of Commerce & Industry, written reply in Lok Sabha, Feb 2026',
-    asOf: '2026-01-31',
-    columns: ['2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026'],
-  },
-  {
-    id: 'dpiit_women_closed',
-    prid: '2241313',
-    annexure: 'II',
-    title: 'State/UT-wise closed (dissolved/struck-off) startups with at least one woman director/partner',
-    release: 'PIB, Ministry of Commerce & Industry, written reply in Lok Sabha, Feb 2026',
-    asOf: '2026-01-31',
-    columns: ['closed'],
-  },
 ];
 
 const YC_URL = 'https://yc-oss.github.io/api/companies/all.json';
@@ -160,8 +142,7 @@ async function snapshotPib() {
   }
 }
 
-async function snapshotYc() {
-  const all = JSON.parse(await get(YC_URL));
+async function snapshotYc(all) {
   const batchTotals = {};
   for (const c of all) batchTotals[c.batch] = (batchTotals[c.batch] || 0) + 1;
 
@@ -195,6 +176,78 @@ async function snapshotYc() {
   console.log(`yc_india: ${india.length} of ${all.length} companies, ${india.filter((c) => !c.state).length} without a mappable state`);
 }
 
+const RIZE_YC_URL = 'https://razorpay.com/rize/ycombinator/';
+const BATCH_CODES = { W: 'Winter', S: 'Summer', F: 'Fall', P: 'Spring', X: 'Spring' };
+
+function normaliseName(name) {
+  return name.toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+// Rize names its YC alumni on its public "Rize for YC" page as "Name (YC W24)".
+// Each is matched to the YC directory by current or former name (several have
+// renamed since), and by batch where the page gives one.
+async function snapshotRizeAlumni(all) {
+  const html = await get(RIZE_YC_URL);
+  const text = html
+    .replace(/<(script|style)[\s\S]*?<\/\1>/g, ' ')
+    .replace(/<[^>]+>/g, '|')
+    .replace(/&amp;/g, '&')
+    .replace(/\s+/g, ' ');
+  const tokens = text.split('|').map((t) => t.trim()).filter(Boolean);
+
+  const named = new Map();
+  for (const t of tokens) {
+    const m = /^(.+?)\s*\(YC ([WSFPX])(\d{2})\)$/.exec(t);
+    if (m) named.set(normaliseName(m[1]), { name: m[1].trim(), batch: `${BATCH_CODES[m[2]]} 20${m[3]}` });
+  }
+  // Alumni shown without a batch label: a token in the same alumni block that is
+  // exactly a YC company name.
+  const first = tokens.findIndex((t) => /\(YC [WSFPX]\d{2}\)$/.test(t));
+  const last = tokens.findLastIndex((t) => /\(YC [WSFPX]\d{2}\)$/.test(t));
+  const ycNames = new Map(all.map((c) => [normaliseName(c.name), c]));
+  for (const t of tokens.slice(first, last + 4)) {
+    const k = normaliseName(t);
+    if (k.length > 6 && ycNames.has(k) && !named.has(k)) named.set(k, { name: t, batch: null });
+  }
+
+  const stripAi = (k) => k.replace(/ai$/, '');
+  const alumni = [...named.values()].map((a) => {
+    const k = normaliseName(a.name);
+    const match = all.find((c) => {
+      if (a.batch && c.batch !== a.batch) return false;
+      const names = [c.name, ...(c.former_names || [])].map(normaliseName);
+      return names.some((n) => n === k || stripAi(n) === stripAi(k));
+    });
+    if (!match) return { ...a, matched: false };
+    const locations = (match.all_locations || '').split(';').map((x) => x.trim()).filter(Boolean);
+    const first = locations.find((l) => l !== 'Remote') || null;
+    const country = first ? first.split(',').pop().trim() : null;
+    return {
+      ...a,
+      matched: true,
+      ycName: match.name,
+      batch: match.batch,
+      status: match.status,
+      locations,
+      listedCountry: country,
+      state: first && /India$/.test(first) ? stateKeyFromYcLocation(first) : null,
+    };
+  });
+
+  const file = {
+    id: 'rize_yc_alumni',
+    title: 'YC companies named as alumni on the Rize for YC page',
+    release: 'razorpay.com/rize/ycombinator (public page), matched to the yc-oss YC directory',
+    url: RIZE_YC_URL,
+    fetchedAt: new Date().toISOString(),
+    alumni,
+  };
+  fs.writeFileSync(path.join(SOURCES_DIR, 'rize_yc_alumni.json'), JSON.stringify(file, null, 2));
+  console.log(`rize_yc_alumni: ${alumni.length} named, ${alumni.filter((a) => a.matched).length} matched to the YC directory`);
+}
+
 fs.mkdirSync(SOURCES_DIR, { recursive: true });
 await snapshotPib();
-await snapshotYc();
+const allYc = JSON.parse(await get(YC_URL));
+await snapshotYc(allYc);
+await snapshotRizeAlumni(allYc);

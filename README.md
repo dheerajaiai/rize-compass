@@ -2,32 +2,47 @@
 
 **Live: https://dheerajaiai.github.io/rize-compass/**
 
-A statistically careful decision-support tool for the question a startup programme's marketing
-team keeps facing: *where should we look for our next founders?* Built independently after the
-Razorpay Rize x Replit Buildathon (Sept 19, 2026). **Not a Razorpay product. Contains no Rize data.**
+An independent data brief on Razorpay Rize, built after the Razorpay Rize x Replit Buildathon
+(Sept 19, 2026). **Not a Razorpay product. Contains no internal Rize data.**
 
-## Two halves
+**The main finding:** of the 20 YC companies named on Rize's public alumni wall, 12 are listed in
+Y Combinator's directory as US companies and 7 as Indian. The directory records where a company is
+now, so "India's share of YC" understates what Rize for YC has produced.
 
-**Real public data** (Brief, Founder Map, YC Pipeline, Decisions, Data Integrity). All sources are free:
+## What's in it
 
-| Snapshot (`sources/`) | Source |
-|---|---|
-| DPIIT-recognised startups by state, 2019–2023 | [PIB 2002100](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2002100), Lok Sabha reply, Feb 2024 |
-| Cumulative recognitions by state (Jun 2024) | [PIB 2037579](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2037579) |
-| Closed (struck-off) recognised startups by state (Nov 2025) | [PIB 2197662](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2197662) |
-| Startups with a woman director/partner, by state × year | [PIB 2241313](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2241313) |
-| Y Combinator companies with an Indian region | [yc-oss public API](https://yc-oss.github.io/api/companies/all.json) |
+| Screen | What it shows | Data |
+|---|---|---|
+| Brief | The finding, what I'd ask Rize, a 90-day plan | Rize public pages, YC directory |
+| Rize for YC | Each alumnus matched to the YC directory; India's listed share by year | Same |
+| Founder Map | Startup recognitions by state, 2019–2023 | DPIIT tables (Parliament replies via PIB) |
+| Decisions | Findings labelled by strength of evidence, plus the calls the engine refused to make | All of the above |
+| Landscape | Programmes a founder would compare with Rize | Each programme's public pages |
+| Try It on Your Data | Paste counts by state; runs `stats.js` in the browser, nothing uploaded | Yours |
+| How It's Tested | A made-up funnel with planted answers the engine must recover | Synthetic |
+| Data Integrity | Parsed tables vs the totals the government printed | Build checks |
 
-`npm run fetch` re-downloads and re-parses them from the government's HTML tables. The build itself
-never touches the network. Every parsed table must add up exactly to the total the government
-printed, or the build fails (`data/real_checks.json`).
+## Sources (all free, snapshotted in `sources/`)
 
-**Method check** (synthetic: Funnel, Programs, Shrinkage Lab, Decisions, Validation). Real data has
-no answer key, so a generated founder funnel with six planted findings proves that the engine
-recovers what was planted and finds nothing in shuffled labels (`data/validation_result.json`).
+- [Rize for YC page](https://razorpay.com/rize/ycombinator/) (alumni names) and [Rize homepage](https://razorpay.com/rize/)
+- [yc-oss public mirror of the YC directory](https://yc-oss.github.io/api/companies/all.json)
+- DPIIT state tables from PIB: [recognitions 2019–2023](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2002100),
+  [cumulative Jun 2024](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2037579),
+  [closures Nov 2025](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2197662)
+- `sources/landscape.json`: compiled by hand from programme pages, with a source and a verification note per row
 
-**Try it on your data** runs the same `server/stats.js` in the browser on counts by state that you
-paste, and shows where you over- or under-index against the national startup base. Nothing is uploaded.
+`npm run fetch` re-downloads and re-parses everything except the landscape file. The build never
+touches the network.
+
+## How it handles evidence
+
+- Under 30 observations: counts only, no percentage.
+- Where sampling is real (YC company counts): rates carry a Wilson 95% interval.
+- The DPIIT tables are complete counts, so a statistical test there only screens out noise. Findings
+  from them are labelled by what else could explain the gap.
+- A difference that can't be separated from a confounder is withheld, with the reason.
+- The build fails if a parsed table doesn't match its published total, if an alumnus can't be found
+  in the YC directory, or if the synthetic test doesn't recover its planted answers.
 
 ## Architecture
 

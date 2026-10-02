@@ -3,8 +3,8 @@
   "title": "Y Combinator companies with an Indian region",
   "release": "yc-oss public mirror of the YC company directory",
   "url": "https://yc-oss.github.io/api/companies/all.json",
-  "fetchedAt": "2026-10-01T19:11:32.884Z",
-  "totalCompanies": 6268,
+  "fetchedAt": "2026-10-02T08:16:27.130Z",
+  "totalCompanies": 6267,
   "batchTotals": {
     "Winter 2012": 66,
     "Unspecified": 1,
@@ -49,7 +49,7 @@
     "Winter 2026": 198,
     "Winter 2024": 248,
     "Winter 2025": 165,
-    "Spring 2026": 194,
+    "Spring 2026": 193,
     "Summer 2024": 248,
     "Fall 2024": 94,
     "Spring 2025": 144,
@@ -1759,6 +1759,7 @@
       "status": "Active",
       "industry": "Industrials",
       "locations": [
+        "Berlin, Berlin, Germany",
         "Delhi, DL, India"
       ],
       "state": "DL"

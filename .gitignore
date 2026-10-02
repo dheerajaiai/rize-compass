@@ -1,5 +1,6 @@
 # Private handover notes — never publish.
 KT.md
+private/
 
 node_modules/
 dist/

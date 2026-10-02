@@ -1,0 +1,249 @@
+{
+  "id": "rize_yc_alumni",
+  "title": "YC companies named as alumni on the Rize for YC page",
+  "release": "razorpay.com/rize/ycombinator (public page), matched to the yc-oss YC directory",
+  "url": "https://razorpay.com/rize/ycombinator/",
+  "fetchedAt": "2026-10-02T08:16:27.379Z",
+  "alumni": [
+    {
+      "name": "Pipeshift",
+      "batch": "Summer 2024",
+      "matched": true,
+      "ycName": "Pipeshift",
+      "status": "Active",
+      "locations": [
+        "San Francisco, CA, USA"
+      ],
+      "listedCountry": "USA",
+      "state": null
+    },
+    {
+      "name": "Ressl AI",
+      "batch": "Winter 2026",
+      "matched": true,
+      "ycName": "Ressl AI",
+      "status": "Active",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "listedCountry": "India",
+      "state": "KA"
+    },
+    {
+      "name": "Skillsync",
+      "batch": "Winter 2026",
+      "matched": true,
+      "ycName": "Skillsync",
+      "status": "Active",
+      "locations": [
+        "San Francisco, CA, USA"
+      ],
+      "listedCountry": "USA",
+      "state": null
+    },
+    {
+      "name": "Unsiloed AI",
+      "batch": "Fall 2025",
+      "matched": true,
+      "ycName": "Unsiloed AI",
+      "status": "Active",
+      "locations": [
+        "San Francisco, CA, USA"
+      ],
+      "listedCountry": "USA",
+      "state": null
+    },
+    {
+      "name": "Redapto",
+      "batch": "Fall 2025",
+      "matched": true,
+      "ycName": "Redapto",
+      "status": "Active",
+      "locations": [
+        "San Francisco, CA, USA"
+      ],
+      "listedCountry": "USA",
+      "state": null
+    },
+    {
+      "name": "Tensorfuse",
+      "batch": "Winter 2024",
+      "matched": true,
+      "ycName": "Whip",
+      "status": "Active",
+      "locations": [
+        "San Francisco, CA, USA"
+      ],
+      "listedCountry": "USA",
+      "state": null
+    },
+    {
+      "name": "Ragas",
+      "batch": "Winter 2024",
+      "matched": true,
+      "ycName": "Vibrant Labs",
+      "status": "Active",
+      "locations": [
+        "San Francisco, CA, USA",
+        "Remote"
+      ],
+      "listedCountry": "USA",
+      "state": null
+    },
+    {
+      "name": "CodeAnt",
+      "batch": "Winter 2024",
+      "matched": true,
+      "ycName": "CodeAnt AI",
+      "status": "Active",
+      "locations": [
+        "San Francisco, CA, USA"
+      ],
+      "listedCountry": "USA",
+      "state": null
+    },
+    {
+      "name": "Crustdata",
+      "batch": "Fall 2024",
+      "matched": true,
+      "ycName": "Crustdata",
+      "status": "Active",
+      "locations": [],
+      "listedCountry": null,
+      "state": null
+    },
+    {
+      "name": "Giga ML",
+      "batch": "Summer 2023",
+      "matched": true,
+      "ycName": "Giga",
+      "status": "Active",
+      "locations": [
+        "San Francisco, CA, USA"
+      ],
+      "listedCountry": "USA",
+      "state": null
+    },
+    {
+      "name": "Backdrop",
+      "batch": "Winter 2023",
+      "matched": true,
+      "ycName": "Backdrop",
+      "status": "Active",
+      "locations": [
+        "Seattle, WA, USA"
+      ],
+      "listedCountry": "USA",
+      "state": null
+    },
+    {
+      "name": "SuperKalam",
+      "batch": "Winter 2023",
+      "matched": true,
+      "ycName": "SuperKalam",
+      "status": "Active",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "listedCountry": "India",
+      "state": "KA"
+    },
+    {
+      "name": "Retape",
+      "batch": "Winter 2023",
+      "matched": true,
+      "ycName": "Retape",
+      "status": "Active",
+      "locations": [
+        "Bengaluru, KA, India",
+        "Remote"
+      ],
+      "listedCountry": "India",
+      "state": "KA"
+    },
+    {
+      "name": "SuperAPI",
+      "batch": "Winter 2023",
+      "matched": true,
+      "ycName": "SuperAPI",
+      "status": "Active",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "listedCountry": "India",
+      "state": "KA"
+    },
+    {
+      "name": "Shelf",
+      "batch": "Summer 2022",
+      "matched": true,
+      "ycName": "FlatX",
+      "status": "Active",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "listedCountry": "India",
+      "state": "KA"
+    },
+    {
+      "name": "Truffle AI",
+      "batch": "Winter 2025",
+      "matched": true,
+      "ycName": "Dexto",
+      "status": "Active",
+      "locations": [
+        "San Francisco, CA, USA"
+      ],
+      "listedCountry": "USA",
+      "state": null
+    },
+    {
+      "name": "Bolna",
+      "batch": "Fall 2025",
+      "matched": true,
+      "ycName": "Bolna AI",
+      "status": "Active",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "listedCountry": "India",
+      "state": "KA"
+    },
+    {
+      "name": "ProjectX",
+      "batch": "Spring 2026",
+      "matched": true,
+      "ycName": "ProjectX",
+      "status": "Active",
+      "locations": [
+        "San Francisco, CA, USA"
+      ],
+      "listedCountry": "USA",
+      "state": null
+    },
+    {
+      "name": "Aktoria Robotics",
+      "batch": "Summer 2026",
+      "matched": true,
+      "ycName": "Aktoria Robotics",
+      "status": "Active",
+      "locations": [
+        "San Francisco, CA, USA"
+      ],
+      "listedCountry": "USA",
+      "state": null
+    },
+    {
+      "name": "Antropi Robotics",
+      "batch": "Fall 2026",
+      "matched": true,
+      "ycName": "Antropi Robotics",
+      "status": "Active",
+      "locations": [
+        "Bengaluru, KA, India"
+      ],
+      "listedCountry": "India",
+      "state": "KA"
+    }
+  ]
+}

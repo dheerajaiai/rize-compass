@@ -1,0 +1,84 @@
+{
+  "id": "landscape",
+  "title": "Founder programmes an early-stage Indian founder is likely to compare",
+  "release": "Compiled by hand from each programme's public pages",
+  "compiledOn": "2026-10-02",
+  "rizePublicStats": {
+    "url": "https://razorpay.com/rize/",
+    "communityFounders": "1,750+",
+    "companyRegistrations": "14,950+"
+  },
+  "programmes": [
+    {
+      "name": "Razorpay Rize",
+      "by": "Razorpay (payments)",
+      "leadOffer": "Company registration, founder communities and YC application help",
+      "detail": "Registration for Pvt Ltd, LLP and OPC. Three communities: Tech+, D2C+, Xport+. Rize for YC (application reviews, mock interviews), Pitch Perfect, Razorpay Ventures.",
+      "entryBar": "Open to early-stage founders in India",
+      "meetsFounder": "Before the company exists",
+      "kind": "services",
+      "url": "https://razorpay.com/rize/",
+      "verified": "official page"
+    },
+    {
+      "name": "Stripe Atlas",
+      "by": "Stripe (payments)",
+      "leadOffer": "US company formation for US$500",
+      "detail": "Delaware C corporation or LLC, tax ID, founder equity paperwork, $2,500 in Stripe credits. US$100 a year after the first year.",
+      "entryBar": "Anyone, including founders outside the US",
+      "meetsFounder": "Before the company exists",
+      "kind": "services",
+      "url": "https://stripe.com/atlas",
+      "verified": "official page"
+    },
+    {
+      "name": "AWS Activate",
+      "by": "Amazon Web Services (cloud)",
+      "leadOffer": "Cloud credits",
+      "detail": "Founders tier: starts at $1,000, up to $5,000, for self-funded startups. Portfolio tier: up to $200,000, needs an ID from an accelerator, investor or other Activate Provider.",
+      "entryBar": "Low for the small tier; a backer for the large one",
+      "meetsFounder": "After there is a product to host",
+      "kind": "credits",
+      "url": "https://aws.amazon.com/startups/credits",
+      "verified": "official page"
+    },
+    {
+      "name": "Google for Startups Cloud Program",
+      "by": "Google Cloud (cloud)",
+      "leadOffer": "Cloud credits",
+      "detail": "Reported as up to $2,000 for unfunded startups and up to $200,000 over two years for startups with institutional funding.",
+      "entryBar": "Low for the small tier; institutional funding for the large one",
+      "meetsFounder": "After there is a product to host",
+      "kind": "credits",
+      "url": "https://cloud.google.com/startup/benefits",
+      "verified": "secondary sources"
+    },
+    {
+      "name": "Microsoft for Startups",
+      "by": "Microsoft (cloud)",
+      "leadOffer": "Azure credits",
+      "detail": "Open to private companies building a software product; no investor needed to join. Larger credit tiers are reported to need funding, customers or an accelerator.",
+      "entryBar": "Low to join; traction for larger tiers",
+      "meetsFounder": "After there is a product to host",
+      "kind": "credits",
+      "url": "https://learn.microsoft.com/en-us/startups/microsoft-for-startups/overview",
+      "verified": "official page for eligibility; secondary sources for tiers"
+    },
+    {
+      "name": "Zoho for Startups",
+      "by": "Zoho (business software)",
+      "leadOffer": "Zoho Wallet credits",
+      "detail": "Reported as ₹1 lakh on approval plus ₹86,000 for hosting email with Zoho; up to ₹3 lakh for DPIIT-recognised startups. For new Zoho users only.",
+      "entryBar": "DPIIT recognition or a partner incubator",
+      "meetsFounder": "After the company is registered",
+      "kind": "credits",
+      "url": "https://zoho.com/startups/founders-registration.html",
+      "verified": "secondary sources, including the Startup India partner page"
+    }
+  ],
+  "read": [
+    "Four of the six lead with credits. Credits are easy to compare and easy to match, so those programmes compete on the size of the number.",
+    "Rize and Stripe Atlas are the two that meet a founder before the company exists, and both are run by payments companies. Atlas forms US companies; Rize forms Indian ones.",
+    "That makes the first finding on this site a business question as well as a data one: Rize's most successful YC founders end up listed in San Francisco, which is where Atlas operates."
+  ]
+}

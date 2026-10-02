@@ -9,7 +9,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { MIN_N, wilsonInterval, empiricalBayesShrink, twoProportionTest, testEntitiesVsRest } from '../stats.js';
+import { MIN_N, wilsonInterval, rateWithMinN, empiricalBayesShrink, twoProportionTest, testEntitiesVsRest } from '../stats.js';
 import { stateLabel } from './states.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -34,17 +34,6 @@ function load(id) {
 
 function sum(xs) {
   return xs.reduce((a, b) => a + b, 0);
-}
-
-function formatP(p) {
-  return p < 1e-15 ? 'p < 1e-15' : `p = ${p.toExponential(2)}`;
-}
-
-function confidenceLabel(p, adjustedAlpha) {
-  if (p >= adjustedAlpha) return 'not significant';
-  if (p < adjustedAlpha / 10) return 'high';
-  if (p < adjustedAlpha / 2) return 'medium';
-  return 'low (exploratory)';
 }
 
 function notableShare(t) {
@@ -287,71 +276,115 @@ function buildClosure(cum, closed, market) {
 }
 
 // ---------------------------------------------------------------------------
-// Women-led share (startups with at least one woman director/partner)
+// Rize for YC alumni: where does YC's directory list them?
 // ---------------------------------------------------------------------------
-function buildWomen(women, market) {
-  const womenByKey = new Map(women.rows.map((r) => [r.key, r]));
-  const entities = market.states
-    .filter((s) => s.total >= MIN_N)
-    .map((s) => {
-      const w = womenByKey.get(s.key);
-      return { key: s.key, label: s.label, successes: w ? sum(WINDOW.map((y) => w[y])) : 0, n: s.total };
-    });
-  const tests = testEntitiesVsRest(entities, (e) => ({ successes: e.successes, n: e.n }));
-  const states = tests
-    .map((t) => ({
-      key: t.key,
-      label: t.label,
-      womenLed: t.successes,
-      recognised: t.n,
-      ...wilsonInterval(t.successes, t.n),
-      test: { rate: t.rate, poolRate: t.poolRate, effectSize: t.effectSize, p: t.p, adjustedAlpha: t.adjustedAlpha, significant: t.significant },
-    }))
-    .sort((a, b) => b.recognised - a.recognised);
-  const nationalWomen = sum(entities.map((e) => e.successes));
-  const nationalAll = sum(entities.map((e) => e.n));
-  return { window: WINDOW, national: wilsonInterval(nationalWomen, nationalAll), states, tests };
+function buildRize(rize, yc) {
+  const alumni = rize.alumni.filter((a) => a.matched).map((a) => ({ ...a, year: batchYear(a.batch), listedInIndia: a.listedCountry === 'India' }));
+  const total = alumni.length;
+  const inIndia = alumni.filter((a) => a.listedInIndia);
+  const inUs = alumni.filter((a) => a.listedCountry === 'USA');
+  const late = yc.eraTest.late;
+  const lateAlumni = alumni.filter((a) => a.year >= late.from && a.year <= late.to);
+  const lateInIndia = lateAlumni.filter((a) => a.listedInIndia);
+  const lateElsewhere = lateAlumni.filter((a) => !a.listedInIndia);
+  return {
+    named: rize.alumni.length,
+    total,
+    listedInIndia: inIndia.length,
+    listedInUs: inUs.length,
+    noLocation: total - inIndia.length - inUs.length,
+    // n is below the minimum sample, so this comes back flagged and the UI shows counts only.
+    shareListedOutsideIndia: rateWithMinN(total - inIndia.length, total),
+    active: alumni.filter((a) => a.status === 'Active').length,
+    indiaStates: [...new Set(inIndia.map((a) => a.state).filter(Boolean))].map((k) => ({ key: k, label: stateLabel(k) })),
+    late: {
+      from: late.from,
+      to: late.to,
+      directoryIndiaListed: late.india,
+      rizeAlumniAmongIndiaListed: lateInIndia.length,
+      rizeAlumniListedElsewhere: lateElsewhere.length,
+      // Directory count plus Rize alumni the directory files under another country.
+      lowerBoundIndiaEcosystemCompanies: late.india + lateElsewhere.length,
+    },
+    alumni: alumni
+      .map(({ name, ycName, batch, year, listedCountry, listedInIndia, state, status }) => ({ name, ycName, batch, year, listedCountry, listedInIndia, state, status }))
+      .sort((a, b) => a.year - b.year || a.name.localeCompare(b.name)),
+  };
 }
 
 // ---------------------------------------------------------------------------
 // Decision cards (and the calls the engine refuses to make)
+//
+// Each card carries a `strength`, set by what kind of evidence it rests on, not
+// by a p-value. The DPIIT tables are complete counts with thousands of startups
+// per state, so almost any gap passes a significance test; the Holm-corrected
+// test is only a noise screen there. What limits those findings is confounding,
+// and the strength label says so.
 // ---------------------------------------------------------------------------
-function buildDecisions(market, yc, closure, women) {
+const STRENGTH = {
+  direct: 'direct observation',
+  clear: 'clear pattern',
+  suggestive: 'suggestive',
+};
+
+function buildDecisions(market, yc, closure, rize) {
   const decisions = [];
   const withheld = [];
+  const stateOf = (k) => market.states.find((x) => x.key === k);
 
-  // 1. Where founder growth is moving.
-  const fast = market.tests.filter((t) => notableShare(t) && t.effectSize > 0);
-  const slow = market.tests.filter((t) => notableShare(t) && t.effectSize < 0);
-  if (fast.length) {
-    const s = strongest(fast);
-    const stateOf = (k) => market.states.find((x) => x.key === k);
+  // 1. Rize's own alumni show how the YC directory files Indian founders.
+  if (rize.total > 0 && rize.listedInUs > 0) {
+    const l = rize.late;
     decisions.push({
-      id: 'growth_shift',
-      keys: fast.map((t) => t.key),
-      title: `Founder growth is shifting: ${fast.length} state${fast.length > 1 ? 's' : ''} growing well above India's ${market.nationalGrowth.toFixed(1)}×`,
-      recommendation: `New startup recognitions grew fastest in ${listLabels(fast)}${slow.length ? `, and slowest in ${listLabels(slow)}` : ''}. If Rize's buildathon and community-event calendar still follows the 2019 map of where founders were, re-weight it toward where they are arriving now.`,
-      impactRange: {
-        label: `${stateOf(s.key).label} growth, 2019→2023`,
-        low: `${stateOf(s.key).growth.low.toFixed(1)}×`,
-        high: `${stateOf(s.key).growth.high.toFixed(1)}×`,
-        vsPool: `${market.nationalGrowth.toFixed(1)}× for India overall`,
+      id: 'rize_alumni_listing',
+      strength: STRENGTH.direct,
+      title: `${rize.listedInUs} of Rize's ${rize.total} YC alumni are listed as US companies`,
+      recommendation: `YC's public directory files most Rize-backed companies under San Francisco, so the familiar line that "India's share of YC collapsed" overstates the fall, and Rize for YC's results are invisible in public data. Rize holds the real numbers. Publish a per-batch count of Indian-founder YC companies and make Rize the source people quote.`,
+      metric: {
+        label: 'Rize alumni by where YC lists them',
+        value: `${rize.listedInUs} USA · ${rize.listedInIndia} India · ${rize.noLocation} no location`,
+        comparison: `${rize.total} companies is below the minimum sample of ${MIN_N}, so no percentage is stated`,
       },
       evidence: [
-        ...fast.map((t) => { const x = stateOf(t.key); return `${x.label}: ${num(x.byYear['2019'])} → ${num(x.byYear['2023'])} recognitions (${x.growth.multiple.toFixed(1)}×).`; }),
-        ...slow.map((t) => { const x = stateOf(t.key); return `${x.label} (slower): ${num(x.byYear['2019'])} → ${num(x.byYear['2023'])} (${x.growth.multiple.toFixed(1)}×).`; }),
-        `Each state's 2023 share of its own 2019+2023 recognitions tested against the rest of India, Holm-corrected across ${market.tests.length} states; strongest result ${formatP(s.p)}. Effect must also exceed ${MIN_SHARE_GAP * 100} percentage points.`,
+        `Rize's public Rize for YC page names ${rize.named} YC companies; all ${rize.total} were found in the YC directory (several under a new name).`,
+        `Directory, ${l.from}–${l.to}: ${l.directoryIndiaListed} companies list India. ${l.rizeAlumniAmongIndiaListed} of those are Rize alumni.`,
+        `Another ${l.rizeAlumniListedElsewhere} Rize alumni from the same batches are listed under another country or none, so counting Rize's alumni alone, at least ${l.lowerBoundIndiaEcosystemCompanies} YC companies in ${l.from}–${l.to} came through India's founder ecosystem, not ${l.directoryIndiaListed}.`,
+        `The directory's India share fell from ${pct(yc.eraTest.early.rate)} (${yc.eraTest.early.from}–${yc.eraTest.early.to}) to ${pct(yc.eraTest.late.rate)} (${l.from}–${l.to}). Part of that fall is this relabelling; how much can't be measured from outside.`,
       ],
-      confidence: confidenceLabel(s.p, s.adjustedAlpha),
-      counterEvidence: 'DPIIT recognition is opt-in, and some state startup policies require it for local benefits — part of a state\'s growth can be a policy push to register, not new founders. Check against company-incorporation counts (MCA) for the same states before moving budget.',
-      source: 'DPIIT recognitions by state, PIB Feb 2024',
+      counterEvidence: `The alumni wall shows companies Rize chose to feature, so it isn't a random sample of Indian founders in YC. Some of these companies may have been US-based before YC. The page's headline says 18 founders while it names ${rize.named} companies.`,
+      source: 'razorpay.com/rize/ycombinator + yc-oss YC directory',
     });
   }
 
-  // 2. YC pull: the under-tapped states are those growing fast but sending
-  //    significantly fewer companies to YC than the rest of India.
-  const ycLow = yc.tests.filter((t) => notableRatio(t) && t.rate < t.poolRate);
+  // 2. Concentration in one state.
   const ycHigh = yc.tests.filter((t) => notableRatio(t) && t.rate > t.poolRate);
+  if (ycHigh.length) {
+    const c = yc.concentration;
+    const alumniStates = rize.indiaStates.map((x) => x.label);
+    decisions.push({
+      id: 'yc_concentration',
+      keys: ycHigh.map((t) => t.key),
+      strength: STRENGTH.clear,
+      title: `${listLabels(ycHigh)} supplies most of India's listed YC companies`,
+      recommendation: `Report Rize for YC admits by the founder's home state, not the company's listed city. Admits from outside ${listLabels(ycHigh)} are the ones Rize can most credibly claim, and only Rize's application data can show them.`,
+      metric: {
+        label: `${c.label}'s share of India-listed YC admits, 2019–2023`,
+        value: `${pct(c.shareOfAdmitsInterval.low, 0)} – ${pct(c.shareOfAdmitsInterval.high, 0)}`,
+        comparison: `${c.label} has ${pct(c.shareOfRecognitions, 0)} of recognised startups`,
+      },
+      evidence: [
+        ...ycHigh.map((t) => { const x = yc.states.find((y) => y.key === t.key); return `${x.label}: ${x.admits} admits from ${num(x.recognitions)} recognised startups (${per1000(x.rate)} per 1,000 vs ${per1000(t.poolRate)} elsewhere).`; }),
+        alumniStates.length ? `All ${rize.listedInIndia} India-listed Rize alumni are in ${alumniStates.join(', ')}.` : null,
+      ].filter(Boolean),
+      counterEvidence: 'Much of this is relocation: founders from other states move to Bengaluru and list it as their location. The directory can\'t show where a founder started.',
+      source: 'yc-oss YC directory + DPIIT recognitions (PIB, Feb 2024)',
+    });
+  }
+
+  // 3. Growth, and 4. states that are growing fast but rarely reach YC.
+  const fast = market.tests.filter((t) => notableShare(t) && t.effectSize > 0);
+  const slow = market.tests.filter((t) => notableShare(t) && t.effectSize < 0);
+  const ycLow = yc.tests.filter((t) => notableRatio(t) && t.rate < t.poolRate);
   const fastKeys = new Set(fast.map((t) => t.key));
   const underTapped = ycLow.filter((t) => fastKeys.has(t.key));
   if (underTapped.length) {
@@ -360,121 +393,71 @@ function buildDecisions(market, yc, closure, women) {
     decisions.push({
       id: 'yc_under_tapped',
       keys: underTapped.map((t) => t.key),
-      title: underTapped.length > 1
-        ? `${listLabels(underTapped)}: fast-growing founder bases that almost never reach YC`
-        : `${listLabels(underTapped)}: a fast-growing founder base that almost never reaches YC`,
-      recommendation: `${underTapped.length > 1 ? 'These are among' : `${listLabels(underTapped)} is one of`} India's fastest-growing startup states, but ${underTapped.length > 1 ? 'they send' : 'it sends'} far fewer companies to YC per recognised startup than the rest of the country. That's where Rize for YC adds the most: run targeted application clinics and founder office hours there, rather than in Bengaluru, where founders already find their way to YC.`,
-      impactRange: {
+      strength: STRENGTH.suggestive,
+      title: `${listLabels(underTapped)}: worth a small Rize for YC pilot, not a conclusion`,
+      recommendation: `${listLabels(underTapped)} ${underTapped.length > 1 ? 'are' : 'is'} growing fast in registered startups but almost never appear${underTapped.length > 1 ? '' : 's'} in YC. The likely reason is sector mix, not missed outreach. A cheap test would settle it: one application clinic there, measured on qualified applications.`,
+      metric: {
         label: `${st.label}: YC admits per 1,000 recognised startups`,
-        low: per1000(st.low),
-        high: per1000(st.high),
-        vsPool: `${per1000(s.poolRate)} in the rest of India`,
+        value: `${per1000(st.low)} – ${per1000(st.high)}`,
+        comparison: `${per1000(s.poolRate)} in the rest of India`,
       },
       evidence: [
-        ...underTapped.map((t) => { const x = yc.states.find((y) => y.key === t.key); return `${x.label}: ${x.admits} YC admit(s) from ${num(x.recognitions)} recognised startups, 2019–2023.`; }),
-        `YC admits ÷ DPIIT recognitions by state, Holm-corrected across ${yc.tests.length} states; strongest ${formatP(s.p)}. Rate ratio must be at least ${MIN_RATE_RATIO}× either way.`,
-        `${yc.unmappedInWindow} of ${yc.admitsInWindow} Indian YC companies in the window had no mappable state and are excluded.`,
+        ...underTapped.map((t) => { const x = yc.states.find((y) => y.key === t.key); const g = stateOf(t.key); return `${x.label}: ${x.admits} YC admit(s) from ${num(x.recognitions)} recognised startups in 2019–2023; recognitions grew ${g.growth.multiple.toFixed(1)}× (India ${market.nationalGrowth.toFixed(1)}×).`; }),
+        `Gap must be at least ${MIN_RATE_RATIO}× and pass a Holm-corrected noise screen across ${yc.tests.length} states.`,
       ],
-      confidence: confidenceLabel(s.p, s.adjustedAlpha),
-      counterEvidence: 'This is a ratio of two different populations, not a tracked conversion: a YC company need not be DPIIT-recognised, and founders often relocate to Bengaluru before applying, so YC lists them there. Sector mix matters too — a state heavy in services or trading startups will send fewer to YC regardless of outreach.',
-      source: 'yc-oss YC directory + DPIIT recognitions, PIB Feb 2024',
+      counterEvidence: 'DPIIT recognition covers every kind of new business. A state heavy in manufacturing, trading or services will send few companies to YC whatever Rize does. This compares two different lists of companies, so it is not a conversion rate.',
+      source: 'yc-oss YC directory + DPIIT recognitions (PIB, Feb 2024)',
     });
   }
-  if (ycHigh.length) {
-    const s = strongest(ycHigh);
-    const c = yc.concentration;
+  if (fast.length) {
+    const s = strongest(fast);
     decisions.push({
-      id: 'yc_concentration',
-      keys: ycHigh.map((t) => t.key),
-      title: `${listLabels(ycHigh)} supplies most of India's YC companies`,
-      recommendation: `Measure Rize for YC on admits from outside ${listLabels(ycHigh)}. Admits from there would mostly happen anyway; admits from elsewhere are the ones Rize can credibly claim.`,
-      impactRange: {
-        label: `${c.label}'s share of Indian YC admits, 2019–2023`,
-        low: pct(c.shareOfAdmitsInterval.low),
-        high: pct(c.shareOfAdmitsInterval.high),
-        vsPool: `${pct(c.shareOfRecognitions)} of recognised startups`,
+      id: 'growth_shift',
+      keys: fast.map((t) => t.key),
+      strength: STRENGTH.suggestive,
+      title: `Startup registrations are growing fastest outside the big hubs`,
+      recommendation: `Registrations grew well above India's ${market.nationalGrowth.toFixed(1)}× in ${listLabels(fast)}${slow.length ? `, and well below it in ${listLabels(slow)}` : ''}. Before moving any events budget, check whether Rize's own sign-ups show the same shift. The "Try it on your data" screen does that comparison.`,
+      metric: {
+        label: `${stateOf(s.key).label}: growth in recognitions, 2019→2023`,
+        value: `${stateOf(s.key).growth.multiple.toFixed(1)}×`,
+        comparison: `${market.nationalGrowth.toFixed(1)}× for India overall`,
       },
       evidence: [
-        ...ycHigh.map((t) => { const x = yc.states.find((y) => y.key === t.key); return `${x.label}: ${x.admits} admits from ${num(x.recognitions)} recognitions (${per1000(x.rate)} per 1,000 vs ${per1000(t.poolRate)} elsewhere).`; }),
-        `Holm-corrected across ${yc.tests.length} states; ${formatP(s.p)}.`,
+        ...fast.map((t) => { const x = stateOf(t.key); return `${x.label}: ${num(x.byYear['2019'])} → ${num(x.byYear['2023'])} (${x.growth.multiple.toFixed(1)}×).`; }),
+        ...slow.map((t) => { const x = stateOf(t.key); return `${x.label} (slower): ${num(x.byYear['2019'])} → ${num(x.byYear['2023'])} (${x.growth.multiple.toFixed(1)}×).`; }),
+        `These are complete government counts, so sampling error is not the concern. A state is listed only if its gap exceeds ${MIN_SHARE_GAP * 100} percentage points and passes a Holm-corrected noise screen across ${market.tests.length} states.`,
       ],
-      confidence: confidenceLabel(s.p, s.adjustedAlpha),
-      counterEvidence: 'Some of this is relocation: founders from other states move to Bengaluru and list it as their location. The real gap between states is probably smaller than the location field suggests.',
-      source: 'yc-oss YC directory + DPIIT recognitions, PIB Feb 2024',
+      counterEvidence: 'DPIIT recognition is opt-in. Several states tie local benefits to it, so a jump can mean a registration drive, not more founders. Company-incorporation counts would be the right cross-check; the free MCA data was not reachable for this build.',
+      source: 'DPIIT recognitions by state (PIB, Feb 2024)',
     });
   }
 
-  // 3. India's share of YC, before and after.
-  const e = yc.eraTest;
-  if (e.p < 0.05 && e.early.rate > 0 && (e.early.rate / e.late.rate >= MIN_RATE_RATIO || e.late.rate / e.early.rate >= MIN_RATE_RATIO)) {
-    const down = e.late.rate < e.early.rate;
-    decisions.push({
-      id: 'yc_india_share',
-      title: `India's share of YC ${down ? 'fell' : 'rose'} from ${pct(e.early.rate)} to ${pct(e.late.rate)}`,
-      recommendation: down
-        ? `Getting Indian founders into YC is much harder now than in 2019–2022. Set Rize for YC's targets against this smaller base, and put the effort into application quality rather than application volume.`
-        : `YC is taking more Indian companies than before; Rize for YC can push application volume.`,
-      impactRange: {
-        label: `Indian share of YC companies, ${e.late.from}–${e.late.to}`,
-        low: pct(e.late.low),
-        high: pct(e.late.high),
-        vsPool: `${pct(e.early.rate)} in ${e.early.from}–${e.early.to}`,
-      },
-      evidence: [
-        `${e.early.from}–${e.early.to}: ${e.early.india} of ${num(e.early.total)} YC companies were Indian.`,
-        `${e.late.from}–${e.late.to}: ${e.late.india} of ${num(e.late.total)}.`,
-        `Two-proportion test: ${formatP(e.p)}. The 2022/2023 split was chosen after looking at the yearly series, so treat this p-value as descriptive.`,
-      ],
-      confidence: 'medium',
-      counterEvidence: 'YC\'s location field reflects where companies say they are now. Indian-founded companies that moved their headquarters to the US are counted as US companies, which may understate India\'s share, especially in recent batches.',
-      source: 'yc-oss YC directory',
-    });
-  }
-
-  // 4. Women-led share gaps.
-  const womenLow = women.tests.filter((t) => notableShare(t) && t.effectSize < 0);
-  if (womenLow.length) {
-    const s = strongest(womenLow);
-    const st = women.states.find((x) => x.key === s.key);
-    decisions.push({
-      id: 'women_led_gap',
-      keys: womenLow.map((t) => t.key),
-      title: `${listLabels(womenLow)}: fewer startups with a woman director`,
-      recommendation: `About ${pct(women.national.rate, 0)} of India's recognised startups have at least one woman director or partner, but ${listLabels(womenLow)} sit well below that. If Rize runs women-founder or D2C+ programmes, these states are the gap to close.`,
-      impactRange: {
-        label: `${st.label}: share with a woman director/partner`,
-        low: pct(st.low),
-        high: pct(st.high),
-        vsPool: `${pct(s.poolRate)} in the rest of India`,
-      },
-      evidence: [
-        ...womenLow.map((t) => { const x = women.states.find((y) => y.key === t.key); return `${x.label}: ${num(x.womenLed)} of ${num(x.recognised)} recognitions in 2019–2023 (${pct(x.rate)}).`; }),
-        `Holm-corrected across ${women.tests.length} states; strongest ${formatP(s.p)}. Gap must exceed ${MIN_SHARE_GAP * 100} percentage points.`,
-      ],
-      confidence: confidenceLabel(s.p, s.adjustedAlpha),
-      counterEvidence: '"At least one woman director or partner" is not the same as woman-founded or woman-led: family-run companies often add a woman director for compliance. The two tables also come from releases two years apart, so a few recognitions may have been revised in between.',
-      source: 'DPIIT women-director table, PIB Feb 2026 + recognitions, PIB Feb 2024',
-    });
-  }
-
-  // 5. Closure gaps that survive the cohort-age check (if any).
+  // A closure gap is only a decision if it survives the cohort-age check.
   const clean = closure.states.filter((s) => s.test.significant && s.notable && !s.confoundedByCohortAge);
   if (clean.length) {
     const s = clean.reduce((a, b) => (a.test.p <= b.test.p ? a : b));
     decisions.push({
       id: 'closure_gap',
       keys: clean.map((x) => x.key),
+      strength: STRENGTH.suggestive,
       title: `${listLabels(clean)}: closure rate out of line with the rest of India`,
-      recommendation: 'Recognised startups here are closing at a rate that growth alone does not explain. Check whether founder support after incorporation (compliance, banking, first customers) is weaker here.',
-      impactRange: { label: `${s.label}: closed (dissolved/struck-off)`, low: pct(s.low), high: pct(s.high), vsPool: `${pct(s.test.poolRate)} elsewhere` },
+      recommendation: 'Recognised startups here are closing at a rate that growth alone does not explain. Check whether founder support after incorporation is weaker here.',
+      metric: { label: `${s.label}: closed (dissolved/struck-off)`, value: `${pct(s.low)} – ${pct(s.high)}`, comparison: `${pct(s.test.poolRate)} elsewhere` },
       evidence: clean.map((x) => `${x.label}: ${num(x.closed)} of ${num(x.recognised)} recognised startups closed (${pct(x.rate)}).`),
-      confidence: confidenceLabel(s.test.p, s.test.adjustedAlpha),
-      counterEvidence: `The numerator (closures, ${closure.numeratorAsOf}) and denominator (recognitions, ${closure.denominatorAsOf}) come from different dates.`,
-      source: 'DPIIT closures, PIB Dec 2025 + cumulative recognitions, PIB Jul 2024',
+      counterEvidence: `Closures (${closure.numeratorAsOf}) and recognitions (${closure.denominatorAsOf}) come from different dates.`,
+      source: 'DPIIT closures (PIB, Dec 2025) + cumulative recognitions (PIB, Jul 2024)',
     });
   }
 
-  // Withheld calls: significant-looking differences the engine refuses to act on.
+  // Withheld calls.
+  withheld.push({
+    id: 'india_share_withheld',
+    title: 'India\'s true share of YC: not called',
+    reason: [
+      `The directory shows India's share falling from ${pct(yc.eraTest.early.rate)} to ${pct(yc.eraTest.late.rate)}, but it records where a company says it is, not where its founders are from. ${rize.listedInUs} of ${rize.total} Rize alumni are filed under the USA, so the real fall is smaller than the directory shows, by an amount public data can't measure.`,
+    ],
+    whatWouldSettleIt: 'A count of Indian-founder companies per YC batch. Rize for YC\'s application records are the closest thing to one.',
+  });
   const confounded = closure.states.filter((s) => s.test.significant && s.notable && s.confoundedByCohortAge);
   const tooSmall = closure.states.filter((s) => s.test.significant && !s.notable);
   if (confounded.length || tooSmall.length) {
@@ -482,19 +465,19 @@ function buildDecisions(market, yc, closure, women) {
       id: 'closure_withheld',
       title: 'Closure rates by state: not called',
       reason: [
-        ...confounded.map((s) => `${s.label}'s closure rate (${pct(s.rate)} vs ${pct(s.test.poolRate)} elsewhere) is statistically significant, but ${s.label} is also one of the ${s.test.effectSize < 0 ? 'fastest' : 'slowest'}-growing states. A younger set of startups has had less time to close, so state-level totals can't separate "healthier ecosystem" from "younger startups".`),
-        ...tooSmall.map((s) => `${s.label} (${pct(s.rate)} vs ${pct(s.test.poolRate)}) is statistically significant but under the ${MIN_RATE_RATIO}× size bar, so it isn't worth acting on.`),
+        ...confounded.map((s) => `${s.label}'s closure rate (${pct(s.rate)} vs ${pct(s.test.poolRate)} elsewhere) looks different, but ${s.label} is also one of the ${s.test.effectSize < 0 ? 'fastest' : 'slowest'}-growing states. Younger startups have had less time to close, so state totals can't separate a healthier ecosystem from a younger one.`),
+        ...tooSmall.map((s) => `${s.label} (${pct(s.rate)} vs ${pct(s.test.poolRate)}) is under the ${MIN_RATE_RATIO}× size bar, so it isn't worth acting on.`),
       ],
-      whatWouldSettleIt: 'Closures broken down by recognition year (the cohort) for each state. That would let the engine compare startups of the same age.',
+      whatWouldSettleIt: 'Closures broken down by year of recognition for each state, so startups of the same age can be compared.',
     });
   }
   const young = yc.survival.filter((s) => s.tooNewToCall && s.n > 0);
   if (young.length) {
     withheld.push({
       id: 'yc_survival_withheld',
-      title: 'Survival of recent Indian YC companies: too new to call',
+      title: 'Survival of recent YC companies: too new to call',
       reason: [
-        `${young.map((s) => `${s.year} (n=${s.n})`).join(', ')}: fewer than ${yc.survivalMaturityYears} years old. "Still active" doesn't mean much yet, and every one of these cohorts is also below the minimum sample of ${MIN_N}.`,
+        `${young.map((s) => `${s.year} (n=${s.n})`).join(', ')}: fewer than ${yc.survivalMaturityYears} years old and below the minimum sample of ${MIN_N}. All ${rize.total} Rize alumni are still active, but ${rize.alumni.filter((a) => a.year >= young[0].year).length} of them are from these batches, so that says little yet.`,
       ],
       whatWouldSettleIt: `Time. These cohorts become readable once they are ${yc.survivalMaturityYears} years old.`,
     });
@@ -506,7 +489,7 @@ function buildDecisions(market, yc, closure, women) {
 // ---------------------------------------------------------------------------
 // Data-integrity checks
 // ---------------------------------------------------------------------------
-function buildChecks(sources, yc, women) {
+function buildChecks(sources, yc, rize) {
   const checks = [];
   for (const src of sources.filter((s) => s.publishedTotal)) {
     for (const col of src.columns) {
@@ -520,51 +503,58 @@ function buildChecks(sources, yc, women) {
       });
     }
   }
-  const rec = sources.find((s) => s.id === 'dpiit_recognitions_by_year');
-  const wom = sources.find((s) => s.id === 'dpiit_women_by_year');
-  const recByKey = new Map(rec.rows.map((r) => [r.key, r]));
-  const violations = [];
-  for (const w of wom.rows) {
-    const r = recByKey.get(w.key);
-    for (const y of WINDOW) if (r && w[y] > r[y]) violations.push(`${w.key} ${y}: ${w[y]} > ${r[y]}`);
-  }
-  checks.push({
-    id: 'women_le_total',
-    description: 'Startups with a woman director never exceed total recognitions for the same state and year',
-    pass: violations.length === 0,
-    detail: violations.length ? violations.join('; ') : `checked ${wom.rows.length} states × ${WINDOW.length} years`,
-  });
   checks.push({
     id: 'yc_mapping',
     description: 'Indian YC companies in 2019–2023 mapped to a state',
     pass: yc.unmappedInWindow / yc.admitsInWindow < 0.05,
     detail: `${yc.admitsInWindow - yc.unmappedInWindow} of ${yc.admitsInWindow} mapped (${yc.unmappedInWindow} unmapped; must be under 5%)`,
   });
+  // The link-preview text in index.html is static HTML, so it can't read the data.
+  // Fail the build if it ever disagrees with what the data says.
+  const html = fs.readFileSync(path.join(ROOT, 'public', 'index.html'), 'utf8');
+  const claim = `${rize.listedInUs} of the ${rize.total} YC companies`;
+  checks.push({
+    id: 'preview_text_matches_data',
+    description: 'The link-preview text in index.html states the same alumni count as the data',
+    pass: html.split(claim).length - 1 >= 2,
+    detail: `expects "${claim}" in the description and og:description tags`,
+  });
+  checks.push({
+    id: 'rize_alumni_matched',
+    description: 'Every company named on the Rize for YC page was found in the YC directory',
+    pass: rize.total === rize.named,
+    detail: `${rize.total} of ${rize.named} matched`,
+  });
   return { runAt: new Date().toISOString(), checks, overallPass: checks.every((c) => c.pass) };
 }
 
 function main() {
-  const ids = ['dpiit_recognitions_by_year', 'dpiit_cumulative_jun2024', 'dpiit_closed_nov2025', 'dpiit_women_by_year', 'dpiit_women_closed', 'yc_india'];
-  const [rec, cum, closed, women, womenClosed, yc] = ids.map(load);
-  const sources = [rec, cum, closed, women, womenClosed];
+  const ids = ['dpiit_recognitions_by_year', 'dpiit_cumulative_jun2024', 'dpiit_closed_nov2025', 'yc_india', 'rize_yc_alumni'];
+  const [rec, cum, closed, yc, rizeSrc] = ids.map(load);
+  const sources = [rec, cum, closed];
+  const landscape = load('landscape');
 
   const market = buildMarket(rec, cum);
   const ycOut = buildYc(yc, market);
   const closure = buildClosure(cum, closed, market);
-  const womenOut = buildWomen(women, market);
-  const decisions = buildDecisions(market, ycOut, closure, womenOut);
+  const rize = buildRize(rizeSrc, ycOut);
+  const decisions = buildDecisions(market, ycOut, closure, rize);
 
   const strip = ({ tests, ...rest }) => rest;
   const real = {
-    sources: [...sources, yc].map((s) => ({ id: s.id, title: s.title, release: s.release, url: s.url, asOf: s.asOf || null, fetchedAt: s.fetchedAt })),
+    sources: [
+      ...[...sources, yc, rizeSrc].map((s) => ({ id: s.id, title: s.title, release: s.release, url: s.url, asOf: s.asOf || null, fetchedAt: s.fetchedAt })),
+      { id: landscape.id, title: landscape.title, release: landscape.release, url: null, asOf: null, fetchedAt: landscape.compiledOn },
+    ],
     market: strip(market),
     yc: strip(ycOut),
     closure,
-    women: strip(womenOut),
+    rize,
+    landscape,
     ...decisions,
   };
   fs.writeFileSync(path.join(DATA_DIR, 'real.json'), JSON.stringify(real, null, 2));
-  const checks = buildChecks(sources, ycOut, womenOut);
+  const checks = buildChecks(sources, ycOut, rize);
   fs.writeFileSync(path.join(DATA_DIR, 'real_checks.json'), JSON.stringify(checks, null, 2));
 
   console.log(`Real-data decisions: ${decisions.decisions.map((d) => d.id).join(', ') || 'none'}`);
@@ -577,4 +567,4 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
   main();
 }
 
-export { buildMarket, buildYc, buildClosure, buildWomen, buildDecisions };
+export { buildMarket, buildYc, buildClosure, buildRize, buildDecisions };

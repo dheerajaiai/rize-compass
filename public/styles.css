@@ -320,6 +320,15 @@ footer.disclaimer {
 .plan-title { font-weight: 700; margin: 4px 0 6px; }
 .plan-step p { font-size: 13px; margin: 0; }
 
+[hidden] { display: none !important; }
+.programme-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 16px; }
+.programme { margin: 0; }
+.programme h3 { font-size: 16px; margin: 4px 0 8px; }
+.programme p { font-size: 13px; margin: 10px 0; }
+.programme .pill { white-space: normal; border-radius: 8px; }
+.programme dl { margin: 0; font-size: 12.5px; }
+.programme dt { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.03em; margin-top: 8px; }
+.programme dd { margin: 2px 0 0; color: var(--text); }
 .source-note { font-size: 12px; color: var(--muted); }
 .source-note a, .brief a, .card a { color: var(--blue); }
 .chart-note { font-size: 12px; color: var(--muted); margin: 6px 0 10px; }

@@ -6,7 +6,7 @@
       "release": "PIB, Ministry of Commerce & Industry, written reply in Lok Sabha, Feb 2024",
       "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2002100",
       "asOf": "2023-12-31",
-      "fetchedAt": "2026-10-01T19:11:30.781Z"
+      "fetchedAt": "2026-10-02T08:16:24.868Z"
     },
     {
       "id": "dpiit_cumulative_jun2024",
@@ -14,7 +14,7 @@
       "release": "PIB, Ministry of Commerce & Industry, written reply in Lok Sabha, Jul 2024",
       "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2037579",
       "asOf": "2024-06-30",
-      "fetchedAt": "2026-10-01T19:11:30.843Z"
+      "fetchedAt": "2026-10-02T08:16:25.204Z"
     },
     {
       "id": "dpiit_closed_nov2025",
@@ -22,23 +22,7 @@
       "release": "PIB, Ministry of Commerce & Industry, written reply in Lok Sabha, Dec 2025",
       "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2197662",
       "asOf": "2025-11-11",
-      "fetchedAt": "2026-10-01T19:11:30.925Z"
-    },
-    {
-      "id": "dpiit_women_by_year",
-      "title": "State/UT-wise DPIIT-recognised startups with at least one woman director/partner, by year of recognition",
-      "release": "PIB, Ministry of Commerce & Industry, written reply in Lok Sabha, Feb 2026",
-      "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2241313",
-      "asOf": "2026-01-31",
-      "fetchedAt": "2026-10-01T19:11:30.997Z"
-    },
-    {
-      "id": "dpiit_women_closed",
-      "title": "State/UT-wise closed (dissolved/struck-off) startups with at least one woman director/partner",
-      "release": "PIB, Ministry of Commerce & Industry, written reply in Lok Sabha, Feb 2026",
-      "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2241313",
-      "asOf": "2026-01-31",
-      "fetchedAt": "2026-10-01T19:11:30.998Z"
+      "fetchedAt": "2026-10-02T08:16:25.723Z"
     },
     {
       "id": "yc_india",
@@ -46,7 +30,23 @@
       "release": "yc-oss public mirror of the YC company directory",
       "url": "https://yc-oss.github.io/api/companies/all.json",
       "asOf": null,
-      "fetchedAt": "2026-10-01T19:11:32.884Z"
+      "fetchedAt": "2026-10-02T08:16:27.130Z"
+    },
+    {
+      "id": "rize_yc_alumni",
+      "title": "YC companies named as alumni on the Rize for YC page",
+      "release": "razorpay.com/rize/ycombinator (public page), matched to the yc-oss YC directory",
+      "url": "https://razorpay.com/rize/ycombinator/",
+      "asOf": null,
+      "fetchedAt": "2026-10-02T08:16:27.379Z"
+    },
+    {
+      "id": "landscape",
+      "title": "Founder programmes an early-stage Indian founder is likely to compare",
+      "release": "Compiled by hand from each programme's public pages",
+      "url": null,
+      "asOf": null,
+      "fetchedAt": "2026-10-02"
     }
   ],
   "market": {
@@ -1699,11 +1699,11 @@
       {
         "year": 2026,
         "india": 6,
-        "total": 731,
-        "rate": 0.008207934336525308,
-        "low": 0.0037670430185133994,
-        "high": 0.017790612215198096,
-        "n": 731,
+        "total": 730,
+        "rate": 0.00821917808219178,
+        "low": 0.003772210607773141,
+        "high": 0.01781482107363641,
+        "n": 730,
         "successes": 6,
         "insufficientData": false
       }
@@ -1725,15 +1725,15 @@
         "from": 2023,
         "to": 2026,
         "india": 26,
-        "total": 2436,
-        "rate": 0.010673234811165846,
-        "low": 0.0072940994386989965,
-        "high": 0.015593231465041484,
-        "n": 2436,
+        "total": 2435,
+        "rate": 0.010677618069815195,
+        "low": 0.007297099108999267,
+        "high": 0.015599616304267636,
+        "n": 2435,
         "successes": 26,
         "insufficientData": false
       },
-      "z": 11.08022916003428,
+      "z": 11.077261220109108,
       "p": 0,
       "splitChosenAfterLooking": true
     },
@@ -2526,666 +2526,382 @@
       }
     ]
   },
-  "women": {
-    "window": [
-      "2019",
-      "2020",
-      "2021",
-      "2022",
-      "2023"
-    ],
-    "national": {
-      "rate": 0.5000858467349625,
-      "low": 0.49705927327007665,
-      "high": 0.5031124139089115,
-      "n": 104838,
-      "successes": 52428,
-      "insufficientData": false
+  "rize": {
+    "named": 20,
+    "total": 20,
+    "listedInIndia": 7,
+    "listedInUs": 12,
+    "noLocation": 1,
+    "shareListedOutsideIndia": {
+      "rate": 0.65,
+      "low": 0.43285427668523624,
+      "high": 0.818808175898918,
+      "n": 20,
+      "successes": 13,
+      "insufficientData": true
     },
-    "states": [
-      {
-        "key": "MH",
-        "label": "Maharashtra",
-        "womenLed": 9677,
-        "recognised": 18634,
-        "rate": 0.5193195234517548,
-        "low": 0.5121426226354383,
-        "high": 0.5264884603465045,
-        "n": 18634,
-        "successes": 9677,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.5193195234517548,
-          "poolRate": 0.49592826318964317,
-          "effectSize": 0.023391260262111635,
-          "p": 7.025455328601993e-9,
-          "adjustedAlpha": 0.0017857142857142859,
-          "significant": true
-        }
-      },
+    "active": 20,
+    "indiaStates": [
       {
         "key": "KA",
-        "label": "Karnataka",
-        "womenLed": 5371,
-        "recognised": 10874,
-        "rate": 0.4939304763656428,
-        "low": 0.4845372312695213,
-        "high": 0.5033280083095164,
-        "n": 10874,
-        "successes": 5371,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.4939304763656428,
-          "poolRate": 0.5007981780256269,
-          "effectSize": -0.006867701659984071,
-          "p": 0.1751014512713811,
-          "adjustedAlpha": 0.004166666666666667,
-          "significant": false
-        }
+        "label": "Karnataka"
+      }
+    ],
+    "late": {
+      "from": 2023,
+      "to": 2026,
+      "directoryIndiaListed": 26,
+      "rizeAlumniAmongIndiaListed": 6,
+      "rizeAlumniListedElsewhere": 13,
+      "lowerBoundIndiaEcosystemCompanies": 39
+    },
+    "alumni": [
+      {
+        "name": "Shelf",
+        "ycName": "FlatX",
+        "batch": "Summer 2022",
+        "year": 2022,
+        "listedCountry": "India",
+        "listedInIndia": true,
+        "state": "KA",
+        "status": "Active"
       },
       {
-        "key": "DL",
-        "label": "Delhi",
-        "womenLed": 5592,
-        "recognised": 10840,
-        "rate": 0.5158671586715867,
-        "low": 0.5064554764661757,
-        "high": 0.5252675989131844,
-        "n": 10840,
-        "successes": 5592,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.5158671586715867,
-          "poolRate": 0.4982659205515011,
-          "effectSize": 0.017601238120085627,
-          "p": 0.0005196487839562725,
-          "adjustedAlpha": 0.0020833333333333333,
-          "significant": true
-        }
+        "name": "Backdrop",
+        "ycName": "Backdrop",
+        "batch": "Winter 2023",
+        "year": 2023,
+        "listedCountry": "USA",
+        "listedInIndia": false,
+        "state": null,
+        "status": "Active"
       },
       {
-        "key": "UP",
-        "label": "Uttar Pradesh",
-        "womenLed": 5267,
-        "recognised": 9953,
-        "rate": 0.5291871797448006,
-        "low": 0.5193716238177924,
-        "high": 0.5389802142026168,
-        "n": 9953,
-        "successes": 5267,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.5291871797448006,
-          "poolRate": 0.4970332507772567,
-          "effectSize": 0.03215392896754388,
-          "p": 1.0415532880614364e-9,
-          "adjustedAlpha": 0.001724137931034483,
-          "significant": true
-        }
+        "name": "Giga ML",
+        "ycName": "Giga",
+        "batch": "Summer 2023",
+        "year": 2023,
+        "listedCountry": "USA",
+        "listedInIndia": false,
+        "state": null,
+        "status": "Active"
       },
       {
-        "key": "GJ",
-        "label": "Gujarat",
-        "womenLed": 3853,
-        "recognised": 8619,
-        "rate": 0.4470356189813203,
-        "low": 0.4365651523796119,
-        "high": 0.45755327663707246,
-        "n": 8619,
-        "successes": 3853,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.4470356189813203,
-          "poolRate": 0.504837921824172,
-          "effectSize": -0.05780230284285165,
-          "p": 0,
-          "adjustedAlpha": 0.0015625,
-          "significant": true
-        }
+        "name": "Retape",
+        "ycName": "Retape",
+        "batch": "Winter 2023",
+        "year": 2023,
+        "listedCountry": "India",
+        "listedInIndia": true,
+        "state": "KA",
+        "status": "Active"
       },
       {
-        "key": "TN",
-        "label": "Tamil Nadu",
-        "womenLed": 3542,
-        "recognised": 6939,
-        "rate": 0.5104481913820436,
-        "low": 0.4986838356858843,
-        "high": 0.5222009851558449,
-        "n": 6939,
-        "successes": 3542,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.5104481913820436,
-          "poolRate": 0.49935137233271026,
-          "effectSize": 0.011096819049333295,
-          "p": 0.07401576265097543,
-          "adjustedAlpha": 0.0029411764705882353,
-          "significant": false
-        }
+        "name": "SuperAPI",
+        "ycName": "SuperAPI",
+        "batch": "Winter 2023",
+        "year": 2023,
+        "listedCountry": "India",
+        "listedInIndia": true,
+        "state": "KA",
+        "status": "Active"
       },
       {
-        "key": "HR",
-        "label": "Haryana",
-        "womenLed": 2834,
-        "recognised": 5548,
-        "rate": 0.510814708002884,
-        "low": 0.4976580645564827,
-        "high": 0.5239563855120339,
-        "n": 5548,
-        "successes": 2834,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.510814708002884,
-          "poolRate": 0.49948635310706013,
-          "effectSize": 0.011328354895823844,
-          "p": 0.1005231179903241,
-          "adjustedAlpha": 0.0033333333333333335,
-          "significant": false
-        }
+        "name": "SuperKalam",
+        "ycName": "SuperKalam",
+        "batch": "Winter 2023",
+        "year": 2023,
+        "listedCountry": "India",
+        "listedInIndia": true,
+        "state": "KA",
+        "status": "Active"
       },
       {
-        "key": "TG",
-        "label": "Telangana",
-        "womenLed": 2858,
-        "recognised": 5368,
-        "rate": 0.5324143070044709,
-        "low": 0.5190484610737974,
-        "high": 0.5457337933295925,
-        "n": 5368,
-        "successes": 2858,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.5324143070044709,
-          "poolRate": 0.4983412084045441,
-          "effectSize": 0.0340730985999268,
-          "p": 0.0000011558088370833275,
-          "adjustedAlpha": 0.002,
-          "significant": true
-        }
+        "name": "CodeAnt",
+        "ycName": "CodeAnt AI",
+        "batch": "Winter 2024",
+        "year": 2024,
+        "listedCountry": "USA",
+        "listedInIndia": false,
+        "state": null,
+        "status": "Active"
       },
       {
-        "key": "KL",
-        "label": "Kerala",
-        "womenLed": 1879,
-        "recognised": 4533,
-        "rate": 0.41451577321861904,
-        "low": 0.40025291529133683,
-        "high": 0.4289233944751822,
-        "n": 4533,
-        "successes": 1879,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.41451577321861904,
-          "poolRate": 0.5039529435222572,
-          "effectSize": -0.08943717030363812,
-          "p": 0,
-          "adjustedAlpha": 0.0016129032258064516,
-          "significant": true
-        }
+        "name": "Crustdata",
+        "ycName": "Crustdata",
+        "batch": "Fall 2024",
+        "year": 2024,
+        "listedCountry": null,
+        "listedInIndia": false,
+        "state": null,
+        "status": "Active"
       },
       {
-        "key": "RJ",
-        "label": "Rajasthan",
-        "womenLed": 1847,
-        "recognised": 3800,
-        "rate": 0.48605263157894735,
-        "low": 0.47018351591864194,
-        "high": 0.5019499178357544,
-        "n": 3800,
-        "successes": 1847,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.48605263157894735,
-          "poolRate": 0.5006136305152517,
-          "effectSize": -0.014560998936304304,
-          "p": 0.07800745972115508,
-          "adjustedAlpha": 0.003125,
-          "significant": false
-        }
+        "name": "Pipeshift",
+        "ycName": "Pipeshift",
+        "batch": "Summer 2024",
+        "year": 2024,
+        "listedCountry": "USA",
+        "listedInIndia": false,
+        "state": null,
+        "status": "Active"
       },
       {
-        "key": "WB",
-        "label": "West Bengal",
-        "womenLed": 1866,
-        "recognised": 3447,
-        "rate": 0.5413402959094865,
-        "low": 0.5246690437954595,
-        "high": 0.5579195084173673,
-        "n": 3447,
-        "successes": 1866,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.5413402959094865,
-          "poolRate": 0.4986833150871379,
-          "effectSize": 0.04265698082234859,
-          "p": 8.411829550691863e-7,
-          "adjustedAlpha": 0.0019230769230769232,
-          "significant": true
-        }
+        "name": "Ragas",
+        "ycName": "Vibrant Labs",
+        "batch": "Winter 2024",
+        "year": 2024,
+        "listedCountry": "USA",
+        "listedInIndia": false,
+        "state": null,
+        "status": "Active"
       },
       {
-        "key": "MP",
-        "label": "Madhya Pradesh",
-        "womenLed": 1630,
-        "recognised": 3398,
-        "rate": 0.47969393761035906,
-        "low": 0.46292871091433296,
-        "high": 0.49650502470489255,
-        "n": 3398,
-        "successes": 1630,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.47969393761035906,
-          "poolRate": 0.500768927444795,
-          "effectSize": -0.021074989834435898,
-          "p": 0.015654351515029807,
-          "adjustedAlpha": 0.002272727272727273,
-          "significant": false
-        }
+        "name": "Tensorfuse",
+        "ycName": "Whip",
+        "batch": "Winter 2024",
+        "year": 2024,
+        "listedCountry": "USA",
+        "listedInIndia": false,
+        "state": null,
+        "status": "Active"
       },
       {
-        "key": "BR",
-        "label": "Bihar",
-        "womenLed": 997,
-        "recognised": 2075,
-        "rate": 0.48048192771084336,
-        "low": 0.45904083363394305,
-        "high": 0.501995156072578,
-        "n": 2075,
-        "successes": 997,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.48048192771084336,
-          "poolRate": 0.5004816908809591,
-          "effectSize": -0.019999763170115703,
-          "p": 0.07124004355820768,
-          "adjustedAlpha": 0.002777777777777778,
-          "significant": false
-        }
+        "name": "Bolna",
+        "ycName": "Bolna AI",
+        "batch": "Fall 2025",
+        "year": 2025,
+        "listedCountry": "India",
+        "listedInIndia": true,
+        "state": "KA",
+        "status": "Active"
       },
       {
-        "key": "OR",
-        "label": "Odisha",
-        "womenLed": 971,
-        "recognised": 1856,
-        "rate": 0.5231681034482759,
-        "low": 0.5004208505732984,
-        "high": 0.5458196499769645,
-        "n": 1856,
-        "successes": 971,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.5231681034482759,
-          "poolRate": 0.49966984521566876,
-          "effectSize": 0.02349825823260715,
-          "p": 0.044784664867988155,
-          "adjustedAlpha": 0.0025,
-          "significant": false
-        }
+        "name": "Redapto",
+        "ycName": "Redapto",
+        "batch": "Fall 2025",
+        "year": 2025,
+        "listedCountry": "USA",
+        "listedInIndia": false,
+        "state": null,
+        "status": "Active"
       },
       {
-        "key": "AP",
-        "label": "Andhra Pradesh",
-        "womenLed": 798,
-        "recognised": 1630,
-        "rate": 0.48957055214723927,
-        "low": 0.4653558413344297,
-        "high": 0.5138343060226209,
-        "n": 1630,
-        "successes": 798,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.48957055214723927,
-          "poolRate": 0.5002519184559336,
-          "effectSize": -0.010681366308694373,
-          "p": 0.39213476041505824,
-          "adjustedAlpha": 0.00625,
-          "significant": false
-        }
+        "name": "Truffle AI",
+        "ycName": "Dexto",
+        "batch": "Winter 2025",
+        "year": 2025,
+        "listedCountry": "USA",
+        "listedInIndia": false,
+        "state": null,
+        "status": "Active"
       },
       {
-        "key": "PB",
-        "label": "Punjab",
-        "womenLed": 624,
-        "recognised": 1196,
-        "rate": 0.5217391304347826,
-        "low": 0.4934046847908955,
-        "high": 0.5499343743970659,
-        "n": 1196,
-        "successes": 624,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.5217391304347826,
-          "poolRate": 0.49983597383300205,
-          "effectSize": 0.02190315660178055,
-          "p": 0.13199077732553466,
-          "adjustedAlpha": 0.0035714285714285718,
-          "significant": false
-        }
+        "name": "Unsiloed AI",
+        "ycName": "Unsiloed AI",
+        "batch": "Fall 2025",
+        "year": 2025,
+        "listedCountry": "USA",
+        "listedInIndia": false,
+        "state": null,
+        "status": "Active"
       },
       {
-        "key": "CT",
-        "label": "Chhattisgarh",
-        "womenLed": 444,
-        "recognised": 1047,
-        "rate": 0.42406876790830944,
-        "low": 0.3944648908398472,
-        "high": 0.4542277938031458,
-        "n": 1047,
-        "successes": 444,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.42406876790830944,
-          "poolRate": 0.5008526750874354,
-          "effectSize": -0.07678390717912592,
-          "p": 7.658056890846865e-7,
-          "adjustedAlpha": 0.001851851851851852,
-          "significant": true
-        }
+        "name": "Aktoria Robotics",
+        "ycName": "Aktoria Robotics",
+        "batch": "Summer 2026",
+        "year": 2026,
+        "listedCountry": "USA",
+        "listedInIndia": false,
+        "state": null,
+        "status": "Active"
       },
       {
-        "key": "AS",
-        "label": "Assam",
-        "womenLed": 456,
-        "recognised": 995,
-        "rate": 0.45829145728643217,
-        "low": 0.4275518002802588,
-        "high": 0.4893519292685769,
-        "n": 995,
-        "successes": 456,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.45829145728643217,
-          "poolRate": 0.5004863110657435,
-          "effectSize": -0.042194853779311314,
-          "p": 0.008066077684730999,
-          "adjustedAlpha": 0.002173913043478261,
-          "significant": false
-        }
+        "name": "Antropi Robotics",
+        "ycName": "Antropi Robotics",
+        "batch": "Fall 2026",
+        "year": 2026,
+        "listedCountry": "India",
+        "listedInIndia": true,
+        "state": "KA",
+        "status": "Active"
       },
       {
-        "key": "JH",
-        "label": "Jharkhand",
-        "womenLed": 491,
-        "recognised": 981,
-        "rate": 0.5005096839959225,
-        "low": 0.4692803762516704,
-        "high": 0.5317350156076421,
-        "n": 981,
-        "successes": 491,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.5005096839959225,
-          "poolRate": 0.5000818433037735,
-          "effectSize": 0.00042784069214907294,
-          "p": 0.9787184818882504,
-          "adjustedAlpha": 0.05,
-          "significant": false
-        }
+        "name": "ProjectX",
+        "ycName": "ProjectX",
+        "batch": "Spring 2026",
+        "year": 2026,
+        "listedCountry": "USA",
+        "listedInIndia": false,
+        "state": null,
+        "status": "Active"
       },
       {
-        "key": "UK",
-        "label": "Uttarakhand",
-        "womenLed": 433,
-        "recognised": 858,
-        "rate": 0.5046620046620046,
-        "low": 0.4712612804096552,
-        "high": 0.5380211693009292,
-        "n": 858,
-        "successes": 433,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.5046620046620046,
-          "poolRate": 0.5000480861704174,
-          "effectSize": 0.00461391849158721,
-          "p": 0.7877832529882443,
-          "adjustedAlpha": 0.016666666666666666,
-          "significant": false
-        }
+        "name": "Ressl AI",
+        "ycName": "Ressl AI",
+        "batch": "Winter 2026",
+        "year": 2026,
+        "listedCountry": "India",
+        "listedInIndia": true,
+        "state": "KA",
+        "status": "Active"
       },
       {
-        "key": "JK",
-        "label": "Jammu and Kashmir",
-        "womenLed": 228,
-        "recognised": 624,
-        "rate": 0.36538461538461536,
-        "low": 0.3285329090214451,
-        "high": 0.4038836148641186,
-        "n": 624,
-        "successes": 228,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.36538461538461536,
-          "poolRate": 0.500892394495941,
-          "effectSize": -0.13550777911132567,
-          "p": 1.4890089161667674e-11,
-          "adjustedAlpha": 0.0016666666666666668,
-          "significant": true
-        }
-      },
-      {
-        "key": "HP",
-        "label": "Himachal Pradesh",
-        "womenLed": 170,
-        "recognised": 383,
-        "rate": 0.44386422976501305,
-        "low": 0.3949080649889438,
-        "high": 0.49393528667484193,
-        "n": 383,
-        "successes": 170,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.44386422976501305,
-          "poolRate": 0.5002919917667895,
-          "effectSize": -0.05642776200177646,
-          "p": 0.027482907883417118,
-          "adjustedAlpha": 0.002380952380952381,
-          "significant": false
-        }
-      },
-      {
-        "key": "GA",
-        "label": "Goa",
-        "womenLed": 179,
-        "recognised": 379,
-        "rate": 0.47229551451187335,
-        "low": 0.42256456632692463,
-        "high": 0.5225824403094819,
-        "n": 379,
-        "successes": 179,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.47229551451187335,
-          "poolRate": 0.5001866761121588,
-          "effectSize": -0.027891161600285486,
-          "p": 0.2783642545382923,
-          "adjustedAlpha": 0.004545454545454546,
-          "significant": false
-        }
-      },
-      {
-        "key": "CH",
-        "label": "Chandigarh",
-        "womenLed": 186,
-        "recognised": 359,
-        "rate": 0.5181058495821727,
-        "low": 0.46650059351851336,
-        "high": 0.5693277267684035,
-        "n": 359,
-        "successes": 186,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.5181058495821727,
-          "poolRate": 0.5000239282535246,
-          "effectSize": 0.018081921328648054,
-          "p": 0.49395415715462776,
-          "adjustedAlpha": 0.0071428571428571435,
-          "significant": false
-        }
-      },
-      {
-        "key": "PY",
-        "label": "Puducherry",
-        "womenLed": 48,
-        "recognised": 111,
-        "rate": 0.43243243243243246,
-        "low": 0.34405636717040633,
-        "high": 0.5253287821124846,
-        "n": 111,
-        "successes": 48,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.43243243243243246,
-          "poolRate": 0.5001575524936263,
-          "effectSize": -0.0677251200611938,
-          "p": 0.153781482139695,
-          "adjustedAlpha": 0.0038461538461538464,
-          "significant": false
-        }
-      },
-      {
-        "key": "MN",
-        "label": "Manipur",
-        "womenLed": 47,
-        "recognised": 103,
-        "rate": 0.4563106796116505,
-        "low": 0.36342238345230693,
-        "high": 0.5523406536744683,
-        "n": 103,
-        "successes": 47,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.4563106796116505,
-          "poolRate": 0.5001288967393899,
-          "effectSize": -0.04381821712773937,
-          "p": 0.3740159861335488,
-          "adjustedAlpha": 0.005555555555555556,
-          "significant": false
-        }
-      },
-      {
-        "key": "TR",
-        "label": "Tripura",
-        "womenLed": 39,
-        "recognised": 83,
-        "rate": 0.46987951807228917,
-        "low": 0.36623347829270353,
-        "high": 0.5761903355411505,
-        "n": 83,
-        "successes": 39,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.46987951807228917,
-          "poolRate": 0.5001097799627703,
-          "effectSize": -0.030230261890481114,
-          "p": 0.5819052694985845,
-          "adjustedAlpha": 0.008333333333333333,
-          "significant": false
-        }
-      },
-      {
-        "key": "AN",
-        "label": "Andaman and Nicobar Islands",
-        "womenLed": 18,
-        "recognised": 49,
-        "rate": 0.3673469387755102,
-        "low": 0.24665172968683144,
-        "high": 0.5073293243920757,
-        "n": 49,
-        "successes": 18,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.3673469387755102,
-          "poolRate": 0.5001479162889234,
-          "effectSize": -0.1328009775134132,
-          "p": 0.06305830795867706,
-          "adjustedAlpha": 0.002631578947368421,
-          "significant": false
-        }
-      },
-      {
-        "key": "DN",
-        "label": "Dadra and Nagar Haveli and Daman and Diu",
-        "womenLed": 21,
-        "recognised": 43,
-        "rate": 0.4883720930232558,
-        "low": 0.3461744754671859,
-        "high": 0.6324769153055069,
-        "n": 43,
-        "successes": 21,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.4883720930232558,
-          "poolRate": 0.5000906531800181,
-          "effectSize": -0.011718560156762314,
-          "p": 0.8778806901185856,
-          "adjustedAlpha": 0.025,
-          "significant": false
-        }
-      },
-      {
-        "key": "NL",
-        "label": "Nagaland",
-        "womenLed": 24,
-        "recognised": 42,
-        "rate": 0.5714285714285714,
-        "low": 0.4220623987810458,
-        "high": 0.7088234882381393,
-        "n": 42,
-        "successes": 24,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.5714285714285714,
-          "poolRate": 0.5000572540936677,
-          "effectSize": 0.07137131733490365,
-          "p": 0.3550215873558733,
-          "adjustedAlpha": 0.005,
-          "significant": false
-        }
-      },
-      {
-        "key": "ML",
-        "label": "Meghalaya",
-        "womenLed": 21,
-        "recognised": 39,
-        "rate": 0.5384615384615384,
-        "low": 0.38569448270515755,
-        "high": 0.6843311439327215,
-        "n": 39,
-        "successes": 21,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.5384615384615384,
-          "poolRate": 0.5000715655683737,
-          "effectSize": 0.0383899728931647,
-          "p": 0.6316529049438113,
-          "adjustedAlpha": 0.01,
-          "significant": false
-        }
-      },
-      {
-        "key": "AR",
-        "label": "Arunachal Pradesh",
-        "womenLed": 17,
-        "recognised": 32,
-        "rate": 0.53125,
-        "low": 0.36449517118974645,
-        "high": 0.6913061289193116,
-        "n": 32,
-        "successes": 17,
-        "insufficientData": false,
-        "test": {
-          "rate": 0.53125,
-          "poolRate": 0.5000763315077381,
-          "effectSize": 0.031173668492261886,
-          "p": 0.7243612613868229,
-          "adjustedAlpha": 0.0125,
-          "significant": false
-        }
+        "name": "Skillsync",
+        "ycName": "Skillsync",
+        "batch": "Winter 2026",
+        "year": 2026,
+        "listedCountry": "USA",
+        "listedInIndia": false,
+        "state": null,
+        "status": "Active"
       }
     ]
   },
+  "landscape": {
+    "id": "landscape",
+    "title": "Founder programmes an early-stage Indian founder is likely to compare",
+    "release": "Compiled by hand from each programme's public pages",
+    "compiledOn": "2026-10-02",
+    "rizePublicStats": {
+      "url": "https://razorpay.com/rize/",
+      "communityFounders": "1,750+",
+      "companyRegistrations": "14,950+"
+    },
+    "programmes": [
+      {
+        "name": "Razorpay Rize",
+        "by": "Razorpay (payments)",
+        "leadOffer": "Company registration, founder communities and YC application help",
+        "detail": "Registration for Pvt Ltd, LLP and OPC. Three communities: Tech+, D2C+, Xport+. Rize for YC (application reviews, mock interviews), Pitch Perfect, Razorpay Ventures.",
+        "entryBar": "Open to early-stage founders in India",
+        "meetsFounder": "Before the company exists",
+        "kind": "services",
+        "url": "https://razorpay.com/rize/",
+        "verified": "official page"
+      },
+      {
+        "name": "Stripe Atlas",
+        "by": "Stripe (payments)",
+        "leadOffer": "US company formation for US$500",
+        "detail": "Delaware C corporation or LLC, tax ID, founder equity paperwork, $2,500 in Stripe credits. US$100 a year after the first year.",
+        "entryBar": "Anyone, including founders outside the US",
+        "meetsFounder": "Before the company exists",
+        "kind": "services",
+        "url": "https://stripe.com/atlas",
+        "verified": "official page"
+      },
+      {
+        "name": "AWS Activate",
+        "by": "Amazon Web Services (cloud)",
+        "leadOffer": "Cloud credits",
+        "detail": "Founders tier: starts at $1,000, up to $5,000, for self-funded startups. Portfolio tier: up to $200,000, needs an ID from an accelerator, investor or other Activate Provider.",
+        "entryBar": "Low for the small tier; a backer for the large one",
+        "meetsFounder": "After there is a product to host",
+        "kind": "credits",
+        "url": "https://aws.amazon.com/startups/credits",
+        "verified": "official page"
+      },
+      {
+        "name": "Google for Startups Cloud Program",
+        "by": "Google Cloud (cloud)",
+        "leadOffer": "Cloud credits",
+        "detail": "Reported as up to $2,000 for unfunded startups and up to $200,000 over two years for startups with institutional funding.",
+        "entryBar": "Low for the small tier; institutional funding for the large one",
+        "meetsFounder": "After there is a product to host",
+        "kind": "credits",
+        "url": "https://cloud.google.com/startup/benefits",
+        "verified": "secondary sources"
+      },
+      {
+        "name": "Microsoft for Startups",
+        "by": "Microsoft (cloud)",
+        "leadOffer": "Azure credits",
+        "detail": "Open to private companies building a software product; no investor needed to join. Larger credit tiers are reported to need funding, customers or an accelerator.",
+        "entryBar": "Low to join; traction for larger tiers",
+        "meetsFounder": "After there is a product to host",
+        "kind": "credits",
+        "url": "https://learn.microsoft.com/en-us/startups/microsoft-for-startups/overview",
+        "verified": "official page for eligibility; secondary sources for tiers"
+      },
+      {
+        "name": "Zoho for Startups",
+        "by": "Zoho (business software)",
+        "leadOffer": "Zoho Wallet credits",
+        "detail": "Reported as ₹1 lakh on approval plus ₹86,000 for hosting email with Zoho; up to ₹3 lakh for DPIIT-recognised startups. For new Zoho users only.",
+        "entryBar": "DPIIT recognition or a partner incubator",
+        "meetsFounder": "After the company is registered",
+        "kind": "credits",
+        "url": "https://zoho.com/startups/founders-registration.html",
+        "verified": "secondary sources, including the Startup India partner page"
+      }
+    ],
+    "read": [
+      "Four of the six lead with credits. Credits are easy to compare and easy to match, so those programmes compete on the size of the number.",
+      "Rize and Stripe Atlas are the two that meet a founder before the company exists, and both are run by payments companies. Atlas forms US companies; Rize forms Indian ones.",
+      "That makes the first finding on this site a business question as well as a data one: Rize's most successful YC founders end up listed in San Francisco, which is where Atlas operates."
+    ]
+  },
   "decisions": [
+    {
+      "id": "rize_alumni_listing",
+      "strength": "direct observation",
+      "title": "12 of Rize's 20 YC alumni are listed as US companies",
+      "recommendation": "YC's public directory files most Rize-backed companies under San Francisco, so the familiar line that \"India's share of YC collapsed\" overstates the fall, and Rize for YC's results are invisible in public data. Rize holds the real numbers. Publish a per-batch count of Indian-founder YC companies and make Rize the source people quote.",
+      "metric": {
+        "label": "Rize alumni by where YC lists them",
+        "value": "12 USA · 7 India · 1 no location",
+        "comparison": "20 companies is below the minimum sample of 30, so no percentage is stated"
+      },
+      "evidence": [
+        "Rize's public Rize for YC page names 20 YC companies; all 20 were found in the YC directory (several under a new name).",
+        "Directory, 2023–2026: 26 companies list India. 6 of those are Rize alumni.",
+        "Another 13 Rize alumni from the same batches are listed under another country or none, so counting Rize's alumni alone, at least 39 YC companies in 2023–2026 came through India's founder ecosystem, not 26.",
+        "The directory's India share fell from 7.6% (2019–2022) to 1.1% (2023–2026). Part of that fall is this relabelling; how much can't be measured from outside."
+      ],
+      "counterEvidence": "The alumni wall shows companies Rize chose to feature, so it isn't a random sample of Indian founders in YC. Some of these companies may have been US-based before YC. The page's headline says 18 founders while it names 20 companies.",
+      "source": "razorpay.com/rize/ycombinator + yc-oss YC directory"
+    },
+    {
+      "id": "yc_concentration",
+      "keys": [
+        "KA"
+      ],
+      "strength": "clear pattern",
+      "title": "Karnataka supplies most of India's listed YC companies",
+      "recommendation": "Report Rize for YC admits by the founder's home state, not the company's listed city. Admits from outside Karnataka are the ones Rize can most credibly claim, and only Rize's application data can show them.",
+      "metric": {
+        "label": "Karnataka's share of India-listed YC admits, 2019–2023",
+        "value": "50% – 64%",
+        "comparison": "Karnataka has 10% of recognised startups"
+      },
+      "evidence": [
+        "Karnataka: 98 admits from 10,874 recognised startups (9.01 per 1,000 vs 0.79 elsewhere).",
+        "All 7 India-listed Rize alumni are in Karnataka."
+      ],
+      "counterEvidence": "Much of this is relocation: founders from other states move to Bengaluru and list it as their location. The directory can't show where a founder started.",
+      "source": "yc-oss YC directory + DPIIT recognitions (PIB, Feb 2024)"
+    },
+    {
+      "id": "yc_under_tapped",
+      "keys": [
+        "GJ"
+      ],
+      "strength": "suggestive",
+      "title": "Gujarat: worth a small Rize for YC pilot, not a conclusion",
+      "recommendation": "Gujarat is growing fast in registered startups but almost never appears in YC. The likely reason is sector mix, not missed outreach. A cheap test would settle it: one application clinic there, measured on qualified applications.",
+      "metric": {
+        "label": "Gujarat: YC admits per 1,000 recognised startups",
+        "value": "0.02 – 0.66",
+        "comparison": "1.78 in the rest of India"
+      },
+      "evidence": [
+        "Gujarat: 1 YC admit(s) from 8,619 recognised startups in 2019–2023; recognitions grew 5.8× (India 3.3×).",
+        "Gap must be at least 1.5× and pass a Holm-corrected noise screen across 32 states."
+      ],
+      "counterEvidence": "DPIIT recognition covers every kind of new business. A state heavy in manufacturing, trading or services will send few companies to YC whatever Rize does. This compares two different lists of companies, so it is not a conversion rate.",
+      "source": "yc-oss YC directory + DPIIT recognitions (PIB, Feb 2024)"
+    },
     {
       "id": "growth_shift",
       "keys": [
@@ -3197,138 +2913,56 @@
         "RJ",
         "TN"
       ],
-      "title": "Founder growth is shifting: 7 states growing well above India's 3.3×",
-      "recommendation": "New startup recognitions grew fastest in Assam, Bihar, Gujarat, Jammu and Kashmir, Punjab, Rajasthan and Tamil Nadu, and slowest in Chhattisgarh, Delhi, Karnataka and Kerala. If Rize's buildathon and community-event calendar still follows the 2019 map of where founders were, re-weight it toward where they are arriving now.",
-      "impactRange": {
-        "label": "Gujarat growth, 2019→2023",
-        "low": "5.3×",
-        "high": "6.4×",
-        "vsPool": "3.3× for India overall"
+      "strength": "suggestive",
+      "title": "Startup registrations are growing fastest outside the big hubs",
+      "recommendation": "Registrations grew well above India's 3.3× in Assam, Bihar, Gujarat, Jammu and Kashmir, Punjab, Rajasthan and Tamil Nadu, and well below it in Chhattisgarh, Delhi, Karnataka and Kerala. Before moving any events budget, check whether Rize's own sign-ups show the same shift. The \"Try it on your data\" screen does that comparison.",
+      "metric": {
+        "label": "Gujarat: growth in recognitions, 2019→2023",
+        "value": "5.8×",
+        "comparison": "3.3× for India overall"
       },
       "evidence": [
-        "Assam: 62 → 362 recognitions (5.8×).",
-        "Bihar: 137 → 811 recognitions (5.9×).",
-        "Gujarat: 565 → 3,291 recognitions (5.8×).",
-        "Jammu and Kashmir: 30 → 247 recognitions (8.2×).",
-        "Punjab: 86 → 443 recognitions (5.2×).",
-        "Rajasthan: 321 → 1,443 recognitions (4.5×).",
-        "Tamil Nadu: 556 → 2,810 recognitions (5.1×).",
+        "Assam: 62 → 362 (5.8×).",
+        "Bihar: 137 → 811 (5.9×).",
+        "Gujarat: 565 → 3,291 (5.8×).",
+        "Jammu and Kashmir: 30 → 247 (8.2×).",
+        "Punjab: 86 → 443 (5.2×).",
+        "Rajasthan: 321 → 1,443 (4.5×).",
+        "Tamil Nadu: 556 → 2,810 (5.1×).",
         "Chhattisgarh (slower): 152 → 360 (2.4×).",
         "Delhi (slower): 1,302 → 3,150 (2.4×).",
         "Karnataka (slower): 1,566 → 3,032 (1.9×).",
         "Kerala (slower): 597 → 1,294 (2.2×).",
-        "Each state's 2023 share of its own 2019+2023 recognitions tested against the rest of India, Holm-corrected across 23 states; strongest result p < 1e-15. Effect must also exceed 5 percentage points."
+        "These are complete government counts, so sampling error is not the concern. A state is listed only if its gap exceeds 5 percentage points and passes a Holm-corrected noise screen across 23 states."
       ],
-      "confidence": "high",
-      "counterEvidence": "DPIIT recognition is opt-in, and some state startup policies require it for local benefits — part of a state's growth can be a policy push to register, not new founders. Check against company-incorporation counts (MCA) for the same states before moving budget.",
-      "source": "DPIIT recognitions by state, PIB Feb 2024"
-    },
-    {
-      "id": "yc_under_tapped",
-      "keys": [
-        "GJ"
-      ],
-      "title": "Gujarat: a fast-growing founder base that almost never reaches YC",
-      "recommendation": "Gujarat is one of India's fastest-growing startup states, but it sends far fewer companies to YC per recognised startup than the rest of the country. That's where Rize for YC adds the most: run targeted application clinics and founder office hours there, rather than in Bengaluru, where founders already find their way to YC.",
-      "impactRange": {
-        "label": "Gujarat: YC admits per 1,000 recognised startups",
-        "low": "0.02",
-        "high": "0.66",
-        "vsPool": "1.78 in the rest of India"
-      },
-      "evidence": [
-        "Gujarat: 1 YC admit(s) from 8,619 recognised startups, 2019–2023.",
-        "YC admits ÷ DPIIT recognitions by state, Holm-corrected across 32 states; strongest p = 2.62e-4. Rate ratio must be at least 1.5× either way.",
-        "2 of 174 Indian YC companies in the window had no mappable state and are excluded."
-      ],
-      "confidence": "medium",
-      "counterEvidence": "This is a ratio of two different populations, not a tracked conversion: a YC company need not be DPIIT-recognised, and founders often relocate to Bengaluru before applying, so YC lists them there. Sector mix matters too — a state heavy in services or trading startups will send fewer to YC regardless of outreach.",
-      "source": "yc-oss YC directory + DPIIT recognitions, PIB Feb 2024"
-    },
-    {
-      "id": "yc_concentration",
-      "keys": [
-        "KA"
-      ],
-      "title": "Karnataka supplies most of India's YC companies",
-      "recommendation": "Measure Rize for YC on admits from outside Karnataka. Admits from there would mostly happen anyway; admits from elsewhere are the ones Rize can credibly claim.",
-      "impactRange": {
-        "label": "Karnataka's share of Indian YC admits, 2019–2023",
-        "low": "49.5%",
-        "high": "64.1%",
-        "vsPool": "10.4% of recognised startups"
-      },
-      "evidence": [
-        "Karnataka: 98 admits from 10,874 recognitions (9.01 per 1,000 vs 0.79 elsewhere).",
-        "Holm-corrected across 32 states; p < 1e-15."
-      ],
-      "confidence": "high",
-      "counterEvidence": "Some of this is relocation: founders from other states move to Bengaluru and list it as their location. The real gap between states is probably smaller than the location field suggests.",
-      "source": "yc-oss YC directory + DPIIT recognitions, PIB Feb 2024"
-    },
-    {
-      "id": "yc_india_share",
-      "title": "India's share of YC fell from 7.6% to 1.1%",
-      "recommendation": "Getting Indian founders into YC is much harder now than in 2019–2022. Set Rize for YC's targets against this smaller base, and put the effort into application quality rather than application volume.",
-      "impactRange": {
-        "label": "Indian share of YC companies, 2023–2026",
-        "low": "0.7%",
-        "high": "1.6%",
-        "vsPool": "7.6% in 2019–2022"
-      },
-      "evidence": [
-        "2019–2022: 164 of 2,163 YC companies were Indian.",
-        "2023–2026: 26 of 2,436.",
-        "Two-proportion test: p < 1e-15. The 2022/2023 split was chosen after looking at the yearly series, so treat this p-value as descriptive."
-      ],
-      "confidence": "medium",
-      "counterEvidence": "YC's location field reflects where companies say they are now. Indian-founded companies that moved their headquarters to the US are counted as US companies, which may understate India's share, especially in recent batches.",
-      "source": "yc-oss YC directory"
-    },
-    {
-      "id": "women_led_gap",
-      "keys": [
-        "GJ",
-        "KL",
-        "CT",
-        "JK"
-      ],
-      "title": "Gujarat, Kerala, Chhattisgarh and Jammu and Kashmir: fewer startups with a woman director",
-      "recommendation": "About 50% of India's recognised startups have at least one woman director or partner, but Gujarat, Kerala, Chhattisgarh and Jammu and Kashmir sit well below that. If Rize runs women-founder or D2C+ programmes, these states are the gap to close.",
-      "impactRange": {
-        "label": "Gujarat: share with a woman director/partner",
-        "low": "43.7%",
-        "high": "45.8%",
-        "vsPool": "50.5% in the rest of India"
-      },
-      "evidence": [
-        "Gujarat: 3,853 of 8,619 recognitions in 2019–2023 (44.7%).",
-        "Kerala: 1,879 of 4,533 recognitions in 2019–2023 (41.5%).",
-        "Chhattisgarh: 444 of 1,047 recognitions in 2019–2023 (42.4%).",
-        "Jammu and Kashmir: 228 of 624 recognitions in 2019–2023 (36.5%).",
-        "Holm-corrected across 32 states; strongest p < 1e-15. Gap must exceed 5 percentage points."
-      ],
-      "confidence": "high",
-      "counterEvidence": "\"At least one woman director or partner\" is not the same as woman-founded or woman-led: family-run companies often add a woman director for compliance. The two tables also come from releases two years apart, so a few recognitions may have been revised in between.",
-      "source": "DPIIT women-director table, PIB Feb 2026 + recognitions, PIB Feb 2024"
+      "counterEvidence": "DPIIT recognition is opt-in. Several states tie local benefits to it, so a jump can mean a registration drive, not more founders. Company-incorporation counts would be the right cross-check; the free MCA data was not reachable for this build.",
+      "source": "DPIIT recognitions by state (PIB, Feb 2024)"
     }
   ],
   "withheld": [
     {
+      "id": "india_share_withheld",
+      "title": "India's true share of YC: not called",
+      "reason": [
+        "The directory shows India's share falling from 7.6% to 1.1%, but it records where a company says it is, not where its founders are from. 12 of 20 Rize alumni are filed under the USA, so the real fall is smaller than the directory shows, by an amount public data can't measure."
+      ],
+      "whatWouldSettleIt": "A count of Indian-founder companies per YC batch. Rize for YC's application records are the closest thing to one."
+    },
+    {
       "id": "closure_withheld",
       "title": "Closure rates by state: not called",
       "reason": [
-        "Gujarat's closure rate (3.0% vs 4.7% elsewhere) is statistically significant, but Gujarat is also one of the fastest-growing states. A younger set of startups has had less time to close, so state-level totals can't separate \"healthier ecosystem\" from \"younger startups\".",
-        "Karnataka (5.6% vs 4.4%) is statistically significant but under the 1.5× size bar, so it isn't worth acting on.",
-        "Tamil Nadu (3.7% vs 4.6%) is statistically significant but under the 1.5× size bar, so it isn't worth acting on."
+        "Gujarat's closure rate (3.0% vs 4.7% elsewhere) looks different, but Gujarat is also one of the fastest-growing states. Younger startups have had less time to close, so state totals can't separate a healthier ecosystem from a younger one.",
+        "Karnataka (5.6% vs 4.4%) is under the 1.5× size bar, so it isn't worth acting on.",
+        "Tamil Nadu (3.7% vs 4.6%) is under the 1.5× size bar, so it isn't worth acting on."
       ],
-      "whatWouldSettleIt": "Closures broken down by recognition year (the cohort) for each state. That would let the engine compare startups of the same age."
+      "whatWouldSettleIt": "Closures broken down by year of recognition for each state, so startups of the same age can be compared."
     },
     {
       "id": "yc_survival_withheld",
-      "title": "Survival of recent Indian YC companies: too new to call",
+      "title": "Survival of recent YC companies: too new to call",
       "reason": [
-        "2024 (n=7), 2025 (n=3), 2026 (n=6): fewer than 3 years old. \"Still active\" doesn't mean much yet, and every one of these cohorts is also below the minimum sample of 30."
+        "2024 (n=7), 2025 (n=3), 2026 (n=6): fewer than 3 years old and below the minimum sample of 30. All 20 Rize alumni are still active, but 14 of them are from these batches, so that says little yet."
       ],
       "whatWouldSettleIt": "Time. These cohorts become readable once they are 3 years old."
     }

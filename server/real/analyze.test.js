@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { stateKeyFromName, stateKeyFromYcLocation } from './states.js';
-import { buildMarket, buildClosure, buildDecisions } from './analyze.js';
+import { buildMarket, buildClosure, buildRize, buildDecisions } from './analyze.js';
 import { testEntitiesVsRest } from '../stats.js';
 
 const YEARS = ['2019', '2020', '2021', '2022', '2023'];
@@ -68,9 +68,28 @@ test('closure: a low closure rate in a fast-growing state is flagged as confound
   assert.equal(gj.test.significant, true);
   assert.equal(gj.confoundedByCohortAge, true);
 
-  const yc = { tests: [], states: [], survival: [], eraTest: { p: 1, early: { rate: 0 }, late: { rate: 0 } } };
-  const women = { tests: [], states: [], national: { rate: 0.5 } };
-  const { decisions, withheld } = buildDecisions(market, yc, closure, women);
+  const yc = { tests: [], states: [], survival: [], eraTest: { early: { rate: 0 }, late: { rate: 0 } } };
+  const rize = { total: 0, listedInUs: 0, indiaStates: [], alumni: [] };
+  const { decisions, withheld } = buildDecisions(market, yc, closure, rize);
   assert.equal(decisions.some((d) => d.id === 'closure_gap'), false);
   assert.equal(withheld.some((w) => w.id === 'closure_withheld'), true);
+});
+
+test('rize alumni: counts are reported, but a rate is withheld below the minimum sample', () => {
+  const alumni = [
+    { name: 'A', matched: true, batch: 'Winter 2024', listedCountry: 'USA', state: null, status: 'Active' },
+    { name: 'B', matched: true, batch: 'Winter 2023', listedCountry: 'India', state: 'KA', status: 'Active' },
+    { name: 'C', matched: true, batch: 'Fall 2025', listedCountry: null, state: null, status: 'Active' },
+    { name: 'D', matched: false, batch: null },
+  ];
+  const yc = { eraTest: { late: { from: 2023, to: 2026, india: 10 } } };
+  const rize = buildRize({ alumni }, yc);
+  assert.equal(rize.named, 4);
+  assert.equal(rize.total, 3);
+  assert.equal(rize.listedInUs, 1);
+  assert.equal(rize.listedInIndia, 1);
+  assert.equal(rize.noLocation, 1);
+  assert.equal(rize.shareListedOutsideIndia.insufficientData, true);
+  // 10 India-listed in the directory + 2 alumni it files elsewhere.
+  assert.equal(rize.late.lowerBoundIndiaEcosystemCompanies, 12);
 });
