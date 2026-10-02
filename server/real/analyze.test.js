@@ -68,7 +68,8 @@ test('closure: a low closure rate in a fast-growing state is flagged as confound
   assert.equal(gj.test.significant, true);
   assert.equal(gj.confoundedByCohortAge, true);
 
-  const yc = { tests: [], states: [], survival: [], eraTest: { early: { rate: 0 }, late: { rate: 0 } } };
+  const mix = { sanFrancisco: { rate: 0 } };
+  const yc = { tests: [], states: [], survival: [], eraTest: { early: { rate: 0 }, late: { rate: 0 } }, allYcLocations: { early: mix, late: mix } };
   const rize = { total: 0, listedInUs: 0, indiaStates: [], alumni: [] };
   const { decisions, withheld } = buildDecisions(market, yc, closure, rize);
   assert.equal(decisions.some((d) => d.id === 'closure_gap'), false);
@@ -77,7 +78,7 @@ test('closure: a low closure rate in a fast-growing state is flagged as confound
 
 test('rize alumni: counts are reported, but a rate is withheld below the minimum sample', () => {
   const alumni = [
-    { name: 'A', matched: true, batch: 'Winter 2024', listedCountry: 'USA', state: null, status: 'Active' },
+    { name: 'A', matched: true, founderOnYcPage: true, batch: 'Winter 2024', listedCountry: 'USA', state: null, status: 'Active' },
     { name: 'B', matched: true, batch: 'Winter 2023', listedCountry: 'India', state: 'KA', status: 'Active' },
     { name: 'C', matched: true, batch: 'Fall 2025', listedCountry: null, state: null, status: 'Active' },
     { name: 'D', matched: false, batch: null },
@@ -86,6 +87,7 @@ test('rize alumni: counts are reported, but a rate is withheld below the minimum
   const rize = buildRize({ alumni }, yc);
   assert.equal(rize.named, 4);
   assert.equal(rize.total, 3);
+  assert.equal(rize.founderConfirmed, 1);
   assert.equal(rize.listedInUs, 1);
   assert.equal(rize.listedInIndia, 1);
   assert.equal(rize.noLocation, 1);

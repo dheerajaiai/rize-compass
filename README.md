@@ -7,7 +7,8 @@ An independent data brief on Razorpay Rize, built after the Razorpay Rize x Repl
 
 **The main finding:** of the 20 YC companies named on Rize's public alumni wall, 12 are listed in
 Y Combinator's directory as US companies and 7 as Indian. The directory records where a company is
-now, so "India's share of YC" understates what Rize for YC has produced.
+now, and across all of YC the share listing San Francisco roughly doubled between 2019–22 and
+2023–26. So public counts of "Indian startups in YC" miss most of the companies Rize names.
 
 ## What's in it
 

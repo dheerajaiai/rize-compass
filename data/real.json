@@ -6,7 +6,7 @@
       "release": "PIB, Ministry of Commerce & Industry, written reply in Lok Sabha, Feb 2024",
       "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2002100",
       "asOf": "2023-12-31",
-      "fetchedAt": "2026-10-02T08:16:24.868Z"
+      "fetchedAt": "2026-10-02T08:27:57.723Z"
     },
     {
       "id": "dpiit_cumulative_jun2024",
@@ -14,7 +14,7 @@
       "release": "PIB, Ministry of Commerce & Industry, written reply in Lok Sabha, Jul 2024",
       "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2037579",
       "asOf": "2024-06-30",
-      "fetchedAt": "2026-10-02T08:16:25.204Z"
+      "fetchedAt": "2026-10-02T08:27:58.480Z"
     },
     {
       "id": "dpiit_closed_nov2025",
@@ -22,7 +22,7 @@
       "release": "PIB, Ministry of Commerce & Industry, written reply in Lok Sabha, Dec 2025",
       "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2197662",
       "asOf": "2025-11-11",
-      "fetchedAt": "2026-10-02T08:16:25.723Z"
+      "fetchedAt": "2026-10-02T08:27:59.200Z"
     },
     {
       "id": "yc_india",
@@ -30,7 +30,7 @@
       "release": "yc-oss public mirror of the YC company directory",
       "url": "https://yc-oss.github.io/api/companies/all.json",
       "asOf": null,
-      "fetchedAt": "2026-10-02T08:16:27.130Z"
+      "fetchedAt": "2026-10-02T08:28:00.316Z"
     },
     {
       "id": "rize_yc_alumni",
@@ -38,7 +38,7 @@
       "release": "razorpay.com/rize/ycombinator (public page), matched to the yc-oss YC directory",
       "url": "https://razorpay.com/rize/ycombinator/",
       "asOf": null,
-      "fetchedAt": "2026-10-02T08:16:27.379Z"
+      "fetchedAt": "2026-10-02T08:28:08.632Z"
     },
     {
       "id": "landscape",
@@ -1737,6 +1737,50 @@
       "p": 0,
       "splitChosenAfterLooking": true
     },
+    "allYcLocations": {
+      "early": {
+        "from": 2019,
+        "to": 2022,
+        "total": 2163,
+        "usa": {
+          "rate": 0.6111881645862228,
+          "low": 0.5904646947823534,
+          "high": 0.6315173971893338,
+          "n": 2163,
+          "successes": 1322,
+          "insufficientData": false
+        },
+        "sanFrancisco": {
+          "rate": 0.31992602866389275,
+          "low": 0.30060286145166054,
+          "high": 0.3398876798249627,
+          "n": 2163,
+          "successes": 692,
+          "insufficientData": false
+        }
+      },
+      "late": {
+        "from": 2023,
+        "to": 2026,
+        "total": 2435,
+        "usa": {
+          "rate": 0.8238193018480493,
+          "low": 0.808180660093662,
+          "high": 0.8384378375115744,
+          "n": 2435,
+          "successes": 2006,
+          "insufficientData": false
+        },
+        "sanFrancisco": {
+          "rate": 0.6127310061601643,
+          "low": 0.5932196998567644,
+          "high": 0.6318871835834861,
+          "n": 2435,
+          "successes": 1492,
+          "insufficientData": false
+        }
+      }
+    },
     "survival": [
       {
         "year": 2015,
@@ -2529,6 +2573,7 @@
   "rize": {
     "named": 20,
     "total": 20,
+    "founderConfirmed": 20,
     "listedInIndia": 7,
     "listedInUs": 12,
     "noLocation": 1,
@@ -2558,7 +2603,9 @@
     "alumni": [
       {
         "name": "Shelf",
+        "founder": "Vedant Kumar",
         "ycName": "FlatX",
+        "ycUrl": "https://www.ycombinator.com/companies/flatx",
         "batch": "Summer 2022",
         "year": 2022,
         "listedCountry": "India",
@@ -2568,7 +2615,9 @@
       },
       {
         "name": "Backdrop",
+        "founder": "Akanksha Singh",
         "ycName": "Backdrop",
+        "ycUrl": "https://www.ycombinator.com/companies/backdrop",
         "batch": "Winter 2023",
         "year": 2023,
         "listedCountry": "USA",
@@ -2578,7 +2627,9 @@
       },
       {
         "name": "Giga ML",
+        "founder": "Varun Vummadi",
         "ycName": "Giga",
+        "ycUrl": "https://www.ycombinator.com/companies/giga",
         "batch": "Summer 2023",
         "year": 2023,
         "listedCountry": "USA",
@@ -2588,7 +2639,9 @@
       },
       {
         "name": "Retape",
+        "founder": "Shubham Rana",
         "ycName": "Retape",
+        "ycUrl": "https://www.ycombinator.com/companies/retape",
         "batch": "Winter 2023",
         "year": 2023,
         "listedCountry": "India",
@@ -2598,7 +2651,9 @@
       },
       {
         "name": "SuperAPI",
+        "founder": "Adithya Kavuluru",
         "ycName": "SuperAPI",
+        "ycUrl": "https://www.ycombinator.com/companies/superapi",
         "batch": "Winter 2023",
         "year": 2023,
         "listedCountry": "India",
@@ -2608,7 +2663,9 @@
       },
       {
         "name": "SuperKalam",
+        "founder": "Aseem Gupta",
         "ycName": "SuperKalam",
+        "ycUrl": "https://www.ycombinator.com/companies/superkalam",
         "batch": "Winter 2023",
         "year": 2023,
         "listedCountry": "India",
@@ -2618,7 +2675,9 @@
       },
       {
         "name": "CodeAnt",
+        "founder": "Amartya Jha",
         "ycName": "CodeAnt AI",
+        "ycUrl": "https://www.ycombinator.com/companies/codeant-ai",
         "batch": "Winter 2024",
         "year": 2024,
         "listedCountry": "USA",
@@ -2628,7 +2687,9 @@
       },
       {
         "name": "Crustdata",
+        "founder": "Abhilash Chowdhary",
         "ycName": "Crustdata",
+        "ycUrl": "https://www.ycombinator.com/companies/crustdata",
         "batch": "Fall 2024",
         "year": 2024,
         "listedCountry": null,
@@ -2638,7 +2699,9 @@
       },
       {
         "name": "Pipeshift",
+        "founder": "Arko C",
         "ycName": "Pipeshift",
+        "ycUrl": "https://www.ycombinator.com/companies/pipeshift",
         "batch": "Summer 2024",
         "year": 2024,
         "listedCountry": "USA",
@@ -2648,7 +2711,9 @@
       },
       {
         "name": "Ragas",
+        "founder": "Jithin James",
         "ycName": "Vibrant Labs",
+        "ycUrl": "https://www.ycombinator.com/companies/vibrant-labs",
         "batch": "Winter 2024",
         "year": 2024,
         "listedCountry": "USA",
@@ -2658,7 +2723,9 @@
       },
       {
         "name": "Tensorfuse",
+        "founder": "Agam Jain",
         "ycName": "Whip",
+        "ycUrl": "https://www.ycombinator.com/companies/whip",
         "batch": "Winter 2024",
         "year": 2024,
         "listedCountry": "USA",
@@ -2668,7 +2735,9 @@
       },
       {
         "name": "Bolna",
+        "founder": "Prateek Sachan",
         "ycName": "Bolna AI",
+        "ycUrl": "https://www.ycombinator.com/companies/bolna-ai",
         "batch": "Fall 2025",
         "year": 2025,
         "listedCountry": "India",
@@ -2678,7 +2747,9 @@
       },
       {
         "name": "Redapto",
+        "founder": "Anirudh Pupneja",
         "ycName": "Redapto",
+        "ycUrl": "https://www.ycombinator.com/companies/redapto",
         "batch": "Fall 2025",
         "year": 2025,
         "listedCountry": "USA",
@@ -2688,7 +2759,9 @@
       },
       {
         "name": "Truffle AI",
+        "founder": "Shaunak Srivastava",
         "ycName": "Dexto",
+        "ycUrl": "https://www.ycombinator.com/companies/dexto",
         "batch": "Winter 2025",
         "year": 2025,
         "listedCountry": "USA",
@@ -2698,7 +2771,9 @@
       },
       {
         "name": "Unsiloed AI",
+        "founder": "Aman Mishra",
         "ycName": "Unsiloed AI",
+        "ycUrl": "https://www.ycombinator.com/companies/unsiloed-ai",
         "batch": "Fall 2025",
         "year": 2025,
         "listedCountry": "USA",
@@ -2708,7 +2783,9 @@
       },
       {
         "name": "Aktoria Robotics",
+        "founder": "Shreenabh Agrawal",
         "ycName": "Aktoria Robotics",
+        "ycUrl": "https://www.ycombinator.com/companies/aktoria-robotics",
         "batch": "Summer 2026",
         "year": 2026,
         "listedCountry": "USA",
@@ -2718,7 +2795,9 @@
       },
       {
         "name": "Antropi Robotics",
+        "founder": "Naman Gupta",
         "ycName": "Antropi Robotics",
+        "ycUrl": "https://www.ycombinator.com/companies/antropi-robotics",
         "batch": "Fall 2026",
         "year": 2026,
         "listedCountry": "India",
@@ -2728,7 +2807,9 @@
       },
       {
         "name": "ProjectX",
+        "founder": "Rounak Adhikary",
         "ycName": "ProjectX",
+        "ycUrl": "https://www.ycombinator.com/companies/projectx",
         "batch": "Spring 2026",
         "year": 2026,
         "listedCountry": "USA",
@@ -2738,7 +2819,9 @@
       },
       {
         "name": "Ressl AI",
+        "founder": "Arushi Gandhi",
         "ycName": "Ressl AI",
+        "ycUrl": "https://www.ycombinator.com/companies/ressl-ai",
         "batch": "Winter 2026",
         "year": 2026,
         "listedCountry": "India",
@@ -2748,7 +2831,9 @@
       },
       {
         "name": "Skillsync",
+        "founder": "Narayana Aaditya",
         "ycName": "Skillsync",
+        "ycUrl": "https://www.ycombinator.com/companies/skillsync",
         "batch": "Winter 2026",
         "year": 2026,
         "listedCountry": "USA",
@@ -2839,28 +2924,29 @@
     "read": [
       "Four of the six lead with credits. Credits are easy to compare and easy to match, so those programmes compete on the size of the number.",
       "Rize and Stripe Atlas are the two that meet a founder before the company exists, and both are run by payments companies. Atlas forms US companies; Rize forms Indian ones.",
-      "That makes the first finding on this site a business question as well as a data one: Rize's most successful YC founders end up listed in San Francisco, which is where Atlas operates."
+      "Both Rize and Atlas use company formation to meet founders early. They sit on opposite sides of the choice many YC-bound Indian founders face: an Indian company or a US one."
     ]
   },
   "decisions": [
     {
       "id": "rize_alumni_listing",
       "strength": "direct observation",
-      "title": "12 of Rize's 20 YC alumni are listed as US companies",
-      "recommendation": "YC's public directory files most Rize-backed companies under San Francisco, so the familiar line that \"India's share of YC collapsed\" overstates the fall, and Rize for YC's results are invisible in public data. Rize holds the real numbers. Publish a per-batch count of Indian-founder YC companies and make Rize the source people quote.",
+      "title": "12 of the 20 YC companies on Rize's alumni wall are listed as US companies",
+      "recommendation": "Public counts of \"Indian startups in YC\" are counts of locations, and most of the companies Rize names as alumni aren't in them. If Rize wants to show what Rize for YC contributes, the directory can't do it, but Rize's own records can. A per-batch count of Rize-supported and Indian-founder YC companies is a number only Rize can publish.",
       "metric": {
         "label": "Rize alumni by where YC lists them",
         "value": "12 USA · 7 India · 1 no location",
         "comparison": "20 companies is below the minimum sample of 30, so no percentage is stated"
       },
       "evidence": [
-        "Rize's public Rize for YC page names 20 YC companies; all 20 were found in the YC directory (several under a new name).",
-        "Directory, 2023–2026: 26 companies list India. 6 of those are Rize alumni.",
-        "Another 13 Rize alumni from the same batches are listed under another country or none, so counting Rize's alumni alone, at least 39 YC companies in 2023–2026 came through India's founder ecosystem, not 26.",
-        "The directory's India share fell from 7.6% (2019–2022) to 1.1% (2023–2026). Part of that fall is this relabelling; how much can't be measured from outside."
+        "Rize's public Rize for YC page names 20 YC companies. All 20 were found in the YC directory, and for 20 of them the founder Rize names appears on the company's own YC page.",
+        "Directory, 2023–2026: 26 companies list India. 6 of those are on Rize's wall.",
+        "Another 13 companies on the wall from the same batches are listed under another country or none. Counting those, at least 39 YC companies in 2023–2026 have a link to India's founder ecosystem, not 26.",
+        "This is a YC-wide shift, not something particular to Rize: across all of YC, the share of companies listing San Francisco rose from 32% (2019–2022) to 61% (2023–2026).",
+        "Over the same period the directory's India share fell from 7.6% to 1.1%. Some of that fall is this change in where companies list themselves; how much can't be measured from outside."
       ],
-      "counterEvidence": "The alumni wall shows companies Rize chose to feature, so it isn't a random sample of Indian founders in YC. Some of these companies may have been US-based before YC. The page's headline says 18 founders while it names 20 companies.",
-      "source": "razorpay.com/rize/ycombinator + yc-oss YC directory"
+      "counterEvidence": "Being on the wall means a company used Rize's application help; it doesn't show that Rize is why it got in. The wall shows companies Rize chose to feature, so it isn't every founder Rize supported. Companies in a current batch may list San Francisco only while the batch runs. The page's headline says 18 founders while it names 20 companies.",
+      "source": "razorpay.com/rize/ycombinator + yc-oss YC directory + ycombinator.com company pages"
     },
     {
       "id": "yc_concentration",
@@ -2944,7 +3030,7 @@
       "id": "india_share_withheld",
       "title": "India's true share of YC: not called",
       "reason": [
-        "The directory shows India's share falling from 7.6% to 1.1%, but it records where a company says it is, not where its founders are from. 12 of 20 Rize alumni are filed under the USA, so the real fall is smaller than the directory shows, by an amount public data can't measure."
+        "The directory shows India's share falling from 7.6% to 1.1%, but it records where a company says it is, not where its founders are from. 12 of 20 Rize alumni are filed under the USA, and across all of YC the share listing San Francisco rose from 32% to 61%. So the fall in Indian-founder companies is smaller than the directory shows, by an amount public data can't measure."
       ],
       "whatWouldSettleIt": "A count of Indian-founder companies per YC batch. Rize for YC's application records are the closest thing to one."
     },

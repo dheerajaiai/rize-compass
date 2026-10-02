@@ -3,7 +3,7 @@
   "title": "Y Combinator companies with an Indian region",
   "release": "yc-oss public mirror of the YC company directory",
   "url": "https://yc-oss.github.io/api/companies/all.json",
-  "fetchedAt": "2026-10-02T08:16:27.130Z",
+  "fetchedAt": "2026-10-02T08:28:00.316Z",
   "totalCompanies": 6267,
   "batchTotals": {
     "Winter 2012": 66,
@@ -57,6 +57,263 @@
     "Fall 2026": 108,
     "Winter 2027": 1,
     "Summer 2027": 1
+  },
+  "batchLocations": {
+    "Winter 2012": {
+      "total": 66,
+      "usa": 59,
+      "sanFrancisco": 46
+    },
+    "Unspecified": {
+      "total": 1,
+      "usa": 0,
+      "sanFrancisco": 0
+    },
+    "Summer 2011": {
+      "total": 60,
+      "usa": 57,
+      "sanFrancisco": 49
+    },
+    "Winter 2011": {
+      "total": 45,
+      "usa": 42,
+      "sanFrancisco": 33
+    },
+    "Summer 2010": {
+      "total": 36,
+      "usa": 34,
+      "sanFrancisco": 26
+    },
+    "Winter 2010": {
+      "total": 27,
+      "usa": 24,
+      "sanFrancisco": 20
+    },
+    "Summer 2009": {
+      "total": 26,
+      "usa": 23,
+      "sanFrancisco": 21
+    },
+    "Winter 2009": {
+      "total": 16,
+      "usa": 14,
+      "sanFrancisco": 10
+    },
+    "Summer 2008": {
+      "total": 22,
+      "usa": 16,
+      "sanFrancisco": 9
+    },
+    "Winter 2008": {
+      "total": 21,
+      "usa": 16,
+      "sanFrancisco": 13
+    },
+    "Summer 2007": {
+      "total": 19,
+      "usa": 15,
+      "sanFrancisco": 10
+    },
+    "Winter 2007": {
+      "total": 13,
+      "usa": 12,
+      "sanFrancisco": 9
+    },
+    "Summer 2006": {
+      "total": 10,
+      "usa": 9,
+      "sanFrancisco": 5
+    },
+    "Winter 2006": {
+      "total": 7,
+      "usa": 6,
+      "sanFrancisco": 1
+    },
+    "Summer 2005": {
+      "total": 9,
+      "usa": 8,
+      "sanFrancisco": 4
+    },
+    "Summer 2012": {
+      "total": 83,
+      "usa": 69,
+      "sanFrancisco": 52
+    },
+    "Winter 2013": {
+      "total": 46,
+      "usa": 42,
+      "sanFrancisco": 36
+    },
+    "Summer 2013": {
+      "total": 52,
+      "usa": 46,
+      "sanFrancisco": 36
+    },
+    "Winter 2014": {
+      "total": 74,
+      "usa": 65,
+      "sanFrancisco": 46
+    },
+    "Summer 2014": {
+      "total": 78,
+      "usa": 63,
+      "sanFrancisco": 44
+    },
+    "Winter 2015": {
+      "total": 110,
+      "usa": 95,
+      "sanFrancisco": 62
+    },
+    "Summer 2015": {
+      "total": 104,
+      "usa": 85,
+      "sanFrancisco": 54
+    },
+    "Winter 2016": {
+      "total": 122,
+      "usa": 106,
+      "sanFrancisco": 65
+    },
+    "Summer 2017": {
+      "total": 125,
+      "usa": 93,
+      "sanFrancisco": 65
+    },
+    "Summer 2016": {
+      "total": 102,
+      "usa": 81,
+      "sanFrancisco": 56
+    },
+    "Winter 2017": {
+      "total": 116,
+      "usa": 78,
+      "sanFrancisco": 49
+    },
+    "Winter 2018": {
+      "total": 146,
+      "usa": 109,
+      "sanFrancisco": 74
+    },
+    "Summer 2018": {
+      "total": 131,
+      "usa": 101,
+      "sanFrancisco": 61
+    },
+    "Summer 2019": {
+      "total": 174,
+      "usa": 124,
+      "sanFrancisco": 67
+    },
+    "Winter 2019": {
+      "total": 194,
+      "usa": 139,
+      "sanFrancisco": 77
+    },
+    "Winter 2020": {
+      "total": 229,
+      "usa": 147,
+      "sanFrancisco": 97
+    },
+    "Summer 2020": {
+      "total": 209,
+      "usa": 146,
+      "sanFrancisco": 75
+    },
+    "Winter 2021": {
+      "total": 335,
+      "usa": 188,
+      "sanFrancisco": 91
+    },
+    "Summer 2021": {
+      "total": 391,
+      "usa": 212,
+      "sanFrancisco": 107
+    },
+    "Winter 2022": {
+      "total": 398,
+      "usa": 224,
+      "sanFrancisco": 108
+    },
+    "Summer 2022": {
+      "total": 233,
+      "usa": 142,
+      "sanFrancisco": 70
+    },
+    "Fall 2025": {
+      "total": 146,
+      "usa": 120,
+      "sanFrancisco": 92
+    },
+    "Winter 2023": {
+      "total": 274,
+      "usa": 198,
+      "sanFrancisco": 117
+    },
+    "Summer 2023": {
+      "total": 220,
+      "usa": 163,
+      "sanFrancisco": 102
+    },
+    "Summer 2026": {
+      "total": 231,
+      "usa": 216,
+      "sanFrancisco": 184
+    },
+    "Winter 2026": {
+      "total": 198,
+      "usa": 160,
+      "sanFrancisco": 131
+    },
+    "Winter 2024": {
+      "total": 248,
+      "usa": 207,
+      "sanFrancisco": 149
+    },
+    "Winter 2025": {
+      "total": 165,
+      "usa": 133,
+      "sanFrancisco": 103
+    },
+    "Spring 2026": {
+      "total": 193,
+      "usa": 163,
+      "sanFrancisco": 136
+    },
+    "Summer 2024": {
+      "total": 248,
+      "usa": 206,
+      "sanFrancisco": 155
+    },
+    "Fall 2024": {
+      "total": 94,
+      "usa": 82,
+      "sanFrancisco": 54
+    },
+    "Spring 2025": {
+      "total": 144,
+      "usa": 116,
+      "sanFrancisco": 84
+    },
+    "Summer 2025": {
+      "total": 166,
+      "usa": 150,
+      "sanFrancisco": 113
+    },
+    "Fall 2026": {
+      "total": 108,
+      "usa": 92,
+      "sanFrancisco": 72
+    },
+    "Winter 2027": {
+      "total": 1,
+      "usa": 1,
+      "sanFrancisco": 1
+    },
+    "Summer 2027": {
+      "total": 1,
+      "usa": 1,
+      "sanFrancisco": 1
+    }
   },
   "companies": [
     {

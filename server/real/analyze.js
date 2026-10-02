@@ -201,6 +201,22 @@ function buildYc(yc, market) {
   };
   const early = era(2019, 2022);
   const late = era(2023, fetchedYear);
+
+  // Across ALL of YC (not just India): how many companies list a US or San
+  // Francisco location in each era. This is the baseline any one group's
+  // location mix has to be read against.
+  const locationMix = (from, to) => {
+    const acc = { total: 0, usa: 0, sanFrancisco: 0 };
+    for (const [batch, b] of Object.entries(yc.batchLocations)) {
+      const y = batchYear(batch);
+      if (y === null || y < from || y > to) continue;
+      acc.total += b.total;
+      acc.usa += b.usa;
+      acc.sanFrancisco += b.sanFrancisco;
+    }
+    return { from, to, total: acc.total, usa: wilsonInterval(acc.usa, acc.total), sanFrancisco: wilsonInterval(acc.sanFrancisco, acc.total) };
+  };
+  const allYcLocations = { early: locationMix(early.from, early.to), late: locationMix(late.from, late.to) };
   const eraTest = { early, late, ...twoProportionTest(early.india, early.total, late.india, late.total), splitChosenAfterLooking: true };
 
   // Survival by cohort: share of Indian YC companies now marked Inactive.
@@ -228,6 +244,7 @@ function buildYc(yc, market) {
     concentration,
     shareByYear,
     eraTest,
+    allYcLocations,
     survival,
     survivalMaturityYears: SURVIVAL_MATURITY_YEARS,
   };
@@ -290,6 +307,7 @@ function buildRize(rize, yc) {
   return {
     named: rize.alumni.length,
     total,
+    founderConfirmed: alumni.filter((a) => a.founderOnYcPage).length,
     listedInIndia: inIndia.length,
     listedInUs: inUs.length,
     noLocation: total - inIndia.length - inUs.length,
@@ -307,7 +325,7 @@ function buildRize(rize, yc) {
       lowerBoundIndiaEcosystemCompanies: late.india + lateElsewhere.length,
     },
     alumni: alumni
-      .map(({ name, ycName, batch, year, listedCountry, listedInIndia, state, status }) => ({ name, ycName, batch, year, listedCountry, listedInIndia, state, status }))
+      .map(({ name, founder, ycName, ycUrl, batch, year, listedCountry, listedInIndia, state, status }) => ({ name, founder, ycName, ycUrl, batch, year, listedCountry, listedInIndia, state, status }))
       .sort((a, b) => a.year - b.year || a.name.localeCompare(b.name)),
   };
 }
@@ -332,27 +350,29 @@ function buildDecisions(market, yc, closure, rize) {
   const withheld = [];
   const stateOf = (k) => market.states.find((x) => x.key === k);
 
-  // 1. Rize's own alumni show how the YC directory files Indian founders.
+  // 1. Where the YC directory files the companies Rize names as alumni.
   if (rize.total > 0 && rize.listedInUs > 0) {
     const l = rize.late;
+    const mix = yc.allYcLocations;
     decisions.push({
       id: 'rize_alumni_listing',
       strength: STRENGTH.direct,
-      title: `${rize.listedInUs} of Rize's ${rize.total} YC alumni are listed as US companies`,
-      recommendation: `YC's public directory files most Rize-backed companies under San Francisco, so the familiar line that "India's share of YC collapsed" overstates the fall, and Rize for YC's results are invisible in public data. Rize holds the real numbers. Publish a per-batch count of Indian-founder YC companies and make Rize the source people quote.`,
+      title: `${rize.listedInUs} of the ${rize.total} YC companies on Rize's alumni wall are listed as US companies`,
+      recommendation: `Public counts of "Indian startups in YC" are counts of locations, and most of the companies Rize names as alumni aren't in them. If Rize wants to show what Rize for YC contributes, the directory can't do it, but Rize's own records can. A per-batch count of Rize-supported and Indian-founder YC companies is a number only Rize can publish.`,
       metric: {
         label: 'Rize alumni by where YC lists them',
         value: `${rize.listedInUs} USA · ${rize.listedInIndia} India · ${rize.noLocation} no location`,
         comparison: `${rize.total} companies is below the minimum sample of ${MIN_N}, so no percentage is stated`,
       },
       evidence: [
-        `Rize's public Rize for YC page names ${rize.named} YC companies; all ${rize.total} were found in the YC directory (several under a new name).`,
-        `Directory, ${l.from}–${l.to}: ${l.directoryIndiaListed} companies list India. ${l.rizeAlumniAmongIndiaListed} of those are Rize alumni.`,
-        `Another ${l.rizeAlumniListedElsewhere} Rize alumni from the same batches are listed under another country or none, so counting Rize's alumni alone, at least ${l.lowerBoundIndiaEcosystemCompanies} YC companies in ${l.from}–${l.to} came through India's founder ecosystem, not ${l.directoryIndiaListed}.`,
-        `The directory's India share fell from ${pct(yc.eraTest.early.rate)} (${yc.eraTest.early.from}–${yc.eraTest.early.to}) to ${pct(yc.eraTest.late.rate)} (${l.from}–${l.to}). Part of that fall is this relabelling; how much can't be measured from outside.`,
+        `Rize's public Rize for YC page names ${rize.named} YC companies. All ${rize.total} were found in the YC directory, and for ${rize.founderConfirmed} of them the founder Rize names appears on the company's own YC page.`,
+        `Directory, ${l.from}–${l.to}: ${l.directoryIndiaListed} companies list India. ${l.rizeAlumniAmongIndiaListed} of those are on Rize's wall.`,
+        `Another ${l.rizeAlumniListedElsewhere} companies on the wall from the same batches are listed under another country or none. Counting those, at least ${l.lowerBoundIndiaEcosystemCompanies} YC companies in ${l.from}–${l.to} have a link to India's founder ecosystem, not ${l.directoryIndiaListed}.`,
+        `This is a YC-wide shift, not something particular to Rize: across all of YC, the share of companies listing San Francisco rose from ${pct(mix.early.sanFrancisco.rate, 0)} (${mix.early.from}–${mix.early.to}) to ${pct(mix.late.sanFrancisco.rate, 0)} (${mix.late.from}–${mix.late.to}).`,
+        `Over the same period the directory's India share fell from ${pct(yc.eraTest.early.rate)} to ${pct(yc.eraTest.late.rate)}. Some of that fall is this change in where companies list themselves; how much can't be measured from outside.`,
       ],
-      counterEvidence: `The alumni wall shows companies Rize chose to feature, so it isn't a random sample of Indian founders in YC. Some of these companies may have been US-based before YC. The page's headline says 18 founders while it names ${rize.named} companies.`,
-      source: 'razorpay.com/rize/ycombinator + yc-oss YC directory',
+      counterEvidence: `Being on the wall means a company used Rize's application help; it doesn't show that Rize is why it got in. The wall shows companies Rize chose to feature, so it isn't every founder Rize supported. Companies in a current batch may list San Francisco only while the batch runs. The page's headline says 18 founders while it names ${rize.named} companies.`,
+      source: 'razorpay.com/rize/ycombinator + yc-oss YC directory + ycombinator.com company pages',
     });
   }
 
@@ -454,7 +474,7 @@ function buildDecisions(market, yc, closure, rize) {
     id: 'india_share_withheld',
     title: 'India\'s true share of YC: not called',
     reason: [
-      `The directory shows India's share falling from ${pct(yc.eraTest.early.rate)} to ${pct(yc.eraTest.late.rate)}, but it records where a company says it is, not where its founders are from. ${rize.listedInUs} of ${rize.total} Rize alumni are filed under the USA, so the real fall is smaller than the directory shows, by an amount public data can't measure.`,
+      `The directory shows India's share falling from ${pct(yc.eraTest.early.rate)} to ${pct(yc.eraTest.late.rate)}, but it records where a company says it is, not where its founders are from. ${rize.listedInUs} of ${rize.total} Rize alumni are filed under the USA, and across all of YC the share listing San Francisco rose from ${pct(yc.allYcLocations.early.sanFrancisco.rate, 0)} to ${pct(yc.allYcLocations.late.sanFrancisco.rate, 0)}. So the fall in Indian-founder companies is smaller than the directory shows, by an amount public data can't measure.`,
     ],
     whatWouldSettleIt: 'A count of Indian-founder companies per YC batch. Rize for YC\'s application records are the closest thing to one.',
   });
@@ -518,6 +538,12 @@ function buildChecks(sources, yc, rize) {
     description: 'The link-preview text in index.html states the same alumni count as the data',
     pass: html.split(claim).length - 1 >= 2,
     detail: `expects "${claim}" in the description and og:description tags`,
+  });
+  checks.push({
+    id: 'rize_alumni_founders_confirmed',
+    description: 'For every matched company, the founder named by Rize appears on that company\'s YC page',
+    pass: rize.founderConfirmed === rize.total,
+    detail: `${rize.founderConfirmed} of ${rize.total} confirmed`,
   });
   checks.push({
     id: 'rize_alumni_matched',

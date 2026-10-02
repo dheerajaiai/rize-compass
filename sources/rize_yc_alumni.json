@@ -3,12 +3,15 @@
   "title": "YC companies named as alumni on the Rize for YC page",
   "release": "razorpay.com/rize/ycombinator (public page), matched to the yc-oss YC directory",
   "url": "https://razorpay.com/rize/ycombinator/",
-  "fetchedAt": "2026-10-02T08:16:27.379Z",
+  "fetchedAt": "2026-10-02T08:28:08.632Z",
   "alumni": [
     {
       "name": "Pipeshift",
+      "founder": "Arko C",
       "batch": "Summer 2024",
       "matched": true,
+      "founderOnYcPage": true,
+      "ycUrl": "https://www.ycombinator.com/companies/pipeshift",
       "ycName": "Pipeshift",
       "status": "Active",
       "locations": [
@@ -19,8 +22,11 @@
     },
     {
       "name": "Ressl AI",
+      "founder": "Arushi Gandhi",
       "batch": "Winter 2026",
       "matched": true,
+      "founderOnYcPage": true,
+      "ycUrl": "https://www.ycombinator.com/companies/ressl-ai",
       "ycName": "Ressl AI",
       "status": "Active",
       "locations": [
@@ -31,8 +37,11 @@
     },
     {
       "name": "Skillsync",
+      "founder": "Narayana Aaditya",
       "batch": "Winter 2026",
       "matched": true,
+      "founderOnYcPage": true,
+      "ycUrl": "https://www.ycombinator.com/companies/skillsync",
       "ycName": "Skillsync",
       "status": "Active",
       "locations": [
@@ -43,8 +52,11 @@
     },
     {
       "name": "Unsiloed AI",
+      "founder": "Aman Mishra",
       "batch": "Fall 2025",
       "matched": true,
+      "founderOnYcPage": true,
+      "ycUrl": "https://www.ycombinator.com/companies/unsiloed-ai",
       "ycName": "Unsiloed AI",
       "status": "Active",
       "locations": [
@@ -55,8 +67,11 @@
     },
     {
       "name": "Redapto",
+      "founder": "Anirudh Pupneja",
       "batch": "Fall 2025",
       "matched": true,
+      "founderOnYcPage": true,
+      "ycUrl": "https://www.ycombinator.com/companies/redapto",
       "ycName": "Redapto",
       "status": "Active",
       "locations": [
@@ -67,8 +82,11 @@
     },
     {
       "name": "Tensorfuse",
+      "founder": "Agam Jain",
       "batch": "Winter 2024",
       "matched": true,
+      "founderOnYcPage": true,
+      "ycUrl": "https://www.ycombinator.com/companies/whip",
       "ycName": "Whip",
       "status": "Active",
       "locations": [
@@ -79,8 +97,11 @@
     },
     {
       "name": "Ragas",
+      "founder": "Jithin James",
       "batch": "Winter 2024",
       "matched": true,
+      "founderOnYcPage": true,
+      "ycUrl": "https://www.ycombinator.com/companies/vibrant-labs",
       "ycName": "Vibrant Labs",
       "status": "Active",
       "locations": [
@@ -92,8 +113,11 @@
     },
     {
       "name": "CodeAnt",
+      "founder": "Amartya Jha",
       "batch": "Winter 2024",
       "matched": true,
+      "founderOnYcPage": true,
+      "ycUrl": "https://www.ycombinator.com/companies/codeant-ai",
       "ycName": "CodeAnt AI",
       "status": "Active",
       "locations": [
@@ -104,8 +128,11 @@
     },
     {
       "name": "Crustdata",
+      "founder": "Abhilash Chowdhary",
       "batch": "Fall 2024",
       "matched": true,
+      "founderOnYcPage": true,
+      "ycUrl": "https://www.ycombinator.com/companies/crustdata",
       "ycName": "Crustdata",
       "status": "Active",
       "locations": [],
@@ -114,8 +141,11 @@
     },
     {
       "name": "Giga ML",
+      "founder": "Varun Vummadi",
       "batch": "Summer 2023",
       "matched": true,
+      "founderOnYcPage": true,
+      "ycUrl": "https://www.ycombinator.com/companies/giga",
       "ycName": "Giga",
       "status": "Active",
       "locations": [
@@ -126,8 +156,11 @@
     },
     {
       "name": "Backdrop",
+      "founder": "Akanksha Singh",
       "batch": "Winter 2023",
       "matched": true,
+      "founderOnYcPage": true,
+      "ycUrl": "https://www.ycombinator.com/companies/backdrop",
       "ycName": "Backdrop",
       "status": "Active",
       "locations": [
@@ -138,8 +171,11 @@
     },
     {
       "name": "SuperKalam",
+      "founder": "Aseem Gupta",
       "batch": "Winter 2023",
       "matched": true,
+      "founderOnYcPage": true,
+      "ycUrl": "https://www.ycombinator.com/companies/superkalam",
       "ycName": "SuperKalam",
       "status": "Active",
       "locations": [
@@ -150,8 +186,11 @@
     },
     {
       "name": "Retape",
+      "founder": "Shubham Rana",
       "batch": "Winter 2023",
       "matched": true,
+      "founderOnYcPage": true,
+      "ycUrl": "https://www.ycombinator.com/companies/retape",
       "ycName": "Retape",
       "status": "Active",
       "locations": [
@@ -163,8 +202,11 @@
     },
     {
       "name": "SuperAPI",
+      "founder": "Adithya Kavuluru",
       "batch": "Winter 2023",
       "matched": true,
+      "founderOnYcPage": true,
+      "ycUrl": "https://www.ycombinator.com/companies/superapi",
       "ycName": "SuperAPI",
       "status": "Active",
       "locations": [
@@ -175,8 +217,11 @@
     },
     {
       "name": "Shelf",
+      "founder": "Vedant Kumar",
       "batch": "Summer 2022",
       "matched": true,
+      "founderOnYcPage": true,
+      "ycUrl": "https://www.ycombinator.com/companies/flatx",
       "ycName": "FlatX",
       "status": "Active",
       "locations": [
@@ -187,8 +232,11 @@
     },
     {
       "name": "Truffle AI",
+      "founder": "Shaunak Srivastava",
       "batch": "Winter 2025",
       "matched": true,
+      "founderOnYcPage": true,
+      "ycUrl": "https://www.ycombinator.com/companies/dexto",
       "ycName": "Dexto",
       "status": "Active",
       "locations": [
@@ -199,8 +247,11 @@
     },
     {
       "name": "Bolna",
+      "founder": "Prateek Sachan",
       "batch": "Fall 2025",
       "matched": true,
+      "founderOnYcPage": true,
+      "ycUrl": "https://www.ycombinator.com/companies/bolna-ai",
       "ycName": "Bolna AI",
       "status": "Active",
       "locations": [
@@ -211,8 +262,11 @@
     },
     {
       "name": "ProjectX",
+      "founder": "Rounak Adhikary",
       "batch": "Spring 2026",
       "matched": true,
+      "founderOnYcPage": true,
+      "ycUrl": "https://www.ycombinator.com/companies/projectx",
       "ycName": "ProjectX",
       "status": "Active",
       "locations": [
@@ -223,8 +277,11 @@
     },
     {
       "name": "Aktoria Robotics",
+      "founder": "Shreenabh Agrawal",
       "batch": "Summer 2026",
       "matched": true,
+      "founderOnYcPage": true,
+      "ycUrl": "https://www.ycombinator.com/companies/aktoria-robotics",
       "ycName": "Aktoria Robotics",
       "status": "Active",
       "locations": [
@@ -235,8 +292,11 @@
     },
     {
       "name": "Antropi Robotics",
+      "founder": "Naman Gupta",
       "batch": "Fall 2026",
       "matched": true,
+      "founderOnYcPage": true,
+      "ycUrl": "https://www.ycombinator.com/companies/antropi-robotics",
       "ycName": "Antropi Robotics",
       "status": "Active",
       "locations": [

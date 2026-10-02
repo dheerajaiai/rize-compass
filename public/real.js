@@ -169,14 +169,14 @@ export function renderBrief(state) {
 
   c.appendChild(el('div', { class: 'brief-head' }, [
     el('div', { class: 'brief-kicker' }, 'A brief for the Razorpay Rize team'),
-    el('h1', {}, 'Rize for YC is doing better than public data shows'),
-    el('p', { class: 'lede' }, `I matched every company on Rize's public alumni wall to Y Combinator's directory. Most of them are filed under San Francisco, not India, so the numbers people quote about "Indian startups in YC" leave out most of what Rize has helped build. This page uses only free public sources, and it says so when the data can't support a call.`),
+    el('h1', {}, 'Most of Rize\'s YC alumni don\'t show up as Indian startups'),
+    el('p', { class: 'lede' }, `I looked up every company on Rize's public YC alumni wall in Y Combinator's own directory. Most are listed in San Francisco, not India, so the counts people quote for "Indian startups in YC" don't include them. This page uses only free public sources, and it says so when the data can't support a call.`),
   ]));
 
   const heroes = el('div', { class: 'hero-grid' });
   const hero = (value, label, sub, href) => heroes.appendChild(el('a', { class: 'hero card', href }, [el('div', { class: 'hero-value' }, value), el('div', { class: 'hero-label' }, label), el('div', { class: 'hero-sub' }, sub)]));
-  hero(`${rize.listedInUs} of ${rize.total}`, 'Rize YC alumni are listed as US companies', `${rize.listedInIndia} are listed in India, all in ${rize.indiaStates.map((s) => s.label).join(', ')}. YC's directory records where a company is now, not where its founders started.`, '#yc');
-  hero(`${rize.late.rizeAlumniAmongIndiaListed} of ${rize.late.directoryIndiaListed}`, `India-listed YC companies since ${rize.late.from} are Rize alumni`, `Add the ${rize.late.rizeAlumniListedElsewhere} alumni filed elsewhere and at least ${rize.late.lowerBoundIndiaEcosystemCompanies} came through India, not ${rize.late.directoryIndiaListed}.`, '#yc');
+  hero(`${rize.listedInUs} of ${rize.total}`, 'companies on Rize\'s YC alumni wall are listed as US companies', `${rize.listedInIndia} are listed in India, all in ${rize.indiaStates.map((s) => s.label).join(', ')}. YC's directory records where a company is now, not where its founders started.`, '#yc');
+  hero(`${pct(real.yc.allYcLocations.early.sanFrancisco.rate, 0)} → ${pct(real.yc.allYcLocations.late.sanFrancisco.rate, 0)}`, 'of all YC companies list San Francisco', `${real.yc.allYcLocations.early.from}–${real.yc.allYcLocations.early.to} against ${real.yc.allYcLocations.late.from}–${real.yc.allYcLocations.late.to}. The move to San Francisco is YC-wide, not particular to Rize's alumni, and it is part of why India's listed share fell.`, '#yc');
   hero(`${stats.companyRegistrations}`, 'company registrations on Rize\'s homepage', `Next to ${stats.communityFounders} founders in the community. Whether that gap is by design is the first thing I'd ask.`, '#brief-questions');
   c.appendChild(heroes);
 
@@ -194,7 +194,7 @@ export function renderBrief(state) {
   const qs = el('ol', { class: 'action-list' });
   [
     `Rize's homepage shows ${stats.companyRegistrations} company registrations and ${stats.communityFounders} founders in the community. Is the community meant to be selective, or are founders registering and not coming back?`,
-    'When a Rize founder gets into YC and re-lists in San Francisco, do they stay a Razorpay customer? Stripe Atlas forms US companies for US$500, and that is where these founders end up.',
+    'When a founder Rize supported gets into YC and moves to San Francisco, how does Rize stay in touch with them? They are the people best placed to mentor the next batch of applicants.',
     'Which states do Rize for YC applicants come from? The directory shows every India-listed alumnus in Bengaluru, but it can\'t show where they started.',
     'What will count as success for the Global Readiness Program and Founder-Buddy, and when is the first cohort old enough to judge?',
   ].forEach((q) => qs.appendChild(el('li', {}, q)));
@@ -284,14 +284,15 @@ export function renderMarket(state) {
 export function renderYc(state) {
   const { yc } = state.real;
   const c = el('div');
-  c.appendChild(el('p', { class: 'lede' }, `${yc.totalIndiaCompanies} YC companies list India as their location. That is not the same as Indian-founder companies, as Rize's own alumni show below.`));
+  c.appendChild(el('p', { class: 'lede' }, `${yc.totalIndiaCompanies} YC companies list India as their location. That is not the same as Indian-founder companies, as the companies on Rize's own alumni wall show.`));
 
   const { rize } = state.real;
   c.appendChild(el('div', { class: 'card' }, [
     el('h3', {}, `Rize's YC alumni, and where YC's directory lists them`),
-    el('p', { class: 'chart-note' }, `${rize.listedInUs} listed in the USA, ${rize.listedInIndia} in India, ${rize.noLocation} with no location. ${rize.total} companies is below the minimum sample of 30, so counts are shown and no percentage is claimed. Names are from Rize's public page; several companies have renamed since.`),
-    table(['Named by Rize', 'In YC directory as', 'Batch', 'Listed in', 'Status'], rize.alumni.map((a) => [
-      a.name, a.ycName, a.batch,
+    el('p', { class: 'chart-note' }, `${rize.listedInUs} listed in the USA, ${rize.listedInIndia} in India, ${rize.noLocation} with no location. ${rize.total} companies is below the minimum sample of 30, so counts are shown and no percentage is claimed. Names are from Rize's public page; several companies have renamed since. For ${rize.founderConfirmed} of ${rize.total}, the founder Rize names also appears on the company's YC page.`),
+    el('p', { class: 'chart-note' }, `Context: across all of YC, ${pct(yc.allYcLocations.late.sanFrancisco.rate, 0)} of companies in ${yc.allYcLocations.late.from}–${yc.allYcLocations.late.to} list San Francisco, up from ${pct(yc.allYcLocations.early.sanFrancisco.rate, 0)} in ${yc.allYcLocations.early.from}–${yc.allYcLocations.early.to}. Listing a US location is now the norm for a YC company, wherever its founders are from.`),
+    table(['Named by Rize', 'Founder (per Rize)', 'In YC directory as', 'Batch', 'Listed in', 'Status'], rize.alumni.map((a) => [
+      a.name, a.founder || '—', el('a', { href: a.ycUrl, target: '_blank', rel: 'noopener' }, a.ycName), a.batch,
       a.listedInIndia ? el('span', { class: 'pill pill-green' }, 'India') : el('span', { class: 'pill pill-muted' }, a.listedCountry || 'not stated'),
       a.status,
     ])),
@@ -304,7 +305,7 @@ export function renderYc(state) {
     format: (v) => pct(v, 0),
     tipOf: (r) => `<strong>${r.year}</strong><br>${r.india} of ${num(r.total)} YC companies were Indian<br>${pct(r.rate)} (95%: ${pct(r.low)}–${pct(r.high)})`,
   }));
-  share.appendChild(el('p', { class: 'chart-note' }, `Whiskers show the 95% range. ${yc.eraTest.early.from}–${yc.eraTest.early.to}: ${pct(yc.eraTest.early.rate)}; ${yc.eraTest.late.from}–${yc.eraTest.late.to}: ${pct(yc.eraTest.late.rate)}. This counts companies that list India as their location. Most Rize alumni don't, so the real fall is smaller than this chart shows.`));
+  share.appendChild(el('p', { class: 'chart-note' }, `Whiskers show the 95% range. ${yc.eraTest.early.from}–${yc.eraTest.early.to}: ${pct(yc.eraTest.early.rate)}; ${yc.eraTest.late.from}–${yc.eraTest.late.to}: ${pct(yc.eraTest.late.rate)}. This counts companies that list India as their location. Most companies on Rize's wall don't, so the fall in Indian-founder companies is smaller than this chart shows.`));
   share.appendChild(table(['Year', 'Indian', 'All YC', 'Share (95%)'], yc.shareByYear.map((r) => [String(r.year), String(r.india), num(r.total), r.insufficientData ? 'insufficient data' : `${pct(r.rate)} (${pct(r.low)}–${pct(r.high)})`])));
   c.appendChild(share);
 

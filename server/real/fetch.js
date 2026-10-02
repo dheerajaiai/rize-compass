@@ -144,7 +144,16 @@ async function snapshotPib() {
 
 async function snapshotYc(all) {
   const batchTotals = {};
-  for (const c of all) batchTotals[c.batch] = (batchTotals[c.batch] || 0) + 1;
+  // How many companies in each batch list a US or San Francisco location, across
+  // all of YC. Context for reading any one group's location mix.
+  const batchLocations = {};
+  for (const c of all) {
+    batchTotals[c.batch] = (batchTotals[c.batch] || 0) + 1;
+    const b = (batchLocations[c.batch] ??= { total: 0, usa: 0, sanFrancisco: 0 });
+    b.total += 1;
+    if (/USA/.test(c.all_locations || '')) b.usa += 1;
+    if (/San Francisco/.test(c.all_locations || '')) b.sanFrancisco += 1;
+  }
 
   const india = all
     .filter((c) => (c.regions || []).includes('India'))
@@ -170,6 +179,7 @@ async function snapshotYc(all) {
     fetchedAt: new Date().toISOString(),
     totalCompanies: all.length,
     batchTotals,
+    batchLocations,
     companies: india,
   };
   fs.writeFileSync(path.join(SOURCES_DIR, 'yc_india.json'), JSON.stringify(file, null, 2));
@@ -195,44 +205,55 @@ async function snapshotRizeAlumni(all) {
     .replace(/\s+/g, ' ');
   const tokens = text.split('|').map((t) => t.trim()).filter(Boolean);
 
+  // On the page, each company is followed by its founder's name.
   const named = new Map();
-  for (const t of tokens) {
+  tokens.forEach((t, i) => {
     const m = /^(.+?)\s*\(YC ([WSFPX])(\d{2})\)$/.exec(t);
-    if (m) named.set(normaliseName(m[1]), { name: m[1].trim(), batch: `${BATCH_CODES[m[2]]} 20${m[3]}` });
-  }
+    if (m) named.set(normaliseName(m[1]), { name: m[1].trim(), founder: tokens[i + 1] || null, batch: `${BATCH_CODES[m[2]]} 20${m[3]}` });
+  });
   // Alumni shown without a batch label: a token in the same alumni block that is
   // exactly a YC company name.
   const first = tokens.findIndex((t) => /\(YC [WSFPX]\d{2}\)$/.test(t));
   const last = tokens.findLastIndex((t) => /\(YC [WSFPX]\d{2}\)$/.test(t));
   const ycNames = new Map(all.map((c) => [normaliseName(c.name), c]));
-  for (const t of tokens.slice(first, last + 4)) {
+  tokens.slice(first, last + 4).forEach((t, i) => {
     const k = normaliseName(t);
-    if (k.length > 6 && ycNames.has(k) && !named.has(k)) named.set(k, { name: t, batch: null });
-  }
+    if (k.length > 6 && ycNames.has(k) && !named.has(k)) named.set(k, { name: t, founder: tokens[first + i + 1] || null, batch: null });
+  });
 
   const stripAi = (k) => k.replace(/ai$/, '');
-  const alumni = [...named.values()].map((a) => {
+  const alumni = [];
+  for (const a of named.values()) {
     const k = normaliseName(a.name);
     const match = all.find((c) => {
       if (a.batch && c.batch !== a.batch) return false;
       const names = [c.name, ...(c.former_names || [])].map(normaliseName);
       return names.some((n) => n === k || stripAi(n) === stripAi(k));
     });
-    if (!match) return { ...a, matched: false };
+    if (!match) {
+      alumni.push({ ...a, matched: false });
+      continue;
+    }
+    // Confirm the match independently: the founder Rize names must appear on
+    // that company's own YC page.
+    const ycPage = await get(match.url);
+    const founderOnYcPage = !!a.founder && ycPage.includes(a.founder);
     const locations = (match.all_locations || '').split(';').map((x) => x.trim()).filter(Boolean);
     const first = locations.find((l) => l !== 'Remote') || null;
     const country = first ? first.split(',').pop().trim() : null;
-    return {
+    alumni.push({
       ...a,
       matched: true,
+      founderOnYcPage,
+      ycUrl: match.url,
       ycName: match.name,
       batch: match.batch,
       status: match.status,
       locations,
       listedCountry: country,
       state: first && /India$/.test(first) ? stateKeyFromYcLocation(first) : null,
-    };
-  });
+    });
+  }
 
   const file = {
     id: 'rize_yc_alumni',
@@ -243,7 +264,7 @@ async function snapshotRizeAlumni(all) {
     alumni,
   };
   fs.writeFileSync(path.join(SOURCES_DIR, 'rize_yc_alumni.json'), JSON.stringify(file, null, 2));
-  console.log(`rize_yc_alumni: ${alumni.length} named, ${alumni.filter((a) => a.matched).length} matched to the YC directory`);
+  console.log(`rize_yc_alumni: ${alumni.length} named, ${alumni.filter((a) => a.matched).length} matched, ${alumni.filter((a) => a.founderOnYcPage).length} confirmed by founder name`);
 }
 
 fs.mkdirSync(SOURCES_DIR, { recursive: true });

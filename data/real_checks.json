@@ -1,5 +1,5 @@
 {
-  "runAt": "2026-10-02T08:22:46.001Z",
+  "runAt": "2026-10-02T08:29:16.568Z",
   "checks": [
     {
       "id": "dpiit_recognitions_by_year:2019",
@@ -54,6 +54,12 @@
       "description": "The link-preview text in index.html states the same alumni count as the data",
       "pass": true,
       "detail": "expects \"12 of the 20 YC companies\" in the description and og:description tags"
+    },
+    {
+      "id": "rize_alumni_founders_confirmed",
+      "description": "For every matched company, the founder named by Rize appears on that company's YC page",
+      "pass": true,
+      "detail": "20 of 20 confirmed"
     },
     {
       "id": "rize_alumni_matched",
